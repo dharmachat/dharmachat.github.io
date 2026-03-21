@@ -203,6 +203,7 @@
     const guestName = localStorage.getItem('dc_guest');
     if (guestName) {
       showChatUI(guestName, null, false);
+      autoAskFromURL();
     }
   });
 
@@ -213,6 +214,7 @@
       currentUser = user;
       localStorage.removeItem('dc_guest');
       showChatUI(user.displayName?.split(' ')[0] || 'Devotee', user.photoURL, true);
+      autoAskFromURL();
     }
   });
 
@@ -254,6 +256,7 @@
     }
     localStorage.setItem('dc_guest', name);
     showChatUI(name, null, false);
+    autoAskFromURL();
   };
 
   function showChatUI(name, photoURL, isGoogle) {
@@ -273,6 +276,19 @@
 
     loadQuestionsUsed();
     document.getElementById('userInput').focus();
+  }
+   function autoAskFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    const q = params.get('q');
+    if (q) {
+      setTimeout(function() {
+        const input = document.getElementById('userInput');
+        if (input && !input.disabled) {
+          input.value = decodeURIComponent(q.replace(/\+/g, ' '));
+          window.sendMessage();
+        }
+      }, 800);
+    }
   }
 
   // Sign out
