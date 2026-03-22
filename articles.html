@@ -12,14 +12,14 @@
   --saffron:#E8611A;--saffron-lt:#F5832A;
   --gold:#D4A017;--gold-lt:#F0C040;--gold-dk:#A07800;
   --maroon:#6B1A1A;--maroon-dk:#3E0000;--maroon-mid:#5A0A0A;
-  --cream:#FDF6E3;--cream-dk:#F5EDD0;--cream-mid:#FAF0D0;
+  --cream:#FDF6E3;--cream-dk:#F5EDD0;
   --white:#FFFFFF;--text-dark:#1E0A00;--text-mid:#4A2010;--text-lt:#8B6050;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'Noto Sans',sans-serif;background:var(--cream);color:var(--text-dark);line-height:1.6}
 
-/* ── NAV ── */
+/* NAV */
 nav{background:var(--maroon-dk);border-bottom:1px solid rgba(212,160,23,0.2);padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 20px rgba(0,0,0,0.3)}
 .logo-wrap{display:flex;align-items:center;gap:10px;text-decoration:none}
 .logo-wrap img{width:36px;height:36px;border-radius:50%;object-fit:cover;box-shadow:0 0 10px rgba(212,160,23,0.4)}
@@ -31,9 +31,9 @@ nav{background:var(--maroon-dk);border-bottom:1px solid rgba(212,160,23,0.2);pad
 .btn-try{background:linear-gradient(135deg,var(--saffron),var(--gold));color:white;font-family:'Cinzel',serif;font-size:12px;font-weight:700;padding:8px 20px;border-radius:50px;text-decoration:none;letter-spacing:.05em;box-shadow:0 4px 12px rgba(232,97,26,0.3);transition:all .2s}
 .btn-try:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(232,97,26,0.4)}
 
-/* ── HERO ── */
+/* HERO */
 .hero{background:linear-gradient(160deg,var(--maroon-dk) 0%,var(--maroon-mid) 55%,#7A1A00 100%);padding:80px 24px 60px;text-align:center;position:relative;overflow:hidden}
-.hero::before{content:'ॐ';position:absolute;font-size:600px;color:rgba(212,160,23,0.025);font-family:'EB Garamond',serif;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;line-height:1;user-select:none}
+.hero::before{content:'ॐ';position:absolute;font-size:600px;color:rgba(212,160,23,0.025);font-family:'EB Garamond',serif;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;line-height:1}
 .hero-breadcrumb{display:flex;align-items:center;justify-content:center;gap:8px;font-family:'Cinzel',serif;font-size:11px;color:rgba(255,255,255,0.35);letter-spacing:.08em;margin-bottom:20px}
 .hero-breadcrumb a{color:rgba(240,192,64,0.5);text-decoration:none}
 .hero-breadcrumb a:hover{color:var(--gold-lt)}
@@ -46,48 +46,67 @@ nav{background:var(--maroon-dk);border-bottom:1px solid rgba(212,160,23,0.2);pad
 .hero-stat strong{display:block;font-family:'Cinzel Decorative',serif;font-size:28px;color:var(--gold-lt);line-height:1}
 .hero-stat span{font-family:'Cinzel',serif;font-size:10px;letter-spacing:.12em;color:rgba(255,255,255,0.4);margin-top:4px;display:block}
 
-/* ── SEARCH BAR ── */
+/* SEARCH */
 .search-section{background:var(--maroon-dk);padding:0 24px 28px;border-bottom:1px solid rgba(212,160,23,0.15)}
 .search-inner{max-width:680px;margin:0 auto;position:relative}
 .search-input{width:100%;padding:16px 56px 16px 20px;background:rgba(255,255,255,0.07);border:1px solid rgba(212,160,23,0.25);border-radius:50px;color:white;font-family:'EB Garamond',serif;font-size:17px;font-style:italic;outline:none;transition:all .2s}
 .search-input::placeholder{color:rgba(255,255,255,0.3)}
 .search-input:focus{border-color:rgba(212,160,23,0.5);background:rgba(255,255,255,0.1)}
-.search-btn{position:absolute;right:6px;top:50%;transform:translateY(-50%);width:44px;height:44px;background:linear-gradient(135deg,var(--saffron),var(--gold));border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
-.search-btn:hover{transform:translateY(-50%) scale(1.05)}
+.search-btn{position:absolute;right:6px;top:50%;transform:translateY(-50%);width:44px;height:44px;background:linear-gradient(135deg,var(--saffron),var(--gold));border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center}
 .search-btn svg{width:18px;height:18px;fill:white}
 
-/* ── LAYOUT ── */
+/* LAYOUT */
 .page-body{max-width:1200px;margin:0 auto;padding:60px 24px}
 
-/* ── CATEGORY SECTION ── */
+/* SECTION LABEL */
 .section-label{font-family:'Cinzel',serif;font-size:11px;letter-spacing:.14em;color:var(--saffron);margin-bottom:28px;display:flex;align-items:center;gap:12px}
 .section-label::after{content:'';flex:1;height:1px;background:rgba(107,26,26,0.12)}
 
+/* FEATURED */
+.featured-article{display:grid;grid-template-columns:1fr 1fr;gap:0;background:white;border-radius:20px;border:1px solid rgba(107,26,26,0.08);box-shadow:0 4px 24px rgba(107,26,26,0.08);overflow:hidden;margin-bottom:56px;text-decoration:none;transition:all .3s}
+.featured-article:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(107,26,26,0.14)}
+.featured-img-placeholder{width:100%;min-height:320px;display:flex;align-items:center;justify-content:center;font-size:80px}
+.featured-body{padding:40px}
+.featured-tag{display:inline-block;font-family:'Cinzel',serif;font-size:10px;letter-spacing:.1em;padding:4px 14px;border-radius:20px;background:rgba(232,97,26,0.1);color:var(--saffron);margin-bottom:16px}
+.featured-title{font-family:'Cinzel',serif;font-size:22px;color:var(--maroon-dk);font-weight:700;line-height:1.35;margin-bottom:14px}
+.featured-excerpt{font-family:'EB Garamond',serif;font-style:italic;font-size:17px;color:#666;line-height:1.75;margin-bottom:24px}
+.featured-shloka{background:rgba(212,160,23,0.06);border-left:3px solid rgba(212,160,23,0.4);padding:12px 16px;border-radius:0 8px 8px 0;margin-bottom:24px}
+.featured-shloka p{font-family:'EB Garamond',serif;font-style:italic;font-size:15px;color:var(--maroon);line-height:1.6;margin-bottom:4px}
+.featured-shloka cite{font-family:'Cinzel',serif;font-size:10px;color:var(--gold-dk);letter-spacing:.06em;font-style:normal}
+.featured-footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.featured-date{font-family:'Cinzel',serif;font-size:11px;color:#aaa;letter-spacing:.04em}
+.btn-read-more{padding:11px 24px;background:linear-gradient(135deg,var(--saffron),var(--gold));border:none;border-radius:50px;color:white;font-family:'Cinzel',serif;font-size:12px;font-weight:700;letter-spacing:.06em;cursor:pointer;text-decoration:none;transition:all .2s}
+.btn-read-more:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(232,97,26,0.3)}
+
+/* FILTER TABS */
+.filter-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px}
+.filter-tab{font-family:'Cinzel',serif;font-size:11px;letter-spacing:.06em;padding:8px 18px;border-radius:50px;border:1px solid rgba(107,26,26,0.15);background:transparent;color:#888;cursor:pointer;transition:all .2s}
+.filter-tab:hover{border-color:rgba(107,26,26,0.3);color:var(--maroon)}
+.filter-tab.active{background:var(--maroon-dk);color:var(--gold-lt);border-color:var(--maroon-dk)}
+
+/* CATEGORIES */
 .categories-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;margin-bottom:72px}
 .cat-card{border-radius:20px;overflow:hidden;cursor:pointer;transition:all .3s;text-decoration:none;display:block;position:relative}
 .cat-card:hover{transform:translateY(-5px);box-shadow:0 16px 48px rgba(107,26,26,0.2)}
-.cat-img{width:100%;height:180px;object-fit:cover;display:block}
 .cat-img-placeholder{width:100%;height:180px;display:flex;align-items:center;justify-content:center;font-size:64px}
 .cat-body{padding:20px 22px;background:white;border:1px solid rgba(107,26,26,0.08);border-top:none;border-radius:0 0 20px 20px}
 .cat-name{font-family:'Cinzel',serif;font-size:16px;color:var(--maroon-dk);font-weight:700;margin-bottom:6px}
 .cat-desc{font-family:'EB Garamond',serif;font-style:italic;font-size:14px;color:#888;line-height:1.5;margin-bottom:12px}
 .cat-tags{display:flex;flex-wrap:wrap;gap:6px}
-.cat-tag{font-family:'Cinzel',serif;font-size:9px;letter-spacing:.06em;padding:3px 10px;background:rgba(107,26,26,0.05);border:1px solid rgba(107,26,26,0.12);border-radius:20px;color:var(--text-lt);text-decoration:none;transition:all .2s}
-.cat-tag:hover{background:rgba(107,26,26,0.1);color:var(--maroon)}
+.cat-tag{font-family:'Cinzel',serif;font-size:9px;letter-spacing:.06em;padding:3px 10px;background:rgba(107,26,26,0.05);border:1px solid rgba(107,26,26,0.12);border-radius:20px;color:var(--text-lt)}
 
-/* ── ARTICLES GRID ── */
+/* ARTICLES GRID */
 .articles-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:28px;flex-wrap:wrap;gap:12px}
 .articles-header h2{font-family:'Cinzel',serif;font-size:20px;color:var(--maroon-dk);font-weight:700}
-.view-all{font-family:'Cinzel',serif;font-size:11px;letter-spacing:.08em;color:var(--saffron);text-decoration:none;border-bottom:1px solid rgba(232,97,26,0.3);padding-bottom:2px;transition:all .2s}
-.view-all:hover{color:var(--maroon);border-color:var(--maroon)}
+.view-all{font-family:'Cinzel',serif;font-size:11px;letter-spacing:.08em;color:var(--saffron);text-decoration:none;border-bottom:1px solid rgba(232,97,26,0.3);padding-bottom:2px}
+.view-all:hover{color:var(--maroon)}
 
 .articles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:56px}
 @media(max-width:900px){.articles-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:580px){.articles-grid{grid-template-columns:1fr}}
 
-.article-card{background:white;border-radius:16px;border:1px solid rgba(107,26,26,0.07);box-shadow:0 2px 12px rgba(107,26,26,0.05);overflow:hidden;transition:all .25s;cursor:pointer;text-decoration:none;display:flex;flex-direction:column}
+.article-card{background:white;border-radius:16px;border:1px solid rgba(107,26,26,0.07);box-shadow:0 2px 12px rgba(107,26,26,0.05);overflow:hidden;transition:all .25s;text-decoration:none;display:flex;flex-direction:column}
 .article-card:hover{transform:translateY(-4px);box-shadow:0 10px 32px rgba(107,26,26,0.12);border-color:rgba(212,160,23,0.2)}
-.article-thumb{width:100%;height:180px;object-fit:cover;display:block}
 .article-thumb-placeholder{width:100%;height:180px;display:flex;align-items:center;justify-content:center;font-size:48px}
 .article-body{padding:20px;flex:1;display:flex;flex-direction:column}
 .article-cat-badge{display:inline-block;font-family:'Cinzel',serif;font-size:9px;letter-spacing:.1em;padding:3px 10px;border-radius:20px;margin-bottom:10px;width:fit-content}
@@ -97,37 +116,7 @@ nav{background:var(--maroon-dk);border-bottom:1px solid rgba(212,160,23,0.2);pad
 .article-date{font-family:'Cinzel',serif;font-size:10px;color:#bbb;letter-spacing:.04em}
 .article-read{font-family:'Cinzel',serif;font-size:10px;color:var(--saffron);letter-spacing:.06em}
 
-/* ── FEATURED ARTICLE ── */
-.featured-article{display:grid;grid-template-columns:1fr 1fr;gap:0;background:white;border-radius:20px;border:1px solid rgba(107,26,26,0.08);box-shadow:0 4px 24px rgba(107,26,26,0.08);overflow:hidden;margin-bottom:56px;text-decoration:none;transition:all .3s}
-.featured-article:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(107,26,26,0.14)}
-.featured-img{width:100%;height:100%;min-height:320px;object-fit:cover;display:block}
-.featured-img-placeholder{width:100%;min-height:320px;display:flex;align-items:center;justify-content:center;font-size:80px}
-.featured-body{padding:40px}
-.featured-tag{display:inline-block;font-family:'Cinzel',serif;font-size:10px;letter-spacing:.1em;padding:4px 14px;border-radius:20px;background:rgba(232,97,26,0.1);color:var(--saffron);margin-bottom:16px}
-.featured-title{font-family:'Cinzel',serif;font-size:22px;color:var(--maroon-dk);font-weight:700;line-height:1.35;margin-bottom:14px}
-.featured-excerpt{font-family:'EB Garamond',serif;font-style:italic;font-size:17px;color:#666;line-height:1.75;margin-bottom:24px}
-.featured-shloka{background:rgba(212,160,23,0.06);border-left:3px solid rgba(212,160,23,0.4);padding:12px 16px;border-radius:0 8px 8px 0;margin-bottom:24px}
-.featured-shloka p{font-family:'EB Garamond',serif;font-style:italic;font-size:15px;color:var(--maroon);line-height:1.6;margin-bottom:4px}
-.featured-shloka cite{font-family:'Cinzel',serif;font-size:10px;color:var(--gold-dk);letter-spacing:.06em;font-style:normal}
-.featured-footer{display:flex;align-items:center;gap:12px}
-.featured-date{font-family:'Cinzel',serif;font-size:11px;color:#aaa;letter-spacing:.04em}
-.btn-read-more{padding:11px 24px;background:linear-gradient(135deg,var(--saffron),var(--gold));border:none;border-radius:50px;color:white;font-family:'Cinzel',serif;font-size:12px;font-weight:700;letter-spacing:.06em;cursor:pointer;text-decoration:none;margin-left:auto;transition:all .2s}
-.btn-read-more:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(232,97,26,0.3)}
-
-/* ── NEWSLETTER ── */
-.newsletter{background:linear-gradient(135deg,var(--maroon-dk),var(--maroon-mid));border-radius:24px;padding:56px 48px;text-align:center;margin-bottom:72px;position:relative;overflow:hidden}
-.newsletter::before{content:'ॐ';position:absolute;font-size:300px;color:rgba(212,160,23,0.04);font-family:'EB Garamond',serif;top:50%;right:-40px;transform:translateY(-50%);pointer-events:none;line-height:1}
-.newsletter h3{font-family:'Cinzel Decorative',serif;font-size:26px;color:var(--white);margin-bottom:12px}
-.newsletter p{font-family:'EB Garamond',serif;font-style:italic;font-size:18px;color:rgba(255,255,255,0.6);max-width:480px;margin:0 auto 28px;line-height:1.7}
-.newsletter-form{display:flex;gap:10px;max-width:480px;margin:0 auto;flex-wrap:wrap}
-.newsletter-input{flex:1;min-width:220px;padding:14px 20px;background:rgba(255,255,255,0.08);border:1px solid rgba(212,160,23,0.25);border-radius:50px;color:white;font-family:'EB Garamond',serif;font-size:16px;font-style:italic;outline:none;transition:border-color .2s}
-.newsletter-input::placeholder{color:rgba(255,255,255,0.3)}
-.newsletter-input:focus{border-color:rgba(212,160,23,0.5)}
-.newsletter-btn{padding:14px 28px;background:linear-gradient(135deg,var(--saffron),var(--gold));border:none;border-radius:50px;color:white;font-family:'Cinzel',serif;font-size:13px;font-weight:700;letter-spacing:.06em;cursor:pointer;transition:all .2s}
-.newsletter-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(232,97,26,0.4)}
-.newsletter-note{font-family:'EB Garamond',serif;font-style:italic;font-size:12px;color:rgba(255,255,255,0.3);margin-top:12px}
-
-/* ── TOP QUESTIONS STRIP ── */
+/* QUESTIONS STRIP */
 .questions-strip{background:var(--cream-dk);border-radius:20px;padding:40px;margin-bottom:72px;border:1px solid rgba(107,26,26,0.08)}
 .questions-list{display:flex;flex-direction:column;gap:12px;margin-top:20px}
 .question-item{display:flex;align-items:center;gap:14px;padding:14px 18px;background:white;border-radius:12px;border:1px solid rgba(107,26,26,0.07);cursor:pointer;transition:all .2s;text-decoration:none}
@@ -137,29 +126,28 @@ nav{background:var(--maroon-dk);border-bottom:1px solid rgba(212,160,23,0.2);pad
 .question-arrow{font-family:'Cinzel',serif;font-size:12px;color:var(--saffron);flex-shrink:0}
 .question-asked{font-family:'Cinzel',serif;font-size:9px;color:#bbb;letter-spacing:.06em;flex-shrink:0}
 
-/* ── FOOTER ── */
+/* NEWSLETTER */
+.newsletter{background:linear-gradient(135deg,var(--maroon-dk),var(--maroon-mid));border-radius:24px;padding:56px 48px;text-align:center;margin-bottom:72px;position:relative;overflow:hidden}
+.newsletter::before{content:'ॐ';position:absolute;font-size:300px;color:rgba(212,160,23,0.04);font-family:'EB Garamond',serif;top:50%;right:-40px;transform:translateY(-50%);pointer-events:none;line-height:1}
+.newsletter h3{font-family:'Cinzel Decorative',serif;font-size:26px;color:var(--white);margin-bottom:12px}
+.newsletter p{font-family:'EB Garamond',serif;font-style:italic;font-size:18px;color:rgba(255,255,255,0.6);max-width:480px;margin:0 auto 28px;line-height:1.7}
+.newsletter-form{display:flex;gap:10px;max-width:480px;margin:0 auto;flex-wrap:wrap}
+.newsletter-input{flex:1;min-width:220px;padding:14px 20px;background:rgba(255,255,255,0.08);border:1px solid rgba(212,160,23,0.25);border-radius:50px;color:white;font-family:'EB Garamond',serif;font-size:16px;font-style:italic;outline:none}
+.newsletter-input::placeholder{color:rgba(255,255,255,0.3)}
+.newsletter-btn{padding:14px 28px;background:linear-gradient(135deg,var(--saffron),var(--gold));border:none;border-radius:50px;color:white;font-family:'Cinzel',serif;font-size:13px;font-weight:700;letter-spacing:.06em;cursor:pointer}
+.newsletter-note{font-family:'EB Garamond',serif;font-style:italic;font-size:12px;color:rgba(255,255,255,0.3);margin-top:12px}
+
+/* FOOTER */
 footer{background:var(--maroon-dk);padding:56px 24px 32px;margin-top:60px}
 .footer-inner{max-width:1200px;margin:0 auto}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
-.footer-brand p{font-family:'EB Garamond',serif;font-style:italic;font-size:15px;color:rgba(255,255,255,0.45);line-height:1.7;margin-top:12px;max-width:280px}
-.footer-col h4{font-family:'Cinzel',serif;font-size:12px;letter-spacing:.12em;color:var(--gold-lt);margin-bottom:16px;font-weight:700}
-.footer-col a{display:block;font-family:'EB Garamond',serif;font-size:14px;color:rgba(255,255,255,0.4);text-decoration:none;margin-bottom:8px;transition:color .2s}
-.footer-col a:hover{color:rgba(255,255,255,0.8)}
-.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
-.footer-bottom p{font-family:'Cinzel',serif;font-size:11px;color:rgba(255,255,255,0.25);letter-spacing:.04em}
-
-/* ── FILTER TABS ── */
-.filter-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px}
-.filter-tab{font-family:'Cinzel',serif;font-size:11px;letter-spacing:.06em;padding:8px 18px;border-radius:50px;border:1px solid rgba(107,26,26,0.15);background:transparent;color:#888;cursor:pointer;transition:all .2s}
-.filter-tab:hover{border-color:rgba(107,26,26,0.3);color:var(--maroon)}
-.filter-tab.active{background:var(--maroon-dk);color:var(--gold-lt);border-color:var(--maroon-dk)}
-
-/* ── PAGINATION ── */
-.pagination{display:flex;gap:8px;justify-content:center;margin-top:48px;flex-wrap:wrap}
-.page-btn{width:40px;height:40px;border-radius:50%;border:1px solid rgba(107,26,26,0.15);background:white;font-family:'Cinzel',serif;font-size:13px;color:#888;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center}
-.page-btn:hover{border-color:var(--maroon);color:var(--maroon)}
-.page-btn.active{background:var(--maroon-dk);color:var(--gold-lt);border-color:var(--maroon-dk)}
-.page-btn.arrow{font-size:16px}
+@media(max-width:700px){.footer-grid{grid-template-columns:1fr 1fr}}
+.footer-brand p{font-family:'EB Garamond',serif;font-style:italic;font-size:14px;color:rgba(255,255,255,0.4);line-height:1.7;margin-top:10px;max-width:260px}
+.footer-col h4{font-family:'Cinzel',serif;font-size:11px;letter-spacing:.12em;color:var(--gold-lt);margin-bottom:14px;font-weight:700}
+.footer-col a{display:block;font-family:'EB Garamond',serif;font-size:14px;color:rgba(255,255,255,0.38);text-decoration:none;margin-bottom:7px;transition:color .2s}
+.footer-col a:hover{color:rgba(255,255,255,0.75)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.07);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.footer-bottom p{font-family:'Cinzel',serif;font-size:11px;color:rgba(255,255,255,0.22);letter-spacing:.04em}
 
 @media(max-width:900px){
   .featured-article{grid-template-columns:1fr}
@@ -183,8 +171,8 @@ footer{background:var(--maroon-dk);padding:56px 24px 32px;margin-top:60px}
   </a>
   <div class="nav-links">
     <a class="nav-link" href="index.html">Home</a>
-    <a class="nav-link active" href="articles.html">Dharma Lessons</a>
-    <a class="nav-link" href="lessons.html">Lessons</a>
+    <a class="nav-link active" href="articles.html">Dharma Articles</a>
+    <a class="nav-link" href="lessons.html">Learn</a>
     <a class="nav-link" href="community.html">Community</a>
   </div>
   <div class="nav-cta">
@@ -198,11 +186,11 @@ footer{background:var(--maroon-dk);padding:56px 24px 32px;margin-top:60px}
   <div class="hero-breadcrumb">
     <a href="index.html">DharmaChat</a>
     <span>/</span>
-    <span>Dharma Lessons</span>
+    <span>Dharma Articles</span>
   </div>
   <div class="hero-tag">✦ DHARMA LESSONS</div>
-  <h1>Explore <span id="articleCount">2,000+</span><br>Dharma Lessons</h1>
-  <p class="hero-desc">Our most-read lessons offer real guidance for your dharmic journey. Each piece is rooted in authentic Hindu scripture — reviewed for accuracy against original Sanskrit texts.</p>
+  <h1>Explore <span>2,000+</span><br>Dharma Lessons</h1>
+  <p class="hero-desc">Our most-read lessons offer real guidance for your dharmic journey. Each piece is rooted in authentic Hindu scripture — the Bhagavad Gita, Ramayana, Mahabharata, Upanishads and Puranas.</p>
   <div class="hero-stats">
     <div class="hero-stat"><strong>2,000+</strong><span>LESSONS</span></div>
     <div class="hero-stat"><strong>18+</strong><span>SCRIPTURES</span></div>
@@ -214,7 +202,7 @@ footer{background:var(--maroon-dk);padding:56px 24px 32px;margin-top:60px}
 <!-- SEARCH -->
 <div class="search-section">
   <div class="search-inner">
-    <input class="search-input" id="searchInput" type="text" placeholder="Search dharma lessons... e.g. karma, moksha, Arjuna..." oninput="filterArticles()"/>
+    <input class="search-input" id="searchInput" type="text" placeholder="Search dharma lessons... e.g. karma, moksha, Arjuna, Shiva..." oninput="filterArticles()"/>
     <button class="search-btn" onclick="filterArticles()">
       <svg viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke="white" stroke-width="2.5" stroke-linecap="round" fill="none"/></svg>
     </button>
@@ -224,9 +212,9 @@ footer{background:var(--maroon-dk);padding:56px 24px 32px;margin-top:60px}
 <!-- PAGE BODY -->
 <div class="page-body">
 
-  <!-- FEATURED ARTICLE -->
+  <!-- FEATURED -->
   <div class="section-label">✦ FEATURED LESSON</div>
-  <a href="article.html?slug=who-is-krishna" class="featured-article">
+  <a href="who-is-lord-krishna.html" class="featured-article">
     <div class="featured-img-placeholder" style="background:linear-gradient(135deg,#3E0000,#6B1A1A);">🦚</div>
     <div class="featured-body">
       <div class="featured-tag">🌸 BHAGAVAD GITA</div>
@@ -243,7 +231,7 @@ footer{background:var(--maroon-dk);padding:56px 24px 32px;margin-top:60px}
     </div>
   </a>
 
-  <!-- CATEGORY FILTER -->
+  <!-- FILTER TABS -->
   <div class="section-label">✦ BROWSE BY CATEGORY</div>
   <div class="filter-tabs" id="filterTabs">
     <button class="filter-tab active" onclick="setFilter('all',this)">All Lessons</button>
@@ -254,13 +242,12 @@ footer{background:var(--maroon-dk);padding:56px 24px 32px;margin-top:60px}
     <button class="filter-tab" onclick="setFilter('deities',this)">Hindu Deities</button>
     <button class="filter-tab" onclick="setFilter('philosophy',this)">Philosophy</button>
     <button class="filter-tab" onclick="setFilter('life',this)">Dharmic Living</button>
-    <button class="filter-tab" onclick="setFilter('festivals',this)">Festivals</button>
   </div>
 
   <!-- CATEGORIES GRID -->
   <div class="section-label">✦ LESSON CATEGORIES</div>
   <div class="categories-grid">
-    <a href="article.html?category=deities" class="cat-card">
+    <a href="who-is-lord-krishna.html" class="cat-card">
       <div class="cat-img-placeholder" style="background:linear-gradient(135deg,#5A0A0A,#E8611A)">🕉️</div>
       <div class="cat-body">
         <div class="cat-name">Hindu Deities</div>
@@ -268,14 +255,13 @@ footer{background:var(--maroon-dk);padding:56px 24px 32px;margin-top:60px}
         <div class="cat-tags">
           <span class="cat-tag">Lord Krishna</span>
           <span class="cat-tag">Lord Shiva</span>
-          <span class="cat-tag">Goddess Durga</span>
           <span class="cat-tag">Lord Rama</span>
-          <span class="cat-tag">Lord Vishnu</span>
-          <span class="cat-tag">Lord Ganesha</span>
+          <span class="cat-tag">Hanuman</span>
+          <span class="cat-tag">Goddess Durga</span>
         </div>
       </div>
     </a>
-    <a href="article.html?category=gita" class="cat-card">
+    <a href="bhagavad-gita-18-chapters.html" class="cat-card">
       <div class="cat-img-placeholder" style="background:linear-gradient(135deg,#3E1A00,#D4A017)">📖</div>
       <div class="cat-body">
         <div class="cat-name">Bhagavad Gita</div>
@@ -284,26 +270,24 @@ footer{background:var(--maroon-dk);padding:56px 24px 32px;margin-top:60px}
           <span class="cat-tag">Karma Yoga</span>
           <span class="cat-tag">Bhakti Yoga</span>
           <span class="cat-tag">Jnana Yoga</span>
-          <span class="cat-tag">Arjuna's Doubt</span>
           <span class="cat-tag">Moksha</span>
         </div>
       </div>
     </a>
-    <a href="article.html?category=ramayana" class="cat-card">
+    <a href="who-is-hanuman.html" class="cat-card">
       <div class="cat-img-placeholder" style="background:linear-gradient(135deg,#2A1A00,#8B3A00)">🏹</div>
       <div class="cat-body">
         <div class="cat-name">Ramayana</div>
         <div class="cat-desc">The eternal story of Rama, Sita, Hanuman and the triumph of dharma over adharma.</div>
         <div class="cat-tags">
           <span class="cat-tag">Lord Rama</span>
-          <span class="cat-tag">Sita Mata</span>
           <span class="cat-tag">Hanuman</span>
+          <span class="cat-tag">Sita Mata</span>
           <span class="cat-tag">Ravana</span>
-          <span class="cat-tag">Valmiki</span>
         </div>
       </div>
     </a>
-    <a href="article.html?category=mahabharata" class="cat-card">
+    <a href="who-is-karna.html" class="cat-card">
       <div class="cat-img-placeholder" style="background:linear-gradient(135deg,#1A0000,#5A0A0A)">⚔️</div>
       <div class="cat-body">
         <div class="cat-name">Mahabharata</div>
@@ -311,37 +295,34 @@ footer{background:var(--maroon-dk);padding:56px 24px 32px;margin-top:60px}
         <div class="cat-tags">
           <span class="cat-tag">Arjuna</span>
           <span class="cat-tag">Karna</span>
-          <span class="cat-tag">Draupadi</span>
           <span class="cat-tag">Bhishma</span>
-          <span class="cat-tag">Yudhishthira</span>
+          <span class="cat-tag">Draupadi</span>
         </div>
       </div>
     </a>
-    <a href="article.html?category=upanishad" class="cat-card">
+    <a href="what-is-moksha.html" class="cat-card">
       <div class="cat-img-placeholder" style="background:linear-gradient(135deg,#003040,#006080)">🌊</div>
       <div class="cat-body">
-        <div class="cat-name">Upanishads & Vedas</div>
+        <div class="cat-name">Upanishads &amp; Vedas</div>
         <div class="cat-desc">The philosophical crown of Hindu wisdom — Brahman, Atman, Maya, Moksha and the nature of consciousness.</div>
         <div class="cat-tags">
           <span class="cat-tag">Brahman</span>
           <span class="cat-tag">Atman</span>
           <span class="cat-tag">Maya</span>
           <span class="cat-tag">Moksha</span>
-          <span class="cat-tag">Consciousness</span>
         </div>
       </div>
     </a>
-    <a href="article.html?category=life" class="cat-card">
+    <a href="what-happens-after-death.html" class="cat-card">
       <div class="cat-img-placeholder" style="background:linear-gradient(135deg,#003020,#006040)">🌿</div>
       <div class="cat-body">
         <div class="cat-name">Dharmic Living</div>
         <div class="cat-desc">How to apply the timeless wisdom of Hindu scripture to relationships, career, family and daily life.</div>
         <div class="cat-tags">
-          <span class="cat-tag">Relationships</span>
-          <span class="cat-tag">Career</span>
-          <span class="cat-tag">Family</span>
-          <span class="cat-tag">Death & Afterlife</span>
+          <span class="cat-tag">Death &amp; Afterlife</span>
+          <span class="cat-tag">Karma</span>
           <span class="cat-tag">Inner Peace</span>
+          <span class="cat-tag">Dharma</span>
         </div>
       </div>
     </a>
@@ -350,188 +331,187 @@ footer{background:var(--maroon-dk);padding:56px 24px 32px;margin-top:60px}
   <!-- LATEST ARTICLES -->
   <div class="articles-header">
     <h2>Latest Dharma Lessons</h2>
-    <a href="article.html?category=all" class="view-all">Explore all articles →</a>
+    <a href="community.html" class="view-all">Join the Community →</a>
   </div>
 
   <div class="articles-grid" id="articlesGrid">
 
-    <a href="article.html?slug=who-is-arjuna" class="article-card" data-category="mahabharata" data-keywords="arjuna warrior kurukshetra mahabharata">
-      <div class="article-thumb-placeholder" style="background:linear-gradient(135deg,#3E0000,#8B1A1A)">🏹</div>
+    <a href="who-is-lord-krishna.html" class="article-card" data-category="deities gita" data-keywords="krishna bhagavad gita avatar vishnu">
+      <div class="article-thumb-placeholder" style="background:linear-gradient(135deg,#3E0000,#E8611A)">🦚</div>
+      <div class="article-body">
+        <span class="article-cat-badge" style="background:rgba(212,160,23,0.1);color:#A07800;">🌸 BHAGAVAD GITA</span>
+        <div class="article-title">Who is Lord Krishna? Life, Teachings and Divine Legacy</div>
+        <div class="article-excerpt">The divine charioteer, philosopher of the Gita, and the most complete avatar of Lord Vishnu — a complete guide to Krishna's life and teachings.</div>
+        <div class="article-footer"><span class="article-date">Jun 27 2025</span><span class="article-read">Read More →</span></div>
+      </div>
+    </a>
+
+    <a href="bhagavad-gita-18-chapters.html" class="article-card" data-category="gita" data-keywords="bhagavad gita chapters summary krishna arjuna">
+      <div class="article-thumb-placeholder" style="background:linear-gradient(135deg,#3E1A00,#D4A017)">📖</div>
+      <div class="article-body">
+        <span class="article-cat-badge" style="background:rgba(212,160,23,0.1);color:#A07800;">🌸 BHAGAVAD GITA</span>
+        <div class="article-title">The 18 Chapters of the Bhagavad Gita — Summary of Each Chapter</div>
+        <div class="article-excerpt">A complete chapter-by-chapter guide to the Bhagavad Gita — from Arjuna's grief to Krishna's final teaching on complete surrender.</div>
+        <div class="article-footer"><span class="article-date">Jun 25 2025</span><span class="article-read">Read More →</span></div>
+      </div>
+    </a>
+
+    <a href="who-is-hanuman.html" class="article-card" data-category="ramayana" data-keywords="hanuman devotion bhakti strength ramayana seva">
+      <div class="article-thumb-placeholder" style="background:linear-gradient(135deg,#3E1A00,#C45A00)">🐒</div>
+      <div class="article-body">
+        <span class="article-cat-badge" style="background:rgba(139,74,0,0.08);color:#C45A00;">🏹 RAMAYANA</span>
+        <div class="article-title">Who is Hanuman? The Greatest Devotee in All of Scripture</div>
+        <div class="article-excerpt">Hanuman embodies pure devotion, superhuman strength, and perfect service — his life shows what becomes possible when a soul surrenders completely to God.</div>
+        <div class="article-footer"><span class="article-date">Jun 22 2025</span><span class="article-read">Read More →</span></div>
+      </div>
+    </a>
+
+    <a href="who-is-ravana.html" class="article-card" data-category="ramayana" data-keywords="ravana lanka rakshasa brahmin scholar shiva">
+      <div class="article-thumb-placeholder" style="background:linear-gradient(135deg,#2A0000,#6B1A1A)">😈</div>
+      <div class="article-body">
+        <span class="article-cat-badge" style="background:rgba(139,74,0,0.08);color:#C45A00;">🏹 RAMAYANA</span>
+        <div class="article-title">Who is Ravana? The Brilliant Brahmin Who Chose Adharma</div>
+        <div class="article-excerpt">Ravana was a scholar of the Vedas, a supreme Shiva devotee, and one of the most powerful beings ever created — yet he fell because of ego and lust.</div>
+        <div class="article-footer"><span class="article-date">Jun 20 2025</span><span class="article-read">Read More →</span></div>
+      </div>
+    </a>
+
+    <a href="who-is-karna.html" class="article-card" data-category="mahabharata" data-keywords="karna loyalty tragedy sun god mahabharata warrior">
+      <div class="article-thumb-placeholder" style="background:linear-gradient(135deg,#3E2A00,#8B6000)">☀️</div>
       <div class="article-body">
         <span class="article-cat-badge" style="background:rgba(62,0,0,0.08);color:#8B1A1A;">⚔️ MAHABHARATA</span>
-        <div class="article-title">Who is Arjuna? The Dharma of the Greatest Warrior</div>
-        <div class="article-excerpt">Explore the spiritual journey of Arjuna — from self-doubt on Kurukshetra to becoming the foremost disciple of Lord Krishna and the greatest archer of all time.</div>
-        <div class="article-footer">
-          <span class="article-date">Jun 27 2025</span>
-          <span class="article-read">Read More →</span>
-        </div>
+        <div class="article-title">Who is Karna? Loyalty, Tragedy, and Greatness</div>
+        <div class="article-excerpt">The firstborn son of Kunti and the Sun God — abandoned at birth, rejected by society, yet arguably the greatest warrior of the Mahabharata.</div>
+        <div class="article-footer"><span class="article-date">Jun 18 2025</span><span class="article-read">Read More →</span></div>
       </div>
     </a>
 
-    <a href="article.html?slug=who-is-sita" class="article-card" data-category="ramayana" data-keywords="sita mata ramayana shakti devotion feminine">
-      <div class="article-thumb-placeholder" style="background:linear-gradient(135deg,#3E1A00,#8B4A00)">🌸</div>
+    <a href="who-is-bhishma.html" class="article-card" data-category="mahabharata" data-keywords="bhishma vow pitamah mahabharata ganga kurukshetra">
+      <div class="article-thumb-placeholder" style="background:linear-gradient(135deg,#001A3E,#003080)">⚔️</div>
       <div class="article-body">
-        <span class="article-cat-badge" style="background:rgba(139,74,0,0.08);color:#8B4A00;">🌿 RAMAYANA</span>
-        <div class="article-title">Who is Sita Mata? The Embodiment of Shakti and Devotion</div>
-        <div class="article-excerpt">A deep exploration of Sita Mata's life — her trials, extraordinary courage, and what she represents as the ideal of feminine divine power in Hindu dharma.</div>
-        <div class="article-footer">
-          <span class="article-date">Jun 27 2025</span>
-          <span class="article-read">Read More →</span>
-        </div>
+        <span class="article-cat-badge" style="background:rgba(62,0,0,0.08);color:#8B1A1A;">⚔️ MAHABHARATA</span>
+        <div class="article-title">Who is Bhishma? The Price of an Unbreakable Vow</div>
+        <div class="article-excerpt">Son of Ganga, trained by Parashurama, possessor of death by choice — the most honourable man of the Mahabharata who fought on the wrong side.</div>
+        <div class="article-footer"><span class="article-date">Jun 17 2025</span><span class="article-read">Read More →</span></div>
       </div>
     </a>
 
-    <a href="article.html?slug=what-is-brahman" class="article-card" data-category="upanishad" data-keywords="brahman upanishad consciousness reality ultimate">
-      <div class="article-thumb-placeholder" style="background:linear-gradient(135deg,#003040,#006080)">🌊</div>
+    <a href="what-happens-after-death.html" class="article-card" data-category="philosophy life" data-keywords="death afterlife soul karma rebirth garuda purana">
+      <div class="article-thumb-placeholder" style="background:linear-gradient(135deg,#1A003E,#4A0080)">🕯️</div>
+      <div class="article-body">
+        <span class="article-cat-badge" style="background:rgba(26,0,62,0.08);color:#4A0080;">🌙 GARUDA PURANA</span>
+        <div class="article-title">What Happens After Death? The Hindu View of the Afterlife</div>
+        <div class="article-excerpt">According to the Garuda Purana and Bhagavad Gita — what happens to the soul after death, the role of karma, and the path to moksha.</div>
+        <div class="article-footer"><span class="article-date">Jun 15 2025</span><span class="article-read">Read More →</span></div>
+      </div>
+    </a>
+
+    <a href="what-is-moksha.html" class="article-card" data-category="upanishad philosophy" data-keywords="moksha liberation samsara yoga atman brahman upanishad">
+      <div class="article-thumb-placeholder" style="background:linear-gradient(135deg,#003040,#006080)">🌟</div>
       <div class="article-body">
         <span class="article-cat-badge" style="background:rgba(0,48,64,0.08);color:#006080;">🌊 UPANISHADS</span>
-        <div class="article-title">What is Brahman? Understanding the Ultimate Reality</div>
-        <div class="article-excerpt">The Mandukya, Chandogya and Brihadaranyaka Upanishads unravel the nature of Brahman — the infinite, eternal consciousness that underlies all existence.</div>
-        <div class="article-footer">
-          <span class="article-date">Jun 25 2025</span>
-          <span class="article-read">Read More →</span>
-        </div>
+        <div class="article-title">What is Moksha? The Path to Liberation Explained</div>
+        <div class="article-excerpt">Moksha is the supreme goal of human life — liberation from the cycle of birth and death, and the realisation of the soul's true eternal nature as Brahman.</div>
+        <div class="article-footer"><span class="article-date">Jun 13 2025</span><span class="article-read">Read More →</span></div>
       </div>
     </a>
 
-    <a href="article.html?slug=12-jyotirlingas" class="article-card" data-category="deities" data-keywords="shiva jyotirlinga pilgrimage temples sacred">
+    <a href="who-is-lord-shiva.html" class="article-card" data-category="deities" data-keywords="shiva mahadeva jyotirlinga kailash parvati adiyogi">
       <div class="article-thumb-placeholder" style="background:linear-gradient(135deg,#2A0A3E,#5A1A7E)">🔱</div>
       <div class="article-body">
         <span class="article-cat-badge" style="background:rgba(42,10,62,0.08);color:#5A1A7E;">🔱 SHIVA PURANA</span>
-        <div class="article-title">The 12 Jyotirlingas — Sacred Abodes of Lord Shiva</div>
-        <div class="article-excerpt">Journey through the 12 divine Jyotirlinga shrines — their sacred significance, origin stories, and the moksha they offer to sincere devotees of Mahadeva.</div>
-        <div class="article-footer">
-          <span class="article-date">Jun 25 2025</span>
-          <span class="article-read">Read More →</span>
-        </div>
+        <div class="article-title">Who is Lord Shiva? The Destroyer, The Yogi, The Supreme</div>
+        <div class="article-excerpt">Mahadeva — the Great God — is simultaneously the destroyer, the supreme yogi, the lord of all beings, and the most easily pleased of all deities.</div>
+        <div class="article-footer"><span class="article-date">Jun 10 2025</span><span class="article-read">Read More →</span></div>
       </div>
     </a>
 
-    <a href="article.html?slug=three-paths-liberation" class="article-card" data-category="gita" data-keywords="jnana bhakti karma yoga moksha liberation gita">
-      <div class="article-thumb-placeholder" style="background:linear-gradient(135deg,#3E0000,#D4A017)">🌸</div>
+    <a href="what-are-the-4-vedas.html" class="article-card" data-category="upanishad philosophy" data-keywords="vedas rigveda samaveda yajurveda atharvaveda ancient scripture">
+      <div class="article-thumb-placeholder" style="background:linear-gradient(135deg,#1A1A00,#6B6B00)">📚</div>
       <div class="article-body">
-        <span class="article-cat-badge" style="background:rgba(212,160,23,0.1);color:#A07800;">🌸 BHAGAVAD GITA</span>
-        <div class="article-title">Three Paths to Liberation — Jnana, Bhakti & Karma Yoga</div>
-        <div class="article-excerpt">Lord Krishna reveals three complete paths to moksha. Which yoga is right for you? A comprehensive guide to understanding and choosing your dharmic path.</div>
-        <div class="article-footer">
-          <span class="article-date">Jun 24 2025</span>
-          <span class="article-read">Read More →</span>
-        </div>
+        <span class="article-cat-badge" style="background:rgba(107,107,0,0.08);color:#6B6B00;">📚 VEDAS</span>
+        <div class="article-title">What are the 4 Vedas? Rig, Sama, Yajur and Atharva Explained</div>
+        <div class="article-excerpt">The most ancient scriptures in human history — a complete guide to the four Vedas, their structure, key verses, and why they are the foundation of all dharma.</div>
+        <div class="article-footer"><span class="article-date">Jun 8 2025</span><span class="article-read">Read More →</span></div>
       </div>
     </a>
 
-    <a href="article.html?slug=who-is-goddess-durga" class="article-card" data-category="deities" data-keywords="durga shakti devi mahatmya navratri goddess">
-      <div class="article-thumb-placeholder" style="background:linear-gradient(135deg,#1A003E,#4A0080)">🌙</div>
-      <div class="article-body">
-        <span class="article-cat-badge" style="background:rgba(26,0,62,0.08);color:#4A0080;">🌙 DEVI MAHATMYA</span>
-        <div class="article-title">Who is Goddess Durga? The Invincible Power of the Universe</div>
-        <div class="article-excerpt">From the Devi Mahatmya to the Lalita Sahasranama — understanding the supreme Shakti who upholds all creation and destroys all that opposes dharma.</div>
-        <div class="article-footer">
-          <span class="article-date">Jun 23 2025</span>
-          <span class="article-read">Read More →</span>
-        </div>
-      </div>
-    </a>
-
-    <a href="article.html?slug=what-is-karma" class="article-card" data-category="philosophy" data-keywords="karma rebirth dharma action cause effect">
-      <div class="article-thumb-placeholder" style="background:linear-gradient(135deg,#003020,#006040)">🌿</div>
+    <a href="what-is-karma.html" class="article-card" data-category="philosophy life" data-keywords="karma action cause effect rebirth dharma gita">
+      <div class="article-thumb-placeholder" style="background:linear-gradient(135deg,#003020,#006040)">♾️</div>
       <div class="article-body">
         <span class="article-cat-badge" style="background:rgba(0,48,32,0.08);color:#006040;">🌿 PHILOSOPHY</span>
         <div class="article-title">What is Karma? The Universal Law of Cause and Effect</div>
-        <div class="article-excerpt">Karma is not fate. It is the living law that governs all action and its consequences across lifetimes. Understanding karma transforms how you live every moment.</div>
-        <div class="article-footer">
-          <span class="article-date">Jun 22 2025</span>
-          <span class="article-read">Read More →</span>
-        </div>
+        <div class="article-excerpt">Karma is not fate — it is the living law that governs all action and its consequences. Understanding karma transforms how you live every moment of your life.</div>
+        <div class="article-footer"><span class="article-date">Jun 5 2025</span><span class="article-read">Read More →</span></div>
       </div>
     </a>
 
-    <a href="article.html?slug=who-is-hanuman" class="article-card" data-category="ramayana" data-keywords="hanuman devotion bhakti strength ramayana seva">
-      <div class="article-thumb-placeholder" style="background:linear-gradient(135deg,#3E1A00,#C45A00)">🐒</div>
-      <div class="article-body">
-        <span class="article-cat-badge" style="background:rgba(139,74,0,0.08);color:#C45A00;">🌿 RAMAYANA</span>
-        <div class="article-title">Who is Hanuman? The Greatest Devotee in All of Scripture</div>
-        <div class="article-excerpt">Hanuman is the embodiment of pure devotion, superhuman strength, and perfect service. His life reveals what becomes possible when a soul surrenders completely to God.</div>
-        <div class="article-footer">
-          <span class="article-date">Jun 21 2025</span>
-          <span class="article-read">Read More →</span>
-        </div>
-      </div>
-    </a>
-
-    <a href="article.html?slug=what-is-dharma" class="article-card" data-category="philosophy" data-keywords="dharma righteousness duty cosmic order hinduism">
-      <div class="article-thumb-placeholder" style="background:linear-gradient(135deg,#1A1A00,#6B6B00)">✨</div>
+    <a href="what-is-dharma.html" class="article-card" data-category="philosophy life" data-keywords="dharma righteousness duty cosmic order sanatana">
+      <div class="article-thumb-placeholder" style="background:linear-gradient(135deg,#3E0000,#8B1A00)">✨</div>
       <div class="article-body">
         <span class="article-cat-badge" style="background:rgba(107,107,0,0.08);color:#6B6B00;">✨ PHILOSOPHY</span>
         <div class="article-title">What is Dharma? The Foundation of Sanatana Dharma Explained</div>
-        <div class="article-excerpt">Dharma is the most important concept in all of Hindu thought. It is not merely religion — it is the eternal cosmic order that upholds the entire universe.</div>
-        <div class="article-footer">
-          <span class="article-date">Jun 20 2025</span>
-          <span class="article-read">Read More →</span>
-        </div>
+        <div class="article-excerpt">Dharma is the most important concept in all of Hindu thought — not merely religion, but the eternal cosmic order that upholds the entire universe.</div>
+        <div class="article-footer"><span class="article-date">Jun 3 2025</span><span class="article-read">Read More →</span></div>
       </div>
     </a>
 
   </div>
 
-  <!-- PAGINATION -->
-  <div class="pagination">
-    <button class="page-btn arrow">←</button>
-    <button class="page-btn active">1</button>
-    <button class="page-btn">2</button>
-    <button class="page-btn">3</button>
-    <button class="page-btn">4</button>
-    <button class="page-btn">5</button>
-    <span style="font-family:'Cinzel',serif;font-size:12px;color:#bbb;padding:0 4px;line-height:40px;">...</span>
-    <button class="page-btn">50</button>
-    <button class="page-btn arrow">→</button>
-  </div>
-
   <!-- TOP QUESTIONS -->
-  <div style="margin-top:72px;">
+  <div style="margin-top:16px;">
     <div class="section-label">✦ TOP QUESTIONS FROM OUR COMMUNITY</div>
     <p style="font-family:'EB Garamond',serif;font-style:italic;font-size:17px;color:#888;margin-bottom:24px;">Discover the most-asked dharma questions and explore answers rooted in authentic scripture.</p>
     <div class="questions-strip">
       <div class="questions-list">
-        <a href="article.html?slug=what-happens-after-death" class="question-item">
+        <a href="what-happens-after-death.html" class="question-item">
           <span class="question-icon">🕯️</span>
           <span class="question-text">What happens after death according to Hindu scripture?</span>
           <span class="question-asked">Asked 1,240 times</span>
           <span class="question-arrow">→</span>
         </a>
-        <a href="article.html?slug=how-to-find-peace" class="question-item">
-          <span class="question-icon">☮️</span>
-          <span class="question-text">How can I find inner peace through Hindu philosophy and the Gita?</span>
+        <a href="what-is-moksha.html" class="question-item">
+          <span class="question-icon">🌟</span>
+          <span class="question-text">What is Moksha and how do I achieve liberation in this lifetime?</span>
           <span class="question-asked">Asked 980 times</span>
           <span class="question-arrow">→</span>
         </a>
-        <a href="article.html?slug=what-is-moksha" class="question-item">
-          <span class="question-icon">🌟</span>
-          <span class="question-text">What is Moksha and how do I achieve liberation in this lifetime?</span>
+        <a href="what-is-karma.html" class="question-item">
+          <span class="question-icon">♾️</span>
+          <span class="question-text">Does Hinduism believe in rebirth? How does karma determine our next life?</span>
           <span class="question-asked">Asked 876 times</span>
           <span class="question-arrow">→</span>
         </a>
-        <a href="article.html?slug=karma-rebirth" class="question-item">
-          <span class="question-icon">♾️</span>
-          <span class="question-text">Does Hinduism believe in rebirth? How does karma determine our next life?</span>
+        <a href="bhagavad-gita-18-chapters.html" class="question-item">
+          <span class="question-icon">💪</span>
+          <span class="question-text">What does the Bhagavad Gita say about overcoming fear and anxiety?</span>
           <span class="question-asked">Asked 754 times</span>
           <span class="question-arrow">→</span>
         </a>
-        <a href="article.html?slug=gita-overcoming-fear" class="question-item">
-          <span class="question-icon">💪</span>
-          <span class="question-text">What does the Bhagavad Gita say about overcoming fear and anxiety?</span>
+        <a href="four-purusharthas.html" class="question-item">
+          <span class="question-icon">🎯</span>
+          <span class="question-text">What are the four Purusharthas — the goals of human life?</span>
           <span class="question-asked">Asked 698 times</span>
           <span class="question-arrow">→</span>
         </a>
-        <a href="article.html?slug=why-do-hindus-worship-idols" class="question-item">
-          <span class="question-icon">🪔</span>
-          <span class="question-text">Why do Hindus worship idols? Is it not against the concept of Brahman?</span>
+        <a href="who-created-the-universe.html" class="question-item">
+          <span class="question-icon">🌌</span>
+          <span class="question-text">Who created the universe according to Hinduism?</span>
           <span class="question-asked">Asked 612 times</span>
           <span class="question-arrow">→</span>
         </a>
-      </div>
-      <div style="text-align:center;margin-top:24px;">
-        <a href="article.html?category=questions" style="font-family:'Cinzel',serif;font-size:12px;color:var(--saffron);text-decoration:none;border-bottom:1px solid rgba(232,97,26,0.3);padding-bottom:2px;letter-spacing:.06em;">Explore All Questions →</a>
+        <a href="is-ahimsa-absolute.html" class="question-item">
+          <span class="question-icon">☮️</span>
+          <span class="question-text">Is non-violence (Ahimsa) absolute in Hinduism?</span>
+          <span class="question-asked">Asked 544 times</span>
+          <span class="question-arrow">→</span>
+        </a>
+        <a href="how-to-find-inner-peace.html" class="question-item">
+          <span class="question-icon">🧘</span>
+          <span class="question-text">How can I find inner peace through Hindu philosophy and the Gita?</span>
+          <span class="question-asked">Asked 498 times</span>
+          <span class="question-arrow">→</span>
+        </a>
       </div>
     </div>
   </div>
@@ -554,7 +534,7 @@ footer{background:var(--maroon-dk);padding:56px 24px 32px;margin-top:60px}
   <div class="footer-inner">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a class="logo-wrap" href="index.html" style="margin-bottom:4px;">
+        <a class="logo-wrap" href="index.html">
           <img src="logo.jpeg" alt="DharmaChat" style="width:40px;height:40px;border-radius:50%;object-fit:cover;"/>
           <span style="font-family:'Cinzel Decorative',serif;font-size:18px;color:var(--gold-lt);">DharmaChat</span>
         </a>
@@ -562,12 +542,12 @@ footer{background:var(--maroon-dk);padding:56px 24px 32px;margin-top:60px}
       </div>
       <div class="footer-col">
         <h4>DHARMA LESSONS</h4>
-        <a href="article.html?category=deities">Hindu Deities</a>
-        <a href="article.html?category=gita">Bhagavad Gita</a>
-        <a href="article.html?category=ramayana">Ramayana</a>
-        <a href="article.html?category=mahabharata">Mahabharata</a>
-        <a href="article.html?category=upanishad">Upanishads</a>
-        <a href="article.html?category=life">Dharmic Living</a>
+        <a href="who-is-lord-krishna.html">Who is Krishna?</a>
+        <a href="who-is-lord-shiva.html">Who is Shiva?</a>
+        <a href="who-is-hanuman.html">Who is Hanuman?</a>
+        <a href="what-is-moksha.html">What is Moksha?</a>
+        <a href="what-are-the-4-vedas.html">The 4 Vedas</a>
+        <a href="bhagavad-gita-18-chapters.html">Bhagavad Gita</a>
       </div>
       <div class="footer-col">
         <h4>EXPLORE</h4>
@@ -575,52 +555,46 @@ footer{background:var(--maroon-dk);padding:56px 24px 32px;margin-top:60px}
         <a href="lessons.html">Structured Lessons</a>
         <a href="community.html">Community Sabha</a>
         <a href="premium.html">Premium Plan</a>
-        <a href="article.html?category=questions">Top Questions</a>
       </div>
       <div class="footer-col">
         <h4>DHARMACHAT</h4>
         <a href="index.html">Home</a>
+        <a href="community.html">About Us</a>
         <a href="privacy.html">Privacy Policy</a>
-        <a href="index.html#download-section">App Coming Soon</a>
-        <a href="community.html">Join Community</a>
+        <a href="community.html">Contact</a>
       </div>
     </div>
     <div class="footer-bottom">
       <p>© 2026 DharmaChat · Built with reverence for Sanatana Dharma 🕉️</p>
-      <p>Founded & built by Sukhil Babu · Bengaluru, India</p>
+      <p>Founded &amp; built by Sukhil Babu · Bengaluru, India</p>
     </div>
   </div>
 </footer>
 
 <script>
 function filterArticles() {
-  const q = document.getElementById('searchInput').value.toLowerCase();
-  const activeFilter = document.querySelector('.filter-tab.active')?.textContent || 'All';
-  document.querySelectorAll('.article-card').forEach(card => {
-    const title = card.querySelector('.article-title').textContent.toLowerCase();
-    const excerpt = card.querySelector('.article-excerpt').textContent.toLowerCase();
-    const keywords = card.dataset.keywords || '';
-    const cat = card.dataset.category || '';
-    const matchSearch = !q || title.includes(q) || excerpt.includes(q) || keywords.includes(q);
-    card.style.display = matchSearch ? 'flex' : 'none';
+  var q = document.getElementById('searchInput').value.toLowerCase();
+  document.querySelectorAll('.article-card').forEach(function(card) {
+    var title = card.querySelector('.article-title').textContent.toLowerCase();
+    var excerpt = card.querySelector('.article-excerpt').textContent.toLowerCase();
+    var keywords = card.dataset.keywords || '';
+    var match = !q || title.includes(q) || excerpt.includes(q) || keywords.includes(q);
+    card.style.display = match ? 'flex' : 'none';
   });
 }
 
 function setFilter(cat, btn) {
-  document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.filter-tab').forEach(function(t) { t.classList.remove('active'); });
   btn.classList.add('active');
-  document.querySelectorAll('.article-card').forEach(card => {
-    if (cat === 'all' || card.dataset.category === cat) {
-      card.style.display = 'flex';
-    } else {
-      card.style.display = 'none';
-    }
+  document.querySelectorAll('.article-card').forEach(function(card) {
+    var cats = card.dataset.category || '';
+    card.style.display = (cat === 'all' || cats.includes(cat)) ? 'flex' : 'none';
   });
 }
 
 function subscribeNewsletter() {
-  const email = document.getElementById('nlEmail').value.trim();
-  const msg = document.getElementById('nlMsg');
+  var email = document.getElementById('nlEmail').value.trim();
+  var msg = document.getElementById('nlMsg');
   if (!email || !email.includes('@')) {
     msg.style.color = 'rgba(245,131,42,0.8)';
     msg.textContent = 'Please enter a valid email address.';
@@ -630,27 +604,6 @@ function subscribeNewsletter() {
   msg.textContent = '🙏 Thank you! Dharmic wisdom is on its way to your inbox.';
   document.getElementById('nlEmail').value = '';
 }
-</script>
-
-<!-- NAV AUTH -->
-<script type="module">
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
-import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut as fbSignOut } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
-const _app = initializeApp({apiKey:"AIzaSyDvw26WTzNRsBBgjXG9At60pN8ApDvPB7o",authDomain:"dharmachat-cc71d.firebaseapp.com",projectId:"dharmachat-cc71d",storageBucket:"dharmachat-cc71d.firebasestorage.app",messagingSenderId:"718284855701",appId:"1:718284855701:web:d7ef64292cd48ffdf13e9c"});
-const _auth = getAuth(_app);
-const _provider = new GoogleAuthProvider();
-function updateNavbar(user) {
-  const navAuth = document.getElementById('navAuth');
-  if (!navAuth) return;
-  if (user) {
-    navAuth.innerHTML = '<div style="display:flex;align-items:center;gap:10px;"><img src="'+(user.photoURL||'')+'" style="width:32px;height:32px;border-radius:50%;object-fit:cover;border:2px solid rgba(212,160,23,0.4);" onerror="this.style.display=\'none\'"/><span style="font-family:Cinzel,serif;font-size:12px;color:rgba(240,192,64,0.9);">'+(user.displayName?.split(' ')[0]||'Devotee')+'</span><button onclick="window.__navSignOut()" style="font-family:Cinzel,serif;font-size:10px;color:rgba(255,255,255,0.4);background:none;border:1px solid rgba(255,255,255,0.15);border-radius:20px;padding:4px 10px;cursor:pointer;">Sign Out</button></div>';
-  } else {
-    navAuth.innerHTML = '<button onclick="window.__navSignIn()" style="display:flex;align-items:center;gap:8px;padding:7px 16px;background:white;border:none;border-radius:50px;font-family:Noto Sans,sans-serif;font-size:12px;color:#333;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.2);"><svg width="14" height="14" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>Sign In</button>';
-  }
-}
-onAuthStateChanged(_auth, (user) => { updateNavbar(user); });
-window.__navSignIn = async function() { try { await signInWithPopup(_auth, _provider); } catch(e) {} };
-window.__navSignOut = async function() { await fbSignOut(_auth); localStorage.removeItem('dc_guest'); location.reload(); };
 </script>
 
 <script type="module" src="nav.js"></script>
