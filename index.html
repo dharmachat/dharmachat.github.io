@@ -272,6 +272,10 @@
   .fade-up.visible { opacity: 1; transform: none; }
   @keyframes slideLeft { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
   #reviewTrack:hover { animation-play-state: paused; }
+  @keyframes progressGlow {
+    0% { box-shadow: 0 0 12px 4px rgba(232,97,26,0.4); }
+    100% { box-shadow: 0 0 20px 8px rgba(212,160,23,0.6); }
+  }
 </style>
 </head>
 <body>
@@ -311,7 +315,34 @@
         <div class="hero-stat"><strong>18+</strong><span>Sacred Texts</span></div>
         <div class="hero-stat"><strong>9</strong><span>Indian Languages</span></div>
       </div>
-<section style="background:var(--cream);padding:40px 24px 40px;margin-top:40px;text-align:center;border-top:1px solid rgba(212,160,23,0.15);">
+    </div><!-- end .hero-content -->
+
+    <div class="hero-visual">
+      <div class="phone-mockup">
+        <img src="logo.jpeg" style="width:80px;height:80px;border-radius:50%;object-fit:cover;box-shadow:0 0 30px rgba(212,160,23,0.5);margin-bottom:8px;" alt="DharmaChat"/>
+        <div class="phone-title">DharmaChat</div>
+        <div class="phone-verse">
+          "कर्म करो, फल की चिंता मत करो।"<br>
+          <em style="font-size:12px;opacity:.7">Do your duty; do not worry about the fruits.</em>
+          <cite>Bhagavad Gita · 2.47</cite>
+        </div>
+        <div class="phone-chat">
+          <div class="chat-bubble chat-user">What is Dharma?</div>
+          <div class="chat-bubble chat-ai">According to the Mahabharata, Dharma is that which upholds, sustains and supports the universe and all beings within it — Anushasana Parva 113.8.</div>
+        </div>
+      </div>
+      <!-- FIX: Removed broken unclosed <div onclick=...> tag; replaced with clean working version -->
+      <div style="background:rgba(212,160,23,0.1);border:1px solid rgba(212,160,23,0.25);border-radius:12px;padding:12px 16px;text-align:center;margin-top:8px;">
+        <div style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:.1em;color:#F0C040;margin-bottom:4px;cursor:pointer;" onclick="document.getElementById('download-section').scrollIntoView({behavior:'smooth'})">APP COMING SOON ↓</div>
+        <div style="font-family:'EB Garamond',serif;font-style:italic;font-size:13px;color:rgba(255,255,255,0.7);">Android &amp; iOS — Notify me below</div>
+      </div>
+    </div><!-- end .hero-visual -->
+
+  </div><!-- end .hero-inner -->
+</section><!-- end .hero -->
+
+<!-- SADHANA JOURNEY (moved outside hero, now its own section) -->
+<section style="background:var(--cream);padding:40px 24px;text-align:center;border-top:1px solid rgba(212,160,23,0.15);">
   <div style="max-width:860px;margin:0 auto">
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
       <div style="font-family:'Cinzel Decorative',serif;font-size:22px;color:var(--maroon-dk)">Today's Sadhana Journey</div>
@@ -325,17 +356,6 @@
     </div>
 
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px">
-    </div>
-  </div>
-</section>
-<style>
-@keyframes progressGlow {
-  0% { box-shadow: 0 0 12px 4px rgba(232,97,26,0.4); }
-  100% { box-shadow: 0 0 20px 8px rgba(212,160,23,0.6); }
-}
-</style>
-
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
       <!-- Real professional images -->
       <a href="chat.html?q=Give+me+today%27s+shloka+with+meaning+and+audio" style="background:white;border-radius:18px;padding:24px;text-align:left;border:1px solid rgba(212,160,23,0.2);text-decoration:none;color:inherit;transition:all .25s">
         <img src="https://images.unsplash.com/photo-1580130684518-9f6b2e7b2e2f" style="width:100%;height:140px;object-fit:cover;border-radius:12px;margin-bottom:16px;" alt="Bhagavad Gita">
@@ -365,10 +385,10 @@
 </section>
 
 <script>
-// Working streak + calendar (unchanged)
-const days = ['S','M','T','W','T','F','S'];
-const today = new Date().getDay();
-let streak = parseInt(localStorage.getItem('dc_streak') || '3');
+// Working streak + calendar
+var days = ['S','M','T','W','T','F','S'];
+var today = new Date().getDay();
+var streak = parseInt(localStorage.getItem('dc_streak') || '3');
 if (localStorage.getItem('dc_last_day') !== new Date().toDateString()) {
   streak++;
   localStorage.setItem('dc_streak', streak);
@@ -376,39 +396,16 @@ if (localStorage.getItem('dc_last_day') !== new Date().toDateString()) {
 }
 document.getElementById('streakCount').textContent = streak;
 
-const cal = document.getElementById('sadhanaCalendar');
-days.forEach((d,i) => {
-  const dot = document.createElement('div');
-  dot.style.cssText = `width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:Cinzel,serif;font-size:11px;color:#666;border:2px solid #ddd;`;
+var cal = document.getElementById('sadhanaCalendar');
+days.forEach(function(d,i) {
+  var dot = document.createElement('div');
+  dot.style.cssText = 'width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:Cinzel,serif;font-size:11px;color:#666;border:2px solid #ddd;';
   if (i === today) dot.style.borderColor = '#E8611A';
   if (i < today) dot.style.background = '#E8611A';
   dot.textContent = d;
   cal.appendChild(dot);
 });
 </script>
-    </div>
-    <div class="hero-visual">
-      <div class="phone-mockup">
-        <img src="logo.jpeg" style="width:80px;height:80px;border-radius:50%;object-fit:cover;box-shadow:0 0 30px rgba(212,160,23,0.5);margin-bottom:8px;" alt="DharmaChat"/>
-        <div class="phone-title">DharmaChat</div>
-        <div class="phone-verse">
-          "कर्म करो, फल की चिंता मत करो।"<br>
-          <em style="font-size:12px;opacity:.7">Do your duty; do not worry about the fruits.</em>
-          <cite>Bhagavad Gita · 2.47</cite>
-        </div>
-        <div class="phone-chat">
-          <div class="chat-bubble chat-user">What is Dharma?</div>
-          <div class="chat-bubble chat-ai">According to the Mahabharata, Dharma is that which upholds, sustains and supports the universe and all beings within it — Anushasana Parva 113.8.</div>
-        </div>
-      </div>
-      <div onclick="document.getElementById('notifyFormSection').scrollIntoView({ behavior: 'smooth' })"
-      <div style="background:rgba(212,160,23,0.1);border:1px solid rgba(212,160,23,0.25);border-radius:12px;padding:12px 16px;text-align:center;margin-top:8px;">
-        <div style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:.1em;color:#F0C040;margin-bottom:4px;cursor:pointer;" onclick="document.getElementById('download-section').scrollIntoView({behavior:'smooth'})">APP COMING SOON ↓</div>
-        <div style="font-family:'EB Garamond',serif;font-style:italic;font-size:13px;color:rgba(255,255,255,0.7);">Android &amp; iOS — Notify me below</div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- SHLOKA OF THE DAY -->
 <section style="background:linear-gradient(160deg,#2A0000 0%,#4A0808 50%,#2A0000 100%);padding:80px 24px;position:relative;overflow:hidden;">
@@ -462,7 +459,7 @@ var shlokas = [
   {d:"जननी जन्मभूमिश्च स्वर्गादपि गरीयसी।",t:"Janani janmabhoomishcha swargadapi gariyasi",m:{en:"Mother and motherland are greater than heaven itself.",hi:"माता और मातृभूमि स्वर्ग से भी महान हैं।",kn:"ತಾಯಿ ಮತ್ತು ತಾಯ್ನಾಡು ಸ್ವರ್ಗಕ್ಕಿಂತಲೂ ಮಹಾನ್.",ta:"தாயும் தாய்நாடும் சொர்க்கத்தையும் விட சிறந்தவை.",te:"తల్లి మరియు మాతృభూమి స్వర్గం కంటే గొప్పవి.",ml:"അമ്മയും മാതൃഭൂമിയും സ്വർഗ്ഗത്തേക്കാൾ മഹത്തരമാണ്.",gu:"માતા અને માતૃભૂમિ સ્વર્ગ કરતાં ઉત્તમ છે.",mr:"माता आणि मातृभूमी स्वर्गापेक्षाही श्रेष्ठ आहेत.",bn:"মাতা ও মাতৃভূমি স্বর্গের চেয়েও মহান।"},s:"— Valmiki Ramayana 6.124.17"},
   {d:"ॐ असतो मा सद्गमय।<br>तमसो मा ज्योतिर्गमय।",t:"Om asato ma sadgamaya tamaso ma jyotirgamaya",m:{en:"Lead me from untruth to truth. Lead me from darkness to light.",hi:"असत्य से सत्य की ओर ले चलो। अंधकार से प्रकाश की ओर।",kn:"ಅಸತ್ಯದಿಂದ ಸತ್ಯದೆಡೆಗೆ ನಡೆಸು. ಅಂಧಕಾರದಿಂದ ಬೆಳಕಿನೆಡೆಗೆ.",ta:"பொய்யிலிருந்து உண்மைக்கு. இருளிலிருந்து வெளிச்சத்திற்கு.",te:"అసత్యం నుండి సత్యం వైపు. చీకటి నుండి వెలుతురు వైపు.",ml:"അസത്യത്തിൽ നിന്ന് സത്യത്തിലേക്ക്.",gu:"અસત્યથી સત્ય તરફ. અંધારામાંથી પ્રકાશ તરફ.",mr:"असत्याकडून सत्याकडे. अंधाराकडून प्रकाशाकडे.",bn:"অসত্য থেকে সত্যের দিকে। অন্ধকার থেকে আলোর দিকে।"},s:"— Brihadaranyaka Upanishad 1.3.28"},
   {d:"योगः कर्मसु कौशलम्।",t:"Yogah karmasu kaushalam",m:{en:"Yoga is excellence in action. True yoga means performing every action with skill and awareness.",hi:"योग कर्मों में कुशलता है।",kn:"ಯೋಗ ಎಂದರೆ ಕರ್ಮಗಳಲ್ಲಿ ನಿಪುಣತೆ.",ta:"யோகம் என்பது செயல்களில் திறமை.",te:"యోగం అంటే కర్మలలో నైపుణ్యం.",ml:"യോഗം കർമ്മങ്ങളിലെ നൈപുണ്യം.",gu:"યોગ એટલે કર્મોમાં કુશળતા.",mr:"योग म्हणजे कर्मांमध्ये कुशलता.",bn:"যোগ হলো কর্মে দক্ষতা।"},s:"— Bhagavad Gita 2.50"},
-  {d:"सर्वं खल्विदं ब्रह्म।",t:"Sarvam khalvidam brahma",m:{en:"All this is indeed Brahman. Everything in existence is a manifestation of divine consciousness.",hi:"यह सब कुछ ब्रह्म ही है।",kn:"ಇವೆಲ್ಲವೂ ಬ್ರಹ್ಮವೇ.",ta:"இவை அனைத்தும் பிரம்மமே.",te:"ఇవన్నీ బ్రహ్మమే.",ml:"ഇതെല்லாം ബ്രഹ്മം തന്നെ.",gu:"આ સઘળું બ્રહ્મ જ છે.",mr:"हे सर्व ब्रह्मच आहे.",bn:"এই সব কিছুই ব্রহ্ম।"},s:"— Chandogya Upanishad 3.14.1"},
+  {d:"सर्वं खल्विदं ब्रह्म।",t:"Sarvam khalvidam brahma",m:{en:"All this is indeed Brahman. Everything in existence is a manifestation of divine consciousness.",hi:"यह सब कुछ ब्रह्म ही है।",kn:"ಇವೆಲ್ಲವೂ ಬ್ರಹ್ಮವೇ.",ta:"இவை அனைத்தும் பிரம்மமே.",te:"ఇవన్నీ బ్రహ్మమే.",ml:"ഇതെല്லാം ബ്രഹ്മം തന്നെ.",gu:"આ સઘળું બ્રહ્મ જ છે.",mr:"हे सर्व ब्रह्मच आहे.",bn:"এই সব কিছুই ব্রহ্ম।"},s:"— Chandogya Upanishad 3.14.1"},
   {d:"तत् त्वम् असि।",t:"Tat Tvam Asi",m:{en:"That thou art. You are not separate from the universal consciousness. The divine is within you.",hi:"वह तुम हो। परमात्मा तुम्हारे भीतर है।",kn:"ಅದು ನೀನೇ. ದೇವರು ನಿನ್ನ ಒಳಗಿದ್ದಾನೆ.",ta:"அது நீயே. இறை உன்னுள்ளே உள்ளது.",te:"అది నువ్వే. దేవుడు నీలోనే ఉన్నాడు.",ml:"അത് നീ തന്നെ. ദൈവം നിനക്കുള്ളിലുണ്ട്.",gu:"તે તું જ છે. ઈશ્વર ભીતર છે.",mr:"ते तूच आहेस. देव तुझ्या आत आहे.",bn:"সেটা তুমিই। ঈশ্বর তোমার মধ্যেই।"},s:"— Chandogya Upanishad 6.8.7"},
   {d:"परोपकारार्थमिदं शरीरम्।",t:"Paropakaarthamidam shareeram",m:{en:"This body exists for the service of others. Trees, rivers and cows all give for others.",hi:"यह शरीर परोपकार के लिए है।",kn:"ಈ ದೇಹ ಸೇವೆಗಾಗಿಯೇ.",ta:"இந்த உடல் மற்றவர்களின் சேவைக்காகவே.",te:"ఈ శరీరం ఇతరుల సేవకే.",ml:"ഈ ശരീരം സേവനത്തിനായുള്ളതാണ്.",gu:"આ શરીર પરોપકાર માટે છે.",mr:"हे शरीर परोपकारासाठीच आहे.",bn:"এই শরীর অন্যের সেবার জন্য।"},s:"— Subhashitani"}
 ];
@@ -744,7 +741,7 @@ loadShloka();
         <p class="q-count">Asked 1,247 times</p>
         <h3>What is Karma and how does it affect our next life?</h3>
         <p>Explore what the Bhagavad Gita, Mahabharata and Upanishads teach about the law of karma, sanchita karma, and the cycle of rebirth.</p>
-       <a class="q-link" href="what-is-karma.html">Read More →</a>
+        <a class="q-link" href="what-is-karma.html">Read More →</a>
       </div>
       <div class="question-card">
         <p class="q-count">Asked 983 times</p>
@@ -911,33 +908,35 @@ loadShloka();
 </section>
 
 <!-- DOWNLOAD CTA -->
-<section style="background:linear-gradient(160deg,#3E0000,#5A0A0A);padding:100px 24px;text-align:center;color:white;position:relative;overflow:hidden">
+<!-- FIX: Added id="download-section" so the scroll target works -->
+<section id="download-section" style="background:linear-gradient(160deg,#3E0000,#5A0A0A);padding:100px 24px;text-align:center;color:white;position:relative;overflow:hidden">
   <div style="max-width:720px;margin:0 auto">
     <h2 style="font-family:'Cinzel Decorative',serif;font-size:clamp(28px,4vw,42px);margin-bottom:12px">DharmaChat Mobile App</h2>
-    <p style="font-family:'EB Garamond',serif;font-style:italic;font-size:19px;color:rgba(255,255,255,0.7);margin-bottom:40px">Launching soon on Android & iOS</p>
+    <p style="font-family:'EB Garamond',serif;font-style:italic;font-size:19px;color:rgba(255,255,255,0.7);margin-bottom:40px">Launching soon on Android &amp; iOS</p>
     
-    <div style="display:flex;justify-content:center;gap:24px;flex-wrap:wrap">
-  <!-- App Store badge - same size -->
-  <a href="#" style="display:block">
-    <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" style="height:56px;width:auto;" alt="Download on the App Store">
-  </a>
-  <!-- Google Play badge - same size -->
-  <a href="#" style="display:block">
-    <img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" style="height:56px;width:auto;" alt="Get it on Google Play">
-  </a>
-</div>
+    <div style="display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-bottom:40px;">
+      <a href="#" style="display:block">
+        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" style="height:56px;width:auto;" alt="Download on the App Store">
+      </a>
+      <a href="#" style="display:block">
+        <img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" style="height:56px;width:auto;" alt="Get it on Google Play">
+      </a>
+    </div>
 
     <div style="max-width:420px;margin:0 auto">
+      <!-- FIX: Changed id from "appEmail" to match the notifyForApp() function -->
       <input id="appEmail" type="email" placeholder="Your email address" style="width:100%;padding:16px 20px;border-radius:50px;border:1px solid rgba(212,160,23,0.4);background:rgba(255,255,255,0.1);color:white;font-size:16px;outline:none;margin-bottom:16px">
+      <div id="appNotifyMsg" style="min-height:20px;margin-bottom:12px;font-family:'Cinzel',serif;font-size:13px;"></div>
       <button onclick="notifyForApp()" style="width:100%;padding:16px;background:linear-gradient(135deg,var(--saffron),var(--gold));border:none;border-radius:50px;color:white;font-family:'Cinzel',serif;font-size:15px;font-weight:700;cursor:pointer">Notify Me When App Launches 🔔</button>
     </div>
   </div>
 </section>
 
+<!-- FIX: Added the missing notifyForApp() function -->
 <script>
-function notifyMe() {
-  var email = document.getElementById('notifyEmail').value.trim();
-  var msg = document.getElementById('notifyMsg');
+function notifyForApp() {
+  var email = document.getElementById('appEmail').value.trim();
+  var msg = document.getElementById('appNotifyMsg');
   if (!email || !email.includes('@')) {
     msg.style.color = '#F5832A';
     msg.textContent = 'Please enter a valid email address.';
@@ -945,7 +944,7 @@ function notifyMe() {
   }
   msg.style.color = '#F0C040';
   msg.textContent = '🙏 Thank you! We will notify you the moment the app launches.';
-  document.getElementById('notifyEmail').value = '';
+  document.getElementById('appEmail').value = '';
 }
 </script>
 
