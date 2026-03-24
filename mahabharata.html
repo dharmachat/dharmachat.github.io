@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The Mahabharata — Complete Story in 7 Languages | DharmaChat Premium</title>
+<meta name="description" content="Read the complete Mahabharata — all 18 Parvas — in English, Hindi, Kannada, Telugu, Tamil, Malayalam and Gujarati. Exclusive DharmaChat Premium feature."/>
+<link rel="icon" type="image/jpeg" href="favicon.jpeg"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Noto+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --saffron:#E8611A;--saffron-lt:#F5832A;
+  --gold:#D4A017;--gold-lt:#F0C040;--gold-dk:#A07800;
+  --maroon:#6B1A1A;--maroon-dk:#3E0000;--maroon-mid:#5A0A0A;
+  --cream:#FDF6E3;--cream-dk:#F5EDD0;
+  --white:#FFFFFF;--text-dark:#1E0A00;--text-mid:#4A2010;--text-lt:#8B6050;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans',sans-serif;background:var(--cream);color:var(--text-dark);line-height:1.6;overflow-x:hidden}
+
+/* NAV */
+nav{background:var(--maroon-dk);border-bottom:1px solid rgba(212,160,23,0.2);padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;box-shadow:0 2px 20px rgba(0,0,0,0.3)}
+.logo-wrap{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-wrap img{width:36px;height:36px;border-radius:50%;object-fit:cover}
+.logo-name{font-family:'Cinzel Decorative',serif;font-size:18px;color:var(--gold-lt)}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav-link{font-family:'Cinzel',serif;font-size:12px;color:rgba(240,192,64,0.65);text-decoration:none;letter-spacing:.06em}
+.nav-link:hover{color:var(--gold-lt)}
+.btn-upgrade{background:linear-gradient(135deg,var(--gold),var(--saffron));color:white;font-family:'Cinzel',serif;font-size:12px;font-weight:700;padding:8px 20px;border-radius:50px;text-decoration:none;letter-spacing:.05em;box-shadow:0 4px 12px rgba(212,160,23,0.4)}
+
+/* HERO */
+.hero{background:linear-gradient(160deg,var(--maroon-dk) 0%,#4A0A0A 40%,#7A1A00 70%,#3E0000 100%);padding:80px 24px 60px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='60' cy='60' r='58' fill='none' stroke='%23D4A017' stroke-opacity='0.06' stroke-width='1'/%3E%3Ccircle cx='60' cy='60' r='40' fill='none' stroke='%23D4A017' stroke-opacity='0.04' stroke-width='1'/%3E%3C/svg%3E") repeat;opacity:.6}
+.hero::after{content:'⚔️';position:absolute;right:-20px;top:50%;transform:translateY(-50%);font-size:400px;opacity:.04;pointer-events:none}
+.hero-tag{display:inline-block;background:rgba(212,160,23,0.15);border:1px solid rgba(212,160,23,0.35);color:var(--gold-lt);font-family:'Cinzel',serif;font-size:11px;letter-spacing:.14em;padding:5px 18px;border-radius:20px;margin-bottom:20px}
+.hero h1{font-family:'Cinzel Decorative',serif;font-size:clamp(28px,5vw,52px);color:var(--white);line-height:1.15;margin-bottom:16px;text-shadow:0 2px 20px rgba(0,0,0,0.4)}
+.hero h1 span{color:var(--gold-lt)}
+.hero-sub{font-family:'EB Garamond',serif;font-style:italic;font-size:19px;color:rgba(255,255,255,0.65);max-width:700px;margin:0 auto 16px;line-height:1.7}
+.hero-meta{font-family:'Cinzel',serif;font-size:11px;letter-spacing:.1em;color:rgba(255,255,255,0.4);margin-bottom:36px}
+.hero-stats{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;margin-bottom:36px}
+.hero-stat{text-align:center}
+.hero-stat strong{display:block;font-family:'Cinzel Decorative',serif;font-size:24px;color:var(--gold-lt);line-height:1}
+.hero-stat span{font-family:'Cinzel',serif;font-size:10px;letter-spacing:.1em;color:rgba(255,255,255,0.4);margin-top:4px;display:block}
+.premium-badge{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,rgba(212,160,23,0.2),rgba(232,97,26,0.15));border:1px solid rgba(212,160,23,0.4);border-radius:50px;padding:8px 20px;font-family:'Cinzel',serif;font-size:12px;color:var(--gold-lt);letter-spacing:.08em}
+
+/* LANG SWITCHER */
+.lang-bar{background:var(--maroon-dk);border-bottom:1px solid rgba(212,160,23,0.15);padding:14px 24px;position:sticky;top:64px;z-index:100}
+.lang-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.lang-label{font-family:'Cinzel',serif;font-size:10px;letter-spacing:.1em;color:rgba(255,255,255,0.35);margin-right:4px;flex-shrink:0}
+.lang-btn{font-family:'Cinzel',serif;font-size:11px;letter-spacing:.04em;padding:6px 14px;border-radius:50px;border:1px solid rgba(212,160,23,0.2);background:transparent;color:rgba(255,255,255,0.45);cursor:pointer;transition:all .2s;flex-shrink:0}
+.lang-btn:hover{background:rgba(212,160,23,0.1);color:var(--gold-lt)}
+.lang-btn.active{background:rgba(212,160,23,0.2);border-color:rgba(212,160,23,0.5);color:var(--gold-lt)}
+
+/* PROGRESS */
+.progress-bar{max-width:900px;margin:0 auto;padding:20px 24px 0}
+.progress-track{display:flex;gap:4px;align-items:center}
+.progress-parva{height:4px;border-radius:2px;flex:1;background:rgba(107,26,26,0.15);cursor:pointer;transition:all .2s;position:relative}
+.progress-parva.free{background:linear-gradient(90deg,var(--saffron),var(--gold))}
+.progress-parva.locked{background:rgba(107,26,26,0.15)}
+.progress-parva:hover::after{content:attr(data-name);position:absolute;bottom:10px;left:50%;transform:translateX(-50%);background:var(--maroon-dk);color:var(--gold-lt);font-family:'Cinzel',serif;font-size:9px;padding:3px 8px;border-radius:4px;white-space:nowrap;pointer-events:none;letter-spacing:.04em}
+
+/* MAIN LAYOUT */
+.main{max-width:900px;margin:0 auto;padding:40px 24px 80px}
+
+/* PARVA */
+.parva{margin-bottom:64px;position:relative}
+.parva-header{display:flex;align-items:flex-start;gap:20px;margin-bottom:28px;padding-bottom:20px;border-bottom:2px solid rgba(212,160,23,0.15)}
+.parva-num{font-family:'Cinzel Decorative',serif;font-size:52px;color:rgba(212,160,23,0.2);line-height:1;flex-shrink:0;min-width:60px}
+.parva-title-wrap{}
+.parva-badge{display:inline-block;font-family:'Cinzel',serif;font-size:9px;letter-spacing:.12em;padding:3px 10px;border-radius:20px;background:rgba(232,97,26,0.1);color:var(--saffron);margin-bottom:8px}
+.parva-title{font-family:'Cinzel',serif;font-size:26px;color:var(--maroon-dk);font-weight:700;line-height:1.2;margin-bottom:4px}
+.parva-sanskrit{font-family:'EB Garamond',serif;font-style:italic;font-size:18px;color:var(--gold-dk)}
+.parva-meta{font-family:'Cinzel',serif;font-size:10px;letter-spacing:.08em;color:#bbb;margin-top:6px}
+
+/* STORY */
+.story{background:white;border-radius:16px;border:1px solid rgba(107,26,26,0.07);box-shadow:0 2px 12px rgba(107,26,26,0.05);padding:28px;margin-bottom:20px}
+.story-label{font-family:'Cinzel',serif;font-size:10px;letter-spacing:.1em;color:var(--saffron);margin-bottom:12px}
+.story h3{font-family:'Cinzel',serif;font-size:18px;color:var(--maroon-dk);font-weight:700;margin-bottom:14px;line-height:1.4}
+.story-text{font-family:'EB Garamond',serif;font-size:18px;line-height:1.85;color:var(--text-dark)}
+.story-text p{margin-bottom:16px}
+.story-text strong{color:var(--maroon-dk)}
+.shloka-block{background:linear-gradient(135deg,rgba(62,0,0,0.03),rgba(212,160,23,0.06));border:1px solid rgba(212,160,23,0.2);border-radius:12px;padding:22px 26px;margin:20px 0;text-align:center}
+.shloka-sanskrit{font-family:'EB Garamond',serif;font-size:20px;color:var(--maroon-dk);line-height:1.7;margin-bottom:6px;font-weight:500}
+.shloka-meaning{font-family:'EB Garamond',serif;font-style:italic;font-size:16px;color:var(--text-mid);line-height:1.6;margin-bottom:6px}
+.shloka-source{font-family:'Cinzel',serif;font-size:10px;letter-spacing:.08em;color:var(--gold-dk)}
+
+/* PAYWALL */
+.parva.locked-parva{position:relative}
+.parva.locked-parva .parva-content{filter:blur(5px);user-select:none;pointer-events:none;max-height:200px;overflow:hidden}
+.paywall-overlay{position:absolute;bottom:0;left:0;right:0;z-index:10;background:linear-gradient(to top,var(--cream) 50%,transparent 100%);padding:0 0 24px;text-align:center}
+.paywall-box{background:linear-gradient(135deg,var(--maroon-dk),var(--maroon-mid));border-radius:20px;padding:32px 28px;margin:0 auto;max-width:560px;border:1px solid rgba(212,160,23,0.3);box-shadow:0 8px 40px rgba(0,0,0,0.3)}
+.paywall-icon{font-size:36px;margin-bottom:12px}
+.paywall-box h3{font-family:'Cinzel Decorative',serif;font-size:20px;color:var(--gold-lt);margin-bottom:10px;line-height:1.3}
+.paywall-box p{font-family:'EB Garamond',serif;font-style:italic;font-size:16px;color:rgba(255,255,255,0.6);margin-bottom:20px;line-height:1.6}
+.paywall-features{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-bottom:24px}
+.paywall-feature{font-family:'Cinzel',serif;font-size:10px;letter-spacing:.06em;color:var(--gold-lt);background:rgba(212,160,23,0.1);border:1px solid rgba(212,160,23,0.2);border-radius:50px;padding:5px 14px}
+.btn-unlock{display:inline-block;padding:14px 36px;background:linear-gradient(135deg,var(--saffron),var(--gold));border:none;border-radius:50px;color:white;font-family:'Cinzel',serif;font-size:14px;font-weight:700;letter-spacing:.06em;cursor:pointer;text-decoration:none;box-shadow:0 4px 20px rgba(232,97,26,0.4);transition:all .2s;margin-bottom:10px;display:block;width:fit-content;margin:0 auto 12px}
+.btn-unlock:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(232,97,26,0.5)}
+.paywall-note{font-family:'Cinzel',serif;font-size:10px;color:rgba(255,255,255,0.3);letter-spacing:.06em}
+
+/* DIVIDER */
+.parva-divider{text-align:center;margin:48px 0;display:flex;align-items:center;gap:16px}
+.parva-divider::before,.parva-divider::after{content:'';flex:1;height:1px;background:rgba(107,26,26,0.1)}
+.parva-divider span{font-family:'EB Garamond',serif;font-size:24px;color:rgba(212,160,23,0.3)}
+
+/* PARVA NAV */
+.parva-nav{background:white;border-radius:16px;border:1px solid rgba(107,26,26,0.08);padding:24px;margin-bottom:40px}
+.parva-nav h3{font-family:'Cinzel',serif;font-size:13px;letter-spacing:.1em;color:var(--maroon-dk);margin-bottom:16px;font-weight:700}
+.parva-nav-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+@media(max-width:600px){.parva-nav-grid{grid-template-columns:repeat(2,1fr)}}
+.parva-nav-item{font-family:'Cinzel',serif;font-size:10px;letter-spacing:.04em;padding:8px 10px;border-radius:8px;border:1px solid rgba(107,26,26,0.08);color:var(--text-mid);cursor:pointer;transition:all .2s;text-decoration:none;display:flex;align-items:center;gap:6px;line-height:1.3}
+.parva-nav-item:hover{background:rgba(107,26,26,0.04);border-color:rgba(212,160,23,0.25);color:var(--maroon)}
+.parva-nav-item.locked-item{color:#ccc;cursor:default}
+.parva-nav-item.locked-item:hover{background:none;border-color:rgba(107,26,26,0.08)}
+.lock-icon{font-size:10px;flex-shrink:0}
+
+/* FOOTER */
+footer{background:var(--maroon-dk);padding:40px 24px;text-align:center}
+footer p{font-family:'Cinzel',serif;font-size:11px;color:rgba(255,255,255,0.25);letter-spacing:.05em}
+footer a{color:rgba(240,192,64,0.5);text-decoration:none;margin:0 10px}
+
+@media(max-width:600px){
+  nav .nav-right .nav-link{display:none}
+  .parva-header{flex-direction:column;gap:10px}
+  .parva-num{font-size:36px}
+  .parva-title{font-size:20px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="logo-wrap" href="index.html">
+    <img src="logo.jpeg" alt="DharmaChat"/>
+    <span class="logo-name">DharmaChat</span>
+  </a>
+  <div class="nav-right">
+    <a class="nav-link" href="index.html">Home</a>
+    <a class="nav-link" href="articles.html">Articles</a>
+    <a class="btn-upgrade" href="premium.html">👑 Go Premium</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">✦ PREMIUM FEATURE · EXCLUSIVE CONTENT</div>
+  <h1>The <span>Mahabharata</span><br>Complete Story</h1>
+  <p class="hero-sub">The world's greatest epic — 100,000 verses across 18 Parvas — now available in 7 Indian languages. From the birth of the Pandavas to the final battle of Kurukshetra.</p>
+  <p class="hero-meta">18 PARVAS · 7 LANGUAGES · 100,000 VERSES · COMPLETE STORY</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><strong>18</strong><span>PARVAS</span></div>
+    <div class="hero-stat"><strong>7</strong><span>LANGUAGES</span></div>
+    <div class="hero-stat"><strong>100K+</strong><span>VERSES</span></div>
+    <div class="hero-stat"><strong>5,000+</strong><span>YEARS OLD</span></div>
+  </div>
+  <div class="premium-badge">👑 &nbsp; Premium Members get access to all 18 Parvas in all 7 languages</div>
+</div>
+
+<!-- LANG BAR -->
+<div class="lang-bar">
+  <div class="lang-inner">
+    <span class="lang-label">READ IN:</span>
+    <button class="lang-btn active" onclick="setLang('en',this)">English</button>
+    <button class="lang-btn" onclick="setLang('hi',this)">हिंदी</button>
+    <button class="lang-btn" onclick="setLang('kn',this)">ಕನ್ನಡ</button>
+    <button class="lang-btn" onclick="setLang('te',this)">తెలుగు</button>
+    <button class="lang-btn" onclick="setLang('ta',this)">தமிழ்</button>
+    <button class="lang-btn" onclick="setLang('ml',this)">മലയാളം</button>
+    <button class="lang-btn" onclick="setLang('gu',this)">ગુજરાતી</button>
+  </div>
+</div>
+
+<!-- PROGRESS -->
+<div class="progress-bar">
+  <div class="progress-track" id="progressTrack"></div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- PARVA NAV -->
+  <div class="parva-nav">
+    <h3>📚 ALL 18 PARVAS OF THE MAHABHARATA</h3>
+    <div class="parva-nav-grid" id="parvaNavGrid"></div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- PARVA 1 — ADI PARVA (FREE) -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <div class="parva" id="parva-1">
+    <div class="parva-header">
+      <div class="parva-num">01</div>
+      <div class="parva-title-wrap">
+        <div class="parva-badge">FREE PREVIEW</div>
+        <div class="parva-title" data-lang="en">Adi Parva — The Book of Beginnings</div>
+        <div class="parva-title" data-lang="hi" style="display:none;">आदि पर्व — आरम्भ की कथा</div>
+        <div class="parva-title" data-lang="kn" style="display:none;">ಆದಿ ಪರ್ವ — ಆರಂಭದ ಕಥೆ</div>
+        <div class="parva-title" data-lang="te" style="display:none;">ఆది పర్వ — ప్రారంభ కథ</div>
+        <div class="parva-title" data-lang="ta" style="display:none;">ஆதி பர்வம் — தொடக்கத்தின் கதை</div>
+        <div class="parva-title" data-lang="ml" style="display:none;">ആദി പർവം — ആരംഭത്തിന്റെ കഥ</div>
+        <div class="parva-title" data-lang="gu" style="display:none;">આદિ પર્વ — આરંભની કથા</div>
+        <div class="parva-sanskrit">आदिपर्व</div>
+        <div class="parva-meta">18 SUB-BOOKS · 8,884 VERSES</div>
+      </div>
+    </div>
+
+    <div class="parva-content">
+      <!-- Story 1 -->
+      <div class="story">
+        <div class="story-label">✦ STORY 1 OF ADI PARVA</div>
+        <h3 data-lang="en">The Serpent Sacrifice and the Birth of the Mahabharata</h3>
+        <h3 data-lang="hi" style="display:none;">सर्प यज्ञ और महाभारत का जन्म</h3>
+        <h3 data-lang="kn" style="display:none;">ಸರ್ಪ ಯಜ್ಞ ಮತ್ತು ಮಹಾಭಾರತದ ಜನನ</h3>
+        <h3 data-lang="te" style="display:none;">సర్పయాగం మరియు మహాభారత జననం</h3>
+        <h3 data-lang="ta" style="display:none;">பாம்பு யாகமும் மகாபாரதத்தின் தோற்றமும்</h3>
+        <h3 data-lang="ml" style="display:none;">സർപ്പ യജ്ഞവും മഹാഭാരതത്തിന്റെ ജനനവും</h3>
+        <h3 data-lang="gu" style="display:none;">સર્પ યજ્ઞ અને મહાભારતનો જન્મ</h3>
+        <div class="story-text">
+          <div data-lang="en">
+            <p>The Mahabharata begins not at the beginning, but at a great serpent sacrifice performed by King <strong>Janamejaya</strong>, the great-grandson of Arjuna, who seeks to destroy all serpents in revenge for the death of his father Parikshit — who was killed by the serpent king Takshaka.</p>
+            <p>At this sacrifice, the sage <strong>Vaishampayana</strong> narrates the entire story of the Pandavas and Kauravas to Janamejaya. This is how the Mahabharata is told — as a story within a story within a story, like the rings of a great tree.</p>
+            <p>The great sage <strong>Vyasa</strong>, son of Satyavati and the sage Parashara, is both a character within the Mahabharata and its composer. He dictated the entire epic to Lord Ganesha, who agreed to write it on one condition — that Vyasa would never pause in his narration. Vyasa agreed on one condition of his own — that Ganesha would not write a single word without understanding it first.</p>
+            <div class="shloka-block">
+              <div class="shloka-sanskrit">धर्मे चार्थे च कामे च मोक्षे च भरतर्षभ।<br>यदिहास्ति तदन्यत्र यन्नेहास्ति न तत् क्वचित्॥</div>
+              <div class="shloka-meaning">"Whatever is here concerning dharma, artha, kama and moksha — that is found elsewhere too. But what is not here is nowhere else." The Mahabharata contains everything.</div>
+              <div class="shloka-source">— Mahabharata · Adi Parva · 1.56</div>
+            </div>
+          </div>
+          <div data-lang="hi" style="display:none;">
+            <p>महाभारत की शुरुआत किसी साधारण कथा से नहीं, बल्कि राजा <strong>जनमेजय</strong> के महान सर्प यज्ञ से होती है। जनमेजय अर्जुन के परपोते थे और अपने पिता परीक्षित की मृत्यु का बदला लेने के लिए समस्त सर्पों को जला देना चाहते थे — क्योंकि सर्पराज तक्षक ने उनके पिता को डस कर मार दिया था।</p>
+            <p>इस यज्ञ में ऋषि <strong>वैशम्पायन</strong> ने जनमेजय को पाण्डवों और कौरवों की पूरी कथा सुनाई। इसीलिए महाभारत को "कथा के भीतर कथा" कहा जाता है।</p>
+            <p>महर्षि <strong>व्यास</strong> — सत्यवती और पराशर के पुत्र — इस महाकाव्य के रचयिता भी हैं और इसके पात्र भी। उन्होंने संपूर्ण महाभारत भगवान गणेश को श्रुतलेख में दिया, जो इस शर्त पर लिखने के लिए तैयार हुए कि व्यास कभी नहीं रुकेंगे।</p>
+            <div class="shloka-block">
+              <div class="shloka-sanskrit">धर्मे चार्थे च कामे च मोक्षे च भरतर्षभ।<br>यदिहास्ति तदन्यत्र यन्नेहास्ति न तत् क्वचित्॥</div>
+              <div class="shloka-meaning">"धर्म, अर्थ, काम और मोक्ष के बारे में जो यहाँ है वह अन्यत्र भी मिलेगा, किन्तु जो यहाँ नहीं है वह कहीं नहीं मिलेगा।"</div>
+              <div class="shloka-source">— महाभारत · आदि पर्व · 1.56</div>
+            </div>
+          </div>
+          <div data-lang="kn" style="display:none;">
+            <p>ಮಹಾಭಾರತವು ಸಾಮಾನ್ಯ ಕಥೆಯಿಂದ ಆರಂಭವಾಗುವುದಿಲ್ಲ, ಬದಲಾಗಿ ರಾಜ <strong>ಜನಮೇಜಯ</strong>ನ ಮಹಾ ಸರ್ಪ ಯಜ್ಞದಿಂದ ಆರಂಭವಾಗುತ್ತದೆ. ಜನಮೇಜಯನು ಅರ್ಜುನನ ಮರಿ ಮೊಮ್ಮಗನಾಗಿದ್ದು, ತಕ್ಷಕ ಸರ್ಪರಾಜನಿಂದ ಕೊಲ್ಲಲ್ಪಟ್ಟ ತಂದೆ ಪರೀಕ್ಷಿತನ ಸಾವಿನ ಸೇಡು ತೀರಿಸಲು ಎಲ್ಲ ಸರ್ಪಗಳನ್ನೂ ಸುಡಲು ನಿರ್ಧರಿಸಿದ್ದನು.</p>
+            <p>ಈ ಯಜ್ಞದಲ್ಲಿ ಋಷಿ <strong>ವೈಶಂಪಾಯನ</strong>ರು ಜನಮೇಜಯನಿಗೆ ಪಾಂಡವರು ಮತ್ತು ಕೌರವರ ಸಂಪೂರ್ಣ ಕಥೆಯನ್ನು ನಿರೂಪಿಸಿದರು. ಮಹಾಭಾರತವನ್ನು ಮಹಾಋಷಿ <strong>ವ್ಯಾಸ</strong>ರು ರಚಿಸಿದರು ಮತ್ತು ಅದನ್ನು ಭಗವಾನ ಗಣೇಶನಿಗೆ ಶ್ರುತಲೇಖನ ಮಾಡಿಸಿದರು.</p>
+            <div class="shloka-block">
+              <div class="shloka-sanskrit">ಧರ್ಮೇ ಚಾರ್ಥೇ ಚ ಕಾಮೇ ಚ ಮೋಕ್ಷೇ ಚ ಭರತರ್ಷಭ</div>
+              <div class="shloka-meaning">"ಧರ್ಮ, ಅರ್ಥ, ಕಾಮ ಮತ್ತು ಮೋಕ್ಷದ ಬಗ್ಗೆ ಇಲ್ಲಿ ಇರುವುದು ಎಲ್ಲೆಡೆ ಇದೆ, ಇಲ್ಲಿ ಇಲ್ಲದ್ದು ಎಲ್ಲಿಯೂ ಇಲ್ಲ."</div>
+              <div class="shloka-source">— ಮಹಾಭಾರತ · ಆದಿ ಪರ್ವ · 1.56</div>
+            </div>
+          </div>
+          <div data-lang="te" style="display:none;">
+            <p>మహాభారతము సాధారణ కథతో మొదలు కాదు — రాజు <strong>జనమేజయుని</strong> మహా సర్పయాగంతో మొదలవుతుంది. జనమేజయుడు అర్జునుని మనవడు. తక్షకుడనే సర్పరాజు తన తండ్రి పరీక్షితుని చంపాడని, అందుకు ప్రతీకారంగా సర్వ సర్పాలను యాగంలో దహించాలని నిశ్చయించాడు.</p>
+            <p>ఈ యాగంలో ఋషి <strong>వైశంపాయనుడు</strong> జనమేజయునికి పాండవుల మరియు కౌరవుల మొత్తం కథను చెప్పారు. మహాభారతాన్ని మహర్షి <strong>వ్యాసుడు</strong> రచించాడు మరియు గణేశ భగవానుని ద్వారా లిఖింపజేశాడు.</p>
+            <div class="shloka-block">
+              <div class="shloka-sanskrit">ధర్మే చార్థే చ కామే చ మోక్షే చ భరతర్షభ</div>
+              <div class="shloka-meaning">"ధర్మం, అర్థం, కామం, మోక్షం గురించి ఇక్కడ ఉన్నది అన్నిచోట్లా ఉంటుంది; ఇక్కడ లేనది ఎక్కడా లేదు."</div>
+              <div class="shloka-source">— మహాభారతం · ఆది పర్వ · 1.56</div>
+            </div>
+          </div>
+          <div data-lang="ta" style="display:none;">
+            <p>மகாபாரதம் சாதாரண கதையிலிருந்து தொடங்குவதில்லை — மன்னன் <strong>ஜனமேஜயனின்</strong> பெரும் சர்ப்ப யாகத்தில் இருந்து தொடங்குகிறது. ஜனமேஜயன் அர்ஜுனனின் கொள்ளு மகன். தக்ஷகன் என்ற நாகராஜன் தன் தந்தை பரீட்சித்தை கொன்றதால், அனைத்து பாம்புகளையும் யாகத்தில் அழிக்க முடிவு செய்தான்.</p>
+            <p>இந்த யாகத்தில் ஋ஷி <strong>வைசம்பாயனர்</strong> ஜனமேஜயனுக்கு பாண்டவர்கள் மற்றும் கௌரவர்களின் முழு கதையை சொன்னார். மகாபாரதத்தை மகர்ஷி <strong>வ்யாஸர்</strong> இயற்றினார் மற்றும் கணேச பகவானிடம் எழுத வேண்டினார்.</p>
+            <div class="shloka-block">
+              <div class="shloka-sanskrit">தர்மே சார்தே ச காமே ச மோக்ஷே ச பரதர்ஷப</div>
+              <div class="shloka-meaning">"தர்மம், அர்த்தம், காமம், மோட்சம் பற்றி இங்குள்ளது எங்கும் உண்டு; இங்கு இல்லாதது எங்கும் இல்லை."</div>
+              <div class="shloka-source">— மகாபாரதம் · ஆதி பர்வம் · 1.56</div>
+            </div>
+          </div>
+          <div data-lang="ml" style="display:none;">
+            <p>മഹാഭാരതം ഒരു സാധാരണ കഥയിൽ നിന്ന് ആരംഭിക്കുന്നില്ല — രാജാ <strong>ജനമേജയന്റെ</strong> മഹത്തായ സർപ്പ യജ്ഞത്തിൽ നിന്ന് ആരംഭിക്കുന്നു. ജനമേജയൻ അർജുനന്റെ കൊച്ചുമകൻ. തക്ഷകൻ എന്ന സർപ്പരാജൻ തന്റെ അച്ഛൻ പരീക്ഷിത്തിനെ കൊന്നതിന്, എല്ലാ സർപ്പങ്ങളെയും യജ്ഞത്തിൽ ദഹിപ്പിക്കാൻ തീരുമാനിച്ചു.</p>
+            <p>ഈ യജ്ഞത്തിൽ ഋഷി <strong>വൈശംപായനൻ</strong> ജനമേജയന് പാണ്ഡവരുടെയും കൗരവരുടെയും മുഴുവൻ കഥ പറഞ്ഞു. മഹർഷി <strong>വ്യാസൻ</strong> ഈ മഹാകാവ്യം രചിച്ച് ഗണേശ ഭഗവാന്തൂ ലേഖനം ചെയ്യിച്ചു.</p>
+            <div class="shloka-block">
+              <div class="shloka-sanskrit">ധർമേ ചാർഥേ ച കാമേ ച മോക്ഷേ ച ഭരതർഷഭ</div>
+              <div class="shloka-meaning">"ധർമ്മം, അർഥം, കാമം, മോക്ഷം സംബന്ധിച്ച് ഇവിടെ ഉള്ളത് മറ്റെവിടെയും ഉണ്ടു; ഇവിടെ ഇല്ലാത്തത് ഒരിടത്തും ഇല്ല."</div>
+              <div class="shloka-source">— മഹാഭാരതം · ആദി പർവം · 1.56</div>
+            </div>
+          </div>
+          <div data-lang="gu" style="display:none;">
+            <p>મહાભારત સામાન્ય કથાથી શરૂ થતું નથી — રાજા <strong>જનમેજય</strong>ના મહા સર્પ યજ્ઞથી શરૂ થાય છે. જનમેજય અર્જુનનો પ્રપૌત્ર હતો. તક્ષક નામના નાગરાજે તેના પિતા પરીક્ષિતને ડસ્યા હોવાથી, બધા સર્પોને યજ્ઞમાં ભસ્મ કરવા નક્કી કર્યું.</p>
+            <p>આ યજ્ઞમાં ઋષિ <strong>વૈશમ્પાયન</strong>ે જનમેજયને પાંડવો અને કૌરવોની સંપૂર્ણ કથા સંભળાવી. મહર્ષિ <strong>વ્યાસ</strong>ે આ મહાકાવ્ય રચ્યું અને ભગવાન ગણેશ પાસે લખાવ્યું.</p>
+            <div class="shloka-block">
+              <div class="shloka-sanskrit">ધર્મે ચાર્થે ચ કામે ચ મોક્ષે ચ ભરતર્ષભ</div>
+              <div class="shloka-meaning">"ધર્મ, અર્થ, કામ અને મોક્ષ વિશે જે અહીં છે તે અન્યત્ર પણ મળશે; પણ જે અહીં નથી તે ક્યાંય નથી."</div>
+              <div class="shloka-source">— મહાભારત · આદિ પર્વ · 1.56</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Story 2 -->
+      <div class="story">
+        <div class="story-label">✦ STORY 2 OF ADI PARVA</div>
+        <h3 data-lang="en">The Birth of the Pandavas and Kauravas</h3>
+        <h3 data-lang="hi" style="display:none;">पाण्डवों और कौरवों का जन्म</h3>
+        <h3 data-lang="kn" style="display:none;">ಪಾಂಡವರು ಮತ್ತು ಕೌರವರ ಜನನ</h3>
+        <h3 data-lang="te" style="display:none;">పాండవులు మరియు కౌరవుల జననం</h3>
+        <h3 data-lang="ta" style="display:none;">பாண்டவர்களும் கௌரவர்களும் பிறந்த கதை</h3>
+        <h3 data-lang="ml" style="display:none;">പാണ്ഡവരുടെയും കൗരവരുടെയും ജനനം</h3>
+        <h3 data-lang="gu" style="display:none;">પાંડવો અને કૌરવોનો જન્મ</h3>
+        <div class="story-text">
+          <div data-lang="en">
+            <p>King <strong>Shantanu</strong> of Hastinapur married the goddess Ganga, who bore him a son — <strong>Devavrata</strong>, later known as Bhishma, who took the terrible vow of lifelong celibacy so his father could marry Satyavati. From Satyavati's lineage came Dhritarashtra (blind from birth) and Pandu.</p>
+            <p><strong>Pandu</strong> had two wives — Kunti and Madri. But Pandu was cursed that he would die if he embraced a woman. So Kunti used a divine mantra to summon gods and bore three sons: <strong>Yudhishthira</strong> (from Yama, god of justice), <strong>Bhima</strong> (from Vayu, the wind god), and <strong>Arjuna</strong> (from Indra, king of gods). Madri bore <strong>Nakula</strong> and <strong>Sahadeva</strong> from the Ashwins. These five are the Pandavas.</p>
+            <p><strong>Dhritarashtra</strong> and Gandhari had 100 sons — the Kauravas — born from a divine boon. The eldest was <strong>Duryodhana</strong>, whose very birth was accompanied by terrible omens — jackals howled and fire fell from the sky. The wise counsellors advised the king to abandon the child, but paternal love prevailed.</p>
+            <p>Thus were born the two great families whose conflict would shake the entire world — the five Pandavas and the hundred Kauravas, all descendants of the great King Bharata.</p>
+          </div>
+          <div data-lang="hi" style="display:none;">
+            <p>हस्तिनापुर के राजा <strong>शान्तनु</strong> ने देवी गंगा से विवाह किया, जिससे उन्हें एक पुत्र हुआ — <strong>देवव्रत</strong>, जो बाद में भीष्म के नाम से जाने गए। भीष्म ने आजीवन ब्रह्मचर्य का भीषण प्रण लिया ताकि उनके पिता सत्यवती से विवाह कर सकें।</p>
+            <p><strong>पाण्डु</strong> की दो पत्नियाँ थीं — कुन्ती और माद्री। पाण्डु को श्राप था कि यदि उन्होंने स्त्री का आलिंगन किया तो मृत्यु हो जाएगी। अतः कुन्ती ने दिव्य मंत्र से तीन पुत्र प्राप्त किए: <strong>युधिष्ठिर</strong> (धर्मराज से), <strong>भीम</strong> (वायु से), और <strong>अर्जुन</strong> (इन्द्र से)। माद्री ने अश्विन देवताओं से <strong>नकुल</strong> और <strong>सहदेव</strong> को जन्म दिया।</p>
+            <p><strong>धृतराष्ट्र</strong> और गांधारी के सौ पुत्र हुए — कौरव। सबसे बड़े थे <strong>दुर्योधन</strong>, जिनके जन्म के समय भयंकर शकुन हुए। ज्ञानियों ने उन्हें त्यागने की सलाह दी, परन्तु पितृ-प्रेम आड़े आ गया।</p>
+          </div>
+          <div data-lang="kn" style="display:none;">
+            <p>ಹಸ್ತಿನಾಪುರದ ರಾಜ <strong>ಶಂತನು</strong> ದೇವಿ ಗಂಗೆಯನ್ನು ವಿವಾಹವಾದರು. ಅವರ ಮಗ <strong>ದೇವವ್ರತ</strong> — ನಂತರ ಭೀಷ್ಮ ಎಂದು ಕರೆಯಲ್ಪಟ್ಟರು — ತಂದೆ ಸತ್ಯವತಿಯನ್ನು ಮದುವೆಯಾಗಲು ಅನುವು ಮಾಡಿಕೊಡಲು ಆಜೀವನ ಬ್ರಹ್ಮಚರ್ಯದ ಭೀಷಣ ಪ್ರತಿಜ್ಞೆ ತೆಗೆದುಕೊಂಡರು.</p>
+            <p><strong>ಪಾಂಡು</strong>ಗೆ ಕುಂತಿ ಮತ್ತು ಮಾದ್ರಿ ಎಂಬ ಇಬ್ಬರು ಪತ್ನಿಯರಿದ್ದರು. ಪಾಂಡುವಿಗೆ ಶಾಪ ಇದ್ದುದರಿಂದ ಕುಂತಿ ದಿವ್ಯ ಮಂತ್ರದಿಂದ ಮೂರು ಪುತ್ರರನ್ನು ಪಡೆದಳು: <strong>ಯುಧಿಷ್ಠಿರ</strong> (ಯಮನಿಂದ), <strong>ಭೀಮ</strong> (ವಾಯುವಿನಿಂದ), <strong>ಅರ್ಜುನ</strong> (ಇಂದ್ರನಿಂದ).</p>
+            <p><strong>ಧೃತರಾಷ್ಟ್ರ</strong> ಮತ್ತು ಗಾಂಧಾರಿಗೆ ನೂರು ಮಕ್ಕಳಿದ್ದರು — ಕೌರವರು. ಹಿರಿಯ ಮಗ <strong>ದುರ್ಯೋಧನ</strong>ನ ಜನನ ಕಾಲದಲ್ಲಿ ಭಯಂಕರ ಶಕುನಗಳು ಕಂಡವು.</p>
+          </div>
+          <div data-lang="te" style="display:none;">
+            <p>హస్తినాపుర రాజు <strong>శంతనుడు</strong> గంగా దేవిని వివాహమాడాడు. వారి కుమారుడు <strong>దేవవ్రతుడు</strong> — తరువాత భీష్ముడుగా ప్రసిద్ధి పొందాడు — తన తండ్రి సత్యవతిని వివాహమాడేందుకు అనుమతించడానికి ఆజీవన బ్రహ్మచర్య ప్రతిజ్ఞ తీసుకున్నాడు.</p>
+            <p><strong>పాండురాజుకు</strong> కుంతి మరియు మాద్రి అని ఇద్దరు భార్యలు ఉన్నారు. కుంతి దివ్య మంత్రంతో ముగ్గురు కుమారులను పొందింది: <strong>యుధిష్ఠిరుడు</strong> (యమ ధర్మరాజు నుండి), <strong>భీముడు</strong> (వాయు దేవుడు నుండి), <strong>అర్జునుడు</strong> (ఇంద్రుడు నుండి).</p>
+            <p><strong>ధృతరాష్ట్రుడు</strong> మరియు గాంధారికి వందమంది కుమారులు పుట్టారు — కౌరవులు. పెద్ద కుమారుడు <strong>దుర్యోధనుడు</strong> పుట్టినప్పుడు భయంకరమైన శకునాలు కనిపించాయి.</p>
+          </div>
+          <div data-lang="ta" style="display:none;">
+            <p>ஹஸ்தினாபுர மன்னன் <strong>சந்தனு</strong> கங்கா தேவியை மணந்தான். அவர்கள் மகன் <strong>தேவव்ரதன்</strong> — பின்னர் பீஷ்மன் என்று அழைக்கப்பட்டான் — தன் தந்தை சத்யவதியை மணக்க அனுமதிக்க வாழ்நாள் பிரம்மச்சரிய சபதம் ஏற்றான்.</p>
+            <p><strong>பாண்டுவுக்கு</strong> குந்தி மற்றும் மாத்ரி என இரு மனைவியர் இருந்தனர். குந்தி தெய்வீக மந்திரத்தால் மூன்று மகன்களைப் பெற்றாள்: <strong>யுதிஷ்டிரன்</strong> (யமனிடமிருந்து), <strong>பீமன்</strong> (வாயுவிடமிருந்து), <strong>அர்ஜுனன்</strong> (இந்திரனிடமிருந்து).</p>
+            <p><strong>திருதராஷ்டிரனுக்கும்</strong> காந்தாரிக்கும் நூறு மகன்கள் பிறந்தனர் — கௌரவர்கள். மூத்த மகன் <strong>துரியோதனன்</strong> பிறந்தபோது கொடிய சகுனங்கள் தோன்றின.</p>
+          </div>
+          <div data-lang="ml" style="display:none;">
+            <p>ഹസ്തിനാപുര രാജാ <strong>ശന്തനു</strong> ഗംഗാ ദേവിയെ വിവാഹം കഴിച്ചു. അവരുടെ മകൻ <strong>ദേവവ്രതൻ</strong> — പിൽക്കാലത്ത് ഭീഷ്മൻ എന്നറിയപ്പെട്ടു — തന്റെ അച്ഛൻ സത്യവതിയെ വിവാഹം കഴിക്കാൻ അനുവദിക്കുന്നതിന് ആജീവന ബ്രഹ്മചര്യ പ്രതിജ്ഞ ചെയ്തു.</p>
+            <p><strong>പാണ്ഡുവിന്</strong> കുന്തിയും മാദ്രിയും എന്ന് രണ്ട് ഭാര്യമാർ ഉണ്ടായിരുന്നു. കുന്തി ദിവ്യ മന്ത്രം ഉപയോഗിച്ച് മൂന്ന് മക്കളെ നേടി: <strong>യുധിഷ്ഠിരൻ</strong> (യമനിൽ നിന്ന്), <strong>ഭീമൻ</strong> (വായുദേവൻ നിന്ന്), <strong>അർജുനൻ</strong> (ഇന്ദ്രൻ നിന്ന്).</p>
+            <p><strong>ധൃതരാഷ്ട്രനും</strong> ഗാന്ധാരിക്കും നൂറ് മക്കൾ ജനിച്ചു — കൗരവർ. ആദ്യ മകൻ <strong>ദുര്യോധനൻ</strong> ജനിച്ചപ്പോൾ ഭയങ്കര അശകുനങ്ങൾ പ്രത്യക്ഷപ്പെട്ടു.</p>
+          </div>
+          <div data-lang="gu" style="display:none;">
+            <p>હસ્તિનાપુરના રાજા <strong>શંતનુ</strong>એ ગંગા દેવી સાથે લગ્ન કર્યા. તેમનો પુત્ર <strong>દેવવ્રત</strong> — જે પાછળથી ભીષ્મ તરીકે ઓળખાયો — તેના પિતા સત્યવતીને પરણી શકે તે માટે આજીવન બ્રહ્મચર્યની ભીષણ પ્રતિજ્ઞા લીધી.</p>
+            <p><strong>પાંડુ</strong>ની બે પત્નીઓ હતી — કુંતી અને માદ્રી. કુંતીએ દૈવી મંત્ર વડે ત્રણ પુત્ર મેળવ્યા: <strong>યુધિષ્ઠિર</strong> (ધર્મ દેવ પાસેથી), <strong>ભીમ</strong> (વાયુ દેવ પાસેથી), <strong>અર્જુન</strong> (ઇન્દ્ર પાસેથી).</p>
+            <p><strong>ધૃતરાષ્ટ્ર</strong> અને ગાંધારીને સો પુત્ર જન્મ્યા — કૌરવ. સૌથી મોટો <strong>દુર્યોધન</strong>ના જન્મ સમયે ભયાવહ શુકન થયા.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Story 3 -->
+      <div class="story">
+        <div class="story-label">✦ STORY 3 OF ADI PARVA</div>
+        <h3 data-lang="en">The Tournament at Hastinapur and Karna's Humiliation</h3>
+        <h3 data-lang="hi" style="display:none;">हस्तिनापुर की रंगभूमि और कर्ण का अपमान</h3>
+        <h3 data-lang="kn" style="display:none;">ಹಸ್ತಿನಾಪುರದ ರಂಗಭೂಮಿ ಮತ್ತು ಕರ್ಣನ ಅವಮಾನ</h3>
+        <h3 data-lang="te" style="display:none;">హస్తినాపుర క్రీడా ప్రదర్శన మరియు కర్ణుని అవమానం</h3>
+        <h3 data-lang="ta" style="display:none;">ஹஸ்தினாபுரத்தில் போட்டி மற்றும் கர்ணனின் அவமானம்</h3>
+        <h3 data-lang="ml" style="display:none;">ഹസ്തിനാപുരത്തിലെ മത്സരവും കർണ്ണന്റെ അപമാനവും</h3>
+        <h3 data-lang="gu" style="display:none;">હસ્તિનાપુર સ્પર્ધા અને કર્ણનું અપમાન</h3>
+        <div class="story-text">
+          <div data-lang="en">
+            <p>When the Pandavas and Kauravas completed their military training under guru <strong>Dronacharya</strong>, a grand tournament was held in Hastinapur to display their skills. All the princes competed — but the day was dominated by one man: <strong>Arjuna</strong>, whose archery was incomparable.</p>
+            <p>Then, from the crowd, emerged an unknown warrior who matched every feat of Arjuna — shooting arrows with extraordinary skill, his golden armour gleaming, his earrings radiant. This was <strong>Karna</strong>, son of the charioteer Adhiratha — but secretly the firstborn son of Kunti and the Sun God Surya.</p>
+            <p>When Karna challenged Arjuna to a duel, the master of ceremonies <strong>Kripacharya</strong> stepped forward: "Who are you? State your lineage. Only kings and kshatriyas may challenge Arjuna." Karna could say nothing. He was a charioteer's adopted son. The crowd laughed.</p>
+            <p>In that moment, <strong>Duryodhana</strong> stepped forward. He publicly crowned Karna the King of Anga, giving him the status to fight. From that day, Karna's unbreakable loyalty to Duryodhana was sealed — a loyalty that would shape the entire Mahabharata war.</p>
+            <div class="shloka-block">
+              <div class="shloka-sanskrit">अनायासेन मरणं विना दैन्येन जीवनम्।<br>देहान्ते तव सान्निध्यं देहि मे परमेश्वर॥</div>
+              <div class="shloka-meaning">"Give me death without pain, life without poverty, and Thy presence at the end — O Supreme Lord." This was Karna's prayer to the Sun God, his divine father, whose son he unknowingly was.</div>
+              <div class="shloka-source">— Karna's prayer to Surya</div>
+            </div>
+          </div>
+          <div data-lang="hi" style="display:none;">
+            <p>जब पाण्डवों और कौरवों ने गुरु <strong>द्रोणाचार्य</strong> के सानिध्य में शिक्षा पूर्ण की, तब हस्तिनापुर में एक भव्य रंगभूमि का आयोजन हुआ। उस दिन सबका ध्यान <strong>अर्जुन</strong> पर था, जिनकी धनुर्विद्या अतुलनीय थी।</p>
+            <p>तभी भीड़ में से एक अज्ञात योद्धा आगे आया जिसने अर्जुन के हर करतब की बराबरी की। सुनहरे कवच और कुण्डल धारण किए हुए यह था <strong>कर्ण</strong> — सारथी अधिरथ का पुत्र, लेकिन गुप्त रूप से कुन्ती और सूर्य देव का ज्येष्ठ पुत्र।</p>
+            <p>जब कर्ण ने अर्जुन को द्वंद्वयुद्ध के लिए ललकारा, तो <strong>कृपाचार्य</strong> ने रोका: "तुम कौन हो? अपना वंश बताओ।" कर्ण कुछ न बोल सके। भीड़ ने उपहास किया।</p>
+            <p>उसी क्षण <strong>दुर्योधन</strong> आगे आए और कर्ण को अंग प्रदेश का राजा घोषित कर दिया। उस दिन से कर्ण की दुर्योधन के प्रति अटूट निष्ठा बन गई।</p>
+          </div>
+          <div data-lang="kn" style="display:none;">
+            <p>ಗುರು <strong>ದ್ರೋಣಾಚಾರ್ಯ</strong>ರ ಬಳಿ ತಮ್ಮ ವಿದ್ಯಾಭ್ಯಾಸ ಮುಗಿಸಿದ ಪಾಂಡವರು ಮತ್ತು ಕೌರವರ ಕೌಶಲ ಪ್ರದರ್ಶನಕ್ಕಾಗಿ ಹಸ್ತಿನಾಪುರದಲ್ಲಿ ರಂಗಭೂಮಿ ಆಯೋಜಿಸಲಾಯಿತು. <strong>ಅರ್ಜುನನ</strong> ಬಿಲ್ಲುವಿದ್ಯೆ ಅಸಾಧಾರಣವಾಗಿತ್ತು.</p>
+            <p>ಆಗ ಗುಂಪಿನಿಂದ ಒಬ್ಬ ಅಪರಿಚಿತ ವೀರ ಬಂದು ಅರ್ಜುನನ ಪ್ರತಿ ಸಾಧನೆಗೆ ಸಮ ಸಾಧನೆ ತೋರಿಸಿದ — ಅವನು <strong>ಕರ್ಣ</strong>, ಸಾರಥಿ ಅಧಿರಥನ ಮಗ, ಆದರೆ ರಹಸ್ಯವಾಗಿ ಕುಂತಿ ಮತ್ತು ಸೂರ್ಯ ದೇವರ ಜ್ಯೇಷ್ಠ ಪುತ್ರ.</p>
+            <p>ಕರ್ಣ ಅರ್ಜುನನನ್ನು ದ್ವಂದ್ವ ಯುದ್ಧಕ್ಕೆ ಆಹ್ವಾನಿಸಿದಾಗ, <strong>ಕೃಪಾಚಾರ್ಯ</strong> ತಡೆದು ವಂಶ ಕೇಳಿದರು. ಕರ್ಣ ಉತ್ತರಿಸಲು ಆಗಲಿಲ್ಲ. ಆ ಕ್ಷಣ <strong>ದುರ್ಯೋಧನ</strong> ಕರ್ಣನಿಗೆ ಅಂಗ ದೇಶದ ರಾಜ ಪಟ್ಟಾಭಿಷೇಕ ಮಾಡಿದ.</p>
+          </div>
+          <div data-lang="te" style="display:none;">
+            <p>గురు <strong>ద్రోణాచార్యుని</strong> వద్ద విద్య పూర్తి చేసిన పాండవులు మరియు కౌరవుల నైపుణ్య ప్రదర్శనకు హస్తినాపురంలో పోటీ నిర్వహించారు. <strong>అర్జునుని</strong> విలువిద్య అసమానమైనది.</p>
+            <p>అప్పుడు జనసమూహం నుండి ఒక అపరిచిత వీరుడు వచ్చి అర్జునుని ప్రతి ప్రదర్శనకు సమానంగా చేశాడు — అతడు <strong>కర్ణుడు</strong>, సారథి అధిరథుని కుమారుడు, అయితే రహస్యంగా కుంతి మరియు సూర్య దేవుని జ్యేష్ఠ పుత్రుడు.</p>
+            <p>కర్ణుడు అర్జునుని ద్వంద్వ యుద్ధానికి పిలిచినప్పుడు <strong>కృపాచార్యుడు</strong> వంశం అడిగారు. కర్ణుడు మాట్లాడలేకపోయాడు. ఆ క్షణం <strong>దుర్యోధనుడు</strong> కర్ణుని అంగ దేశ రాజుగా పట్టాభిషేకించాడు.</p>
+          </div>
+          <div data-lang="ta" style="display:none;">
+            <p>குரு <strong>துரோணாசாரியார்</strong> வழிகாட்டுதலில் கல்வி முடித்த பாண்டவர்கள் மற்றும் கௌரவர்களின் திறன் காட்டும் போட்டி ஹஸ்தினாபுரத்தில் நடந்தது. <strong>அர்ஜுனனின்</strong> வில்வித்தை இணையற்றது.</p>
+            <p>அப்போது ஒரு அறிமுகமில்லாத வீரன் வந்து அர்ஜுனனின் ஒவ்வொரு சாதனையையும் சமன் செய்தான் — அவன் <strong>கர்ணன்</strong>, தேரோட்டி அதிரதனின் மகன், ஆனால் இரகசியமாக குந்தியும் சூரிய பகவானும் கொண்ட மூத்த மகன்.</p>
+            <p>கர்ணன் அர்ஜுனனை இருபடை சண்டைக்கு அழைத்தபோது <strong>கிருபாசாரியார்</strong> வம்சம் கேட்டார். கர்ணன் பதில் சொல்ல முடியவில்லை. அந்த நேரத்தில் <strong>துரியோதனன்</strong> கர்ணனை அங்க நாட்டின் அரசனாக முடிசூட்டினான்.</p>
+          </div>
+          <div data-lang="ml" style="display:none;">
+            <p>ഗുരു <strong>ദ്രോണാചാര്യരുടെ</strong> കീഴിൽ വിദ്യ അഭ്യസിച്ച പാണ്ഡവരുടെയും കൗരവരുടെയും നൈപുണ്യ പ്രദർശനത്തിനായി ഹസ്തിനാപുരത്തിൽ ഒരു മഹത്തായ മത്സരം ആയോജിക്കപ്പെട്ടു. <strong>അർജുനന്റെ</strong> ധനുർവിദ്യ അതുല്യമായിരുന്നു.</p>
+            <p>ആ സമയത്ത് ജനക്കൂട്ടത്തിൽ നിന്ന് ഒരു അപരിചിതൻ വന്ന് അർജുനന്റെ ഓരോ നേട്ടത്തെയും സ്വന്തം നേട്ടംകൊണ്ട് സദൃശ്യമാക്കി — അതു <strong>കർണ്ണൻ</strong>, സാരഥി അധിരഥന്റെ മകൻ, എന്നാൽ രഹസ്യമായി കുന്തിയുടെയും സൂര്യ ദേവന്റെയും ജ്യേഷ്ഠ പുത്രൻ.</p>
+            <p>കർണ്ണൻ അർജുനനെ ദ്വന്ദ്വ യുദ്ധത്തിന് വിളിച്ചപ്പോൾ <strong>കൃപാചാര്യർ</strong> വംശം ചോദിച്ചു. കർണ്ണന് മറുപടി പറയാൻ ആകുന്നില്ല. ആ നിമിഷം <strong>ദുര്യോധനൻ</strong> കർണ്ണനെ അംഗ ദേശത്തിന്റെ രാജാവായി വാഴിച്ചു.</p>
+          </div>
+          <div data-lang="gu" style="display:none;">
+            <p>ગુરુ <strong>દ્રોણાચાર્ય</strong> પાસે શિક્ષણ પૂર્ણ કર્યા પછી, પાંડવ અને કૌરવ રાજકુમારોની કુશળતા દર્શાવવા હસ્તિનાપુરમાં ભવ્ય સ્પર્ધા યોજાઈ. <strong>અર્જુન</strong>ની ધનુર્વિદ્યા અતુલ્ય હતી.</p>
+            <p>ત્યારે ભીડમાંથી એક અજ્ઞાત વીર આગળ આવ્યો — <strong>કર્ણ</strong>, સારથી અધિરથનો દત્તક પુત્ર, પण ગુપ્ત રૂપે કુંતી અને સૂર્ય દેવના જ્યેષ્ઠ પુત્ર.</p>
+            <p>કર્ણ અર્જુનને દ્વંદ્વ યુદ્ધ માટે પડકારે ત્યારે <strong>કૃપાચાર્ય</strong>ે કુળ પૂછ્યું. કર્ણ ઉત્તર ન આપી શક્યા. ત્યારે <strong>દુર્યોધન</strong>ે કર્ણને અંગ દેશના રાજા ઘોષિત કર્યા.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="parva-divider"><span>✦</span></div>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- PARVA 2 — SABHA PARVA (FREE) -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <div class="parva" id="parva-2">
+    <div class="parva-header">
+      <div class="parva-num">02</div>
+      <div class="parva-title-wrap">
+        <div class="parva-badge">FREE PREVIEW</div>
+        <div class="parva-title" data-lang="en">Sabha Parva — The Book of the Assembly Hall</div>
+        <div class="parva-title" data-lang="hi" style="display:none;">सभा पर्व — दरबार और द्यूत क्रीड़ा</div>
+        <div class="parva-title" data-lang="kn" style="display:none;">ಸಭಾ ಪರ್ವ — ಸಭಾಂಗಣದ ಕಥೆ</div>
+        <div class="parva-title" data-lang="te" style="display:none;">సభా పర్వ — సభా మందిరం కథ</div>
+        <div class="parva-title" data-lang="ta" style="display:none;">சபா பர்வம் — அவையரங்கின் கதை</div>
+        <div class="parva-title" data-lang="ml" style="display:none;">സഭാ പർവം — സഭാ മന്ദിരത്തിന്റെ കഥ</div>
+        <div class="parva-title" data-lang="gu" style="display:none;">સભા પર્વ — સભા ભવનની કથા</div>
+        <div class="parva-sanskrit">सभापर्व</div>
+        <div class="parva-meta">10 SUB-BOOKS · 2,511 VERSES</div>
+      </div>
+    </div>
+    <div class="parva-content">
+      <div class="story">
+        <div class="story-label">✦ THE GREAT DICE GAME</div>
+        <h3 data-lang="en">The Dice Game That Changed Everything</h3>
+        <h3 data-lang="hi" style="display:none;">वह द्यूत क्रीड़ा जिसने सब बदल दिया</h3>
+        <h3 data-lang="kn" style="display:none;">ಎಲ್ಲವನ್ನೂ ಬದಲಿಸಿದ ದ್ಯೂತ ಕ್ರೀಡೆ</h3>
+        <h3 data-lang="te" style="display:none;">అన్నింటినీ మార్చిన జూద ఆట</h3>
+        <h3 data-lang="ta" style="display:none;">எல்லாவற்றையும் மாற்றிய சூதாட்டம்</h3>
+        <h3 data-lang="ml" style="display:none;">എല്ലാം മാറ്റിമറിച്ച ചൂതാട്ടം</h3>
+        <h3 data-lang="gu" style="display:none;">બધું બદલી નાખ્યો તે દ્યૂત</h3>
+        <div class="story-text">
+          <div data-lang="en">
+            <p>After the Pandavas established the magnificent city of <strong>Indraprastha</strong> and performed the Rajasuya Yajna — the imperial sacrifice that proclaimed Yudhishthira as emperor — Duryodhana burned with envy at their prosperity and their glittering <strong>Maya Sabha</strong>, the palace of illusions built by the divine architect Maya.</p>
+            <p>With his uncle <strong>Shakuni's</strong> counsel, Duryodhana invited the Pandavas to a game of dice. Yudhishthira, bound by the kshatriya code of honour that forbade refusing a challenge, accepted. Shakuni — a master of loaded dice and cunning — played on Duryodhana's behalf.</p>
+            <p>Round by round, Yudhishthira lost everything — his treasury, his kingdom, his brothers, himself. Then, in a final desperate throw, he staked their common wife <strong>Draupadi</strong>. And lost.</p>
+            <p>Draupadi was dragged into the royal assembly by her hair, clothed only in a single garment, while she was in her monthly cycle. Duryodhana's brother <strong>Dushasana</strong> was ordered to disrobe her. She cried out to all the elders — Bhishma, Drona, Dhritarashtra — and none could help. She cried out to <strong>Lord Krishna</strong>. And Krishna answered — sending an endless stream of cloth so that Dushasana could never fully disrobe her, collapsing in exhaustion.</p>
+            <div class="shloka-block">
+              <div class="shloka-sanskrit">केशेषु गृहीत्वा भीमसेनस्य भार्यां<br>दुःशासनो राजसभामानिनीं तां।</div>
+              <div class="shloka-meaning">"By the hair, Dushasana dragged into the royal court her who was worthy of all honour — the wife of Bhimasena." This moment sealed the Pandavas' fury and Dushasana's doom.</div>
+              <div class="shloka-source">— Mahabharata · Sabha Parva</div>
+            </div>
+            <p>Bhima made two of the most famous vows in all of scripture: he would break Duryodhana's thigh (where Duryodhana had lewdly invited Draupadi to sit), and he would drink Dushasana's blood. Both vows were kept.</p>
+          </div>
+          <div data-lang="hi" style="display:none;">
+            <p>पाण्डवों ने <strong>इन्द्रप्रस्थ</strong> नगर बसाकर राजसूय यज्ञ सम्पन्न किया, जिससे युधिष्ठिर सम्राट बने। दैवशिल्पी मय के बनाए <strong>मायामय महल</strong> को देखकर दुर्योधन ईर्ष्या से जल उठे।</p>
+            <p>मामा <strong>शकुनि</strong> की सलाह पर दुर्योधन ने पाण्डवों को द्यूत क्रीड़ा के लिए बुलाया। युधिष्ठिर — क्षत्रिय धर्म के अनुसार चुनौती अस्वीकार न कर सके — सहमत हुए। कूट पासों के उस्ताद शकुनि खेले।</p>
+            <p>एक-एक कर युधिष्ठिर ने सब खो दिया। अंत में उन्होंने <strong>द्रौपदी</strong> को दाँव पर लगाया और हार गए। <strong>दुःशासन</strong> ने द्रौपदी को बालों से खींचकर सभा में लाया। द्रौपदी ने सब बुजुर्गों से गुहार लगाई, पर कोई न बोला। तब <strong>भगवान श्रीकृष्ण</strong> ने अनंत वस्त्र भेजकर उनकी लाज बचाई।</p>
+          </div>
+          <div data-lang="kn" style="display:none;">
+            <p>ಪಾಂಡವರು <strong>ಇಂದ್ರಪ್ರಸ್ಥ</strong> ನಿರ್ಮಿಸಿ ರಾಜಸೂಯ ಯಜ್ಞ ಮಾಡಿದ ಮೇಲೆ, ದೈವಶಿಲ್ಪಿ ಮಯ ನಿರ್ಮಿಸಿದ <strong>ಮಾಯಾ ಸಭೆ</strong> ನೋಡಿ ದುರ್ಯೋಧನ ಅಸೂಯೆಯಿಂದ ಕುದಿದ.</p>
+            <p>ಮಾವ <strong>ಶಕುನಿ</strong>ಯ ಸಲಹೆ ಮೇರೆಗೆ ದ್ಯೂತ ಕ್ರೀಡೆ ನಡೆಯಿತು. ಯುಧಿಷ್ಠಿರ ಎಲ್ಲವನ್ನೂ ಕಳೆದುಕೊಂಡರು — ಕೊನೆಗೆ <strong>ದ್ರೌಪದಿ</strong>ಯನ್ನೂ. <strong>ದುಶ್ಶಾಸನ</strong> ಅವಳನ್ನು ಕೂದಲು ಹಿಡಿದೆಳೆದ. ಆಗ <strong>ಶ್ರೀಕೃಷ್ಣ</strong> ಅನಂತ ವಸ್ತ್ರ ನೀಡಿ ರಕ್ಷಿಸಿದ.</p>
+          </div>
+          <div data-lang="te" style="display:none;">
+            <p>పాండవులు <strong>ఇంద్రప్రస్థ</strong> నిర్మించి రాజసూయ యజ్ఞం చేశారు. దైవ శిల్పి మయుడు నిర్మించిన <strong>మాయా సభను</strong> చూసి దుర్యోధనుడు అసూయతో మండిపోయాడు.</p>
+            <p>మేనమామ <strong>శకుని</strong> సూచనతో జూద ఆట జరిగింది. యుధిష్ఠిరుడు అన్నీ పోగొట్టుకున్నాడు — చివరకు <strong>ద్రౌపదిని</strong> కూడా. <strong>దుశ్శాసనుడు</strong> ఆమెను జుట్టు పట్టుకుని సభలోకి ఈడ్చాడు. అప్పుడు <strong>శ్రీకృష్ణుడు</strong> అనంతమైన వస్త్రాలు పంపి రక్షించాడు.</p>
+          </div>
+          <div data-lang="ta" style="display:none;">
+            <p>பாண்டவர்கள் <strong>இந்திரப்பிரஸ்தம்</strong> நிறுவி ராஜசூய யாகம் செய்தனர். மாய சிற்பி மயன் கட்டிய <strong>மாய சபையை</strong> கண்டு துரியோதனன் பொறாமையால் வெந்தான்.</p>
+            <p>மாமா <strong>சகுனியின்</strong> ஆலோசனையில் சூதாட்டம் நடந்தது. யுதிஷ்டிரன் எல்லாவற்றையும் இழந்தான் — இறுதியில் <strong>திரௌபதியையும்</strong>. <strong>துச்சாதனன்</strong> அவளை கூந்தல் பிடித்து இழுத்தான். அப்போது <strong>கிருஷ்ண பகவான்</strong> அனந்தமான வஸ்திரங்கள் அனுப்பி காத்தார்.</p>
+          </div>
+          <div data-lang="ml" style="display:none;">
+            <p>പാണ്ഡവർ <strong>ഇന്ദ്രപ്രസ്ഥം</strong> സ്ഥാപിച്ച് രാജസൂയ യജ്ഞം ചെയ്തു. ദൈവ ശിൽപി മയൻ നിർമ്മിച്ച <strong>മായ സഭ</strong> കണ്ട് ദുര്യോധനൻ അസൂയയിൽ കത്തി.</p>
+            <p>മാതുലൻ <strong>ശകുനിയുടെ</strong> ഉപദേശത്തിൽ ചൂതാട്ടം നടന്നു. യുധിഷ്ഠിരൻ എല്ലാം നഷ്ടപ്പെടുത്തി — അവസാനം <strong>ദ്രൗപദിയെയും</strong>. <strong>ദുശ്ശാസനൻ</strong> അവളെ മുടി പിടിച്ചിഴച്ചു. അപ്പോൾ <strong>ശ്രീകൃഷ്ണൻ</strong> അനന്തമായ വസ്ത്രം അയച്ച് രക്ഷിച്ചു.</p>
+          </div>
+          <div data-lang="gu" style="display:none;">
+            <p>પાંડવોએ <strong>ઇન્દ્રપ્રસ્થ</strong> સ્થાપી રાજસૂય યજ્ઞ સંપન્ન કર્યો. દૈવ શિલ્પી મય નિર્મિત <strong>માયા સભા</strong> જોઈ દુર્યોધન ઈર્ષ્યાથી સળગ્યો.</p>
+            <p>મામા <strong>શકુનિ</strong>ની સલાહ પ્રમાણે દ્યૂત ક્રીડા ગોઠવાઈ. યુધિષ્ઠિર બધું ગુમાવ્યું — અંતે <strong>દ્રૌપદીને</strong> પણ. <strong>દુઃશાસન</strong>ે તેમને વાળ પકડી ખેંચ્યા. ત્યારે <strong>ભગવાન કૃષ્ણ</strong>ે અખૂટ વસ્ત્ર મોકળ્યા.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="parva-divider"><span>✦</span></div>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- PARVA 3 — VANA PARVA (FREE) -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <div class="parva" id="parva-3">
+    <div class="parva-header">
+      <div class="parva-num">03</div>
+      <div class="parva-title-wrap">
+        <div class="parva-badge">FREE PREVIEW</div>
+        <div class="parva-title" data-lang="en">Vana Parva — The Book of the Forest</div>
+        <div class="parva-title" data-lang="hi" style="display:none;">वन पर्व — वनवास की कथा</div>
+        <div class="parva-title" data-lang="kn" style="display:none;">ವನ ಪರ್ವ — ವನವಾಸದ ಕಥೆ</div>
+        <div class="parva-title" data-lang="te" style="display:none;">వన పర్వ — అడవి కథ</div>
+        <div class="parva-title" data-lang="ta" style="display:none;">வன பர்வம் — காடு வாழ்வின் கதை</div>
+        <div class="parva-title" data-lang="ml" style="display:none;">വന പർവം — വനവാസ കഥ</div>
+        <div class="parva-title" data-lang="gu" style="display:none;">વન પર્વ — વનવાસની કથા</div>
+        <div class="parva-sanskrit">वनपर्व</div>
+        <div class="parva-meta">21 SUB-BOOKS · 11,664 VERSES (THE LONGEST PARVA)</div>
+      </div>
+    </div>
+    <div class="parva-content">
+      <div class="story">
+        <div class="story-label">✦ 12 YEARS IN THE FOREST</div>
+        <h3 data-lang="en">Exile, Dharma, and the Meeting with Hanuman</h3>
+        <h3 data-lang="hi" style="display:none;">वनवास, धर्म और हनुमान से भेंट</h3>
+        <h3 data-lang="kn" style="display:none;">ವನವಾಸ, ಧರ್ಮ ಮತ್ತು ಹನುಮಂತನ ಭೇಟಿ</h3>
+        <h3 data-lang="te" style="display:none;">వనవాసం, ధర్మం మరియు హనుమంతుని సమావేశం</h3>
+        <h3 data-lang="ta" style="display:none;">வனவாசம், தர்மம் மற்றும் ஆஞ்சநேயர் சந்திப்பு</h3>
+        <h3 data-lang="ml" style="display:none;">വനവാസം, ധർമ്മം, ഹനുമാൻ സന്ദർശനം</h3>
+        <h3 data-lang="gu" style="display:none;">વનવાસ, ધર્મ અને હનુમાનજી સાથે ભેટ</h3>
+        <div class="story-text">
+          <div data-lang="en">
+            <p>The Pandavas — stripped of their kingdom, their wealth and their dignity — walked into the forest, accompanied by Draupadi and thousands of faithful Brahmins. Their 12 years of forest exile and one year of living in disguise were the condition of the second dice game.</p>
+            <p>The Vana Parva is the longest Parva and the richest in stories. It contains the story of <strong>Nala and Damayanti</strong> — a beautiful tale of a king who lost his kingdom to dice and found his way back through love. It contains the <strong>Yaksha Prashna</strong> — where Yudhishthira answers the questions of a mysterious spirit at a lake, and in doing so, revives his four brothers who had collapsed. His answers reveal the deepest wisdom of Hindu philosophy.</p>
+            <p>Most dramatically, it contains <strong>Bhima's meeting with Hanuman</strong>, his divine brother (both sons of Vayu). Hanuman appeared as an old monkey lying across a mountain path. Bhima arrogantly asked him to move his tail. The old monkey said: "Move it yourself." Bhima, who could lift mountains, could not lift the tail — and was humbled completely.</p>
+            <div class="shloka-block">
+              <div class="shloka-sanskrit">को अत्युग्रो वा सुमृदुर्वा कः पण्डितो वा महामतिः।<br>किं सुखं किं च दुःखं च कः पुरुषः कश्च कीर्तिमान्॥</div>
+              <div class="shloka-meaning">Yaksha asked: "Who is the hero? Who is gentle? Who is wise? What is happiness and what is sorrow? Who is a true man? Who is truly famous?" Yudhishthira's answers — that the hero controls his senses, that equanimity is happiness, that one who does not harm others is a true man — are the philosophical heart of the Mahabharata.</div>
+              <div class="shloka-source">— Mahabharata · Vana Parva · Yaksha Prashna</div>
+            </div>
+            <p>Arjuna, during this exile, ascended to the heavens and received divine weapons from his divine father Indra, and the great Pashupatastra from Lord Shiva himself — weapons that would decide the war to come.</p>
+          </div>
+          <div data-lang="hi" style="display:none;">
+            <p>पाण्डव — राज्य, धन और सम्मान सब खोकर — द्रौपदी और हजारों ब्राह्मणों के साथ वन चले गए। वन पर्व सबसे लंबा और कथाओं से भरपूर है। इसमें <strong>नल-दमयंती</strong> की कथा है, <strong>यक्षप्रश्न</strong> है जहाँ युधिष्ठिर के उत्तर हिन्दू दर्शन की गहराई प्रकट करते हैं।</p>
+            <p>सबसे नाटकीय प्रसंग है <strong>भीम और हनुमान की भेंट</strong> — दोनों वायुपुत्र। हनुमान ने एक वृद्ध वानर के रूप में भीम का घमण्ड तोड़ा। भीम जो पर्वत उठा सकते थे, वे हनुमान की पूंछ तक नहीं उठा पाए।</p>
+            <p>अर्जुन ने इस वनवास में स्वर्ग जाकर अपने पिता इन्द्र से दिव्यास्त्र और स्वयं शिव से <strong>पाशुपतास्त्र</strong> प्राप्त किया।</p>
+          </div>
+          <div data-lang="kn" style="display:none;">
+            <p>ಪಾಂಡವರು ವನಕ್ಕೆ ತೆರಳಿ 12 ವರ್ಷ ಕಳೆದರು. ವನ ಪರ್ವ ಅತ್ಯಂತ ದೀರ್ಘ ಪರ್ವ. ಇದರಲ್ಲಿ <strong>ನಳ-ದಮಯಂತಿ</strong> ಕಥೆ, <strong>ಯಕ್ಷ ಪ್ರಶ್ನೆ</strong> — ಯುಧಿಷ್ಠಿರನ ಉತ್ತರಗಳಲ್ಲಿ ಹಿಂದೂ ತತ್ತ್ವಶಾಸ್ತ್ರದ ಸಾರ ಅಡಗಿದೆ.</p>
+            <p><strong>ಭೀಮ ಮತ್ತು ಹನುಮಂತನ ಭೇಟಿ</strong> ಅತ್ಯಂತ ನಾಟಕೀಯ ಪ್ರಸಂಗ — ಇಬ್ಬರೂ ವಾಯುಪುತ್ರರು. ಮಲಗಿದ್ದ ಮುದಿ ಮಂಗನ ಬಾಲ ಭೀಮನಿಂದ ಎತ್ತಲೇ ಆಗಲಿಲ್ಲ.</p>
+            <p>ಅರ್ಜುನ ಸ್ವರ್ಗಕ್ಕೆ ಹೋಗಿ ಇಂದ್ರನಿಂದ ದಿವ್ಯಾಸ್ತ್ರ ಮತ್ತು ಶಿವನಿಂದ <strong>ಪಾಶುಪತಾಸ್ತ್ರ</strong> ಪಡೆದ.</p>
+          </div>
+          <div data-lang="te" style="display:none;">
+            <p>పాండవులు 12 సంవత్సరాలు అడవిలో గడిపారు. వన పర్వం అత్యంత దీర్ఘమైన పర్వం. ఇందులో <strong>నల-దమయంతి</strong> కథ, <strong>యక్ష ప్రశ్న</strong> ఉన్నాయి.</p>
+            <p><strong>భీమ-హనుమంతుల కలయిక</strong> అత్యంత నాటకీయ సందర్భం — ఇద్దరూ వాయుపుత్రులు. వృద్ధ వానరుని తోకను భీముడు ఎత్తలేకపోయాడు.</p>
+            <p>అర్జునుడు స్వర్గానికి వెళ్ళి ఇంద్రుని నుండి దివ్యాయుధాలు మరియు శివుని నుండి <strong>పాశుపతాస్త్రం</strong> పొందాడు.</p>
+          </div>
+          <div data-lang="ta" style="display:none;">
+            <p>பாண்டவர்கள் 12 ஆண்டுகள் காட்டில் வாழ்ந்தனர். வன பர்வம் மிக நீண்டது. இதில் <strong>நள-தமயந்தி</strong> கதை, <strong>யக்ஷ பிரஷ்னம்</strong> உள்ளன.</p>
+            <p><strong>பீமன்-ஆஞ்சநேயர் சந்திப்பு</strong> மிகவும் நாடகீயமானது — இருவரும் வாயுவின் மகன்கள். முதிய குரங்கின் வாலை பீமன் தூக்க முடியவில்லை.</p>
+            <p>அர்ஜுனன் சொர்க்கம் சென்று இந்திரனிடம் தெய்வீக ஆயுதங்களையும் சிவனிடம் <strong>பாசுபதாஸ்திரத்தையும்</strong> பெற்றான்.</p>
+          </div>
+          <div data-lang="ml" style="display:none;">
+            <p>പാണ്ഡവർ 12 വർഷം വനത്തിൽ ചെലവഴിച്ചു. വന പർവം ഏറ്റവും ദൈർഘ്യമുള്ള പർവമാണ്. ഇതിൽ <strong>നള-ദമയന്തി</strong> കഥ, <strong>യക്ഷ പ്രഷ്നം</strong> ഉൾക്കൊള്ളുന്നു.</p>
+            <p><strong>ഭീമ-ഹനുമൻ സന്ദർശനം</strong> ഏറ്റവും നാടകീയമാണ് — ഇരുവരും വായുപുത്രർ. വൃദ്ധ കുരങ്ങിന്റെ വാൽ ഭീമൻ ഉയർത്താൻ കഴിഞ്ഞില്ല.</p>
+            <p>അർജുനൻ സ്വർഗ്ഗത്തിൽ പോയി ഇന്ദ്രനിൽ നിന്ന് ദിവ്യ ആയുധങ്ങളും ശിവനിൽ നിന്ന് <strong>പാശുപതാസ്ത്രവും</strong> ലഭിച്ചു.</p>
+          </div>
+          <div data-lang="gu" style="display:none;">
+            <p>પાંડવો 12 વર્ષ જંગલમાં રહ્યા. વન પર્વ સૌથી લાંબું છે. તેમાં <strong>નળ-દમયંતી</strong> કથા, <strong>યક્ષ પ્રશ્ન</strong> સામેલ છે.</p>
+            <p><strong>ભીમ-હનુમાનજીની ભેટ</strong> અત્યંત નાટ્યાત્મક છે — બંને વાયુ-પુત્ર. ભીમ વૃદ્ધ વાનરની પૂંછ ઉઠાવી ન શક્યા.</p>
+            <p>અર્જુને સ્વર્ગ જઈ ઇન્દ્ર પાસેથી દિવ્ય અસ્ત્ર અને ભગવાન શિવ પાસેથી <strong>પાશુપતાસ્ત્ર</strong> મેળવ્યું.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="parva-divider"><span>✦</span></div>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- PARVA 4 ONWARDS — LOCKED -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <div class="parva locked-parva" id="parva-4">
+    <div class="parva-header">
+      <div class="parva-num">04</div>
+      <div class="parva-title-wrap">
+        <div class="parva-badge" style="background:rgba(107,26,26,0.1);color:#aaa;">👑 PREMIUM</div>
+        <div class="parva-title">Virata Parva — The Year of Living in Disguise</div>
+        <div class="parva-sanskrit">विराटपर्व</div>
+        <div class="parva-meta">4 SUB-BOOKS · 2,050 VERSES</div>
+      </div>
+    </div>
+    <div class="parva-content">
+      <div class="story">
+        <div class="story-label">✦ PREVIEW</div>
+        <h3>The Pandavas in Disguise at King Virata's Court</h3>
+        <div class="story-text">
+          <p>After 12 years in the forest, the Pandavas must spend one final year in complete disguise — unrecognised by anyone — or their exile begins again. They enter the court of King Virata: Yudhishthira as a brahmin named Kanka, Bhima as a cook named Vallabha, Arjuna as a eunuch named Brihannala...</p>
+        </div>
+      </div>
+    </div>
+    <div class="paywall-overlay">
+      <div class="paywall-box">
+        <div class="paywall-icon">👑</div>
+        <h3>Unlock All 18 Parvas in 7 Languages</h3>
+        <p>You've read the free preview — Parvas 1, 2 &amp; 3. Upgrade to Premium to continue reading the complete Mahabharata — the disguise year, the war council, all 18 days of the Kurukshetra battle, and the final journey.</p>
+        <div class="paywall-features">
+          <span class="paywall-feature">✦ All 18 Parvas</span>
+          <span class="paywall-feature">✦ 7 Languages</span>
+          <span class="paywall-feature">✦ Unlimited AI Questions</span>
+          <span class="paywall-feature">✦ All Dharma Articles</span>
+          <span class="paywall-feature">✦ Offline Reading</span>
+        </div>
+        <a href="premium.html" class="btn-unlock">👑 Unlock Premium — ₹199/month</a>
+        <div class="paywall-note">7-day free trial · Cancel anytime · No hidden charges</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>
+    <a href="index.html">Home</a>
+    <a href="articles.html">Dharma Articles</a>
+    <a href="chat.html">DharmaChat AI</a>
+    <a href="premium.html">Premium</a>
+    <a href="privacy.html">Privacy</a>
+  </p>
+  <p style="margin-top:12px;">© 2026 DharmaChat · Built with reverence for Sanatana Dharma 🕉️</p>
+  <p style="margin-top:6px;font-size:11px;color:rgba(255,255,255,0.2);">Founded &amp; built by Sukhil Babu · Bengaluru, India</p>
+</footer>
+
+<script>
+var parvas = [
+  {n:1,name:'Adi Parva',free:true},{n:2,name:'Sabha Parva',free:true},{n:3,name:'Vana Parva',free:true},
+  {n:4,name:'Virata Parva',free:false},{n:5,name:'Udyoga Parva',free:false},{n:6,name:'Bhishma Parva',free:false},
+  {n:7,name:'Drona Parva',free:false},{n:8,name:'Karna Parva',free:false},{n:9,name:'Shalya Parva',free:false},
+  {n:10,name:'Sauptika Parva',free:false},{n:11,name:'Stri Parva',free:false},{n:12,name:'Shanti Parva',free:false},
+  {n:13,name:'Anushasana Parva',free:false},{n:14,name:'Ashvamedhika Parva',free:false},{n:15,name:'Ashramavasika Parva',free:false},
+  {n:16,name:'Mausala Parva',free:false},{n:17,name:'Mahaprasthanika Parva',free:false},{n:18,name:'Svargarohana Parva',free:false}
+];
+
+// Build progress bar
+var track = document.getElementById('progressTrack');
+parvas.forEach(function(p) {
+  var div = document.createElement('div');
+  div.className = 'progress-parva ' + (p.free ? 'free' : 'locked');
+  div.setAttribute('data-name', p.n + '. ' + p.name);
+  if (p.free) div.onclick = function() { var el = document.getElementById('parva-' + p.n); if(el) el.scrollIntoView({behavior:'smooth'}); };
+  track.appendChild(div);
+});
+
+// Build parva nav
+var navGrid = document.getElementById('parvaNavGrid');
+parvas.forEach(function(p) {
+  var a = document.createElement('a');
+  a.className = 'parva-nav-item' + (p.free ? '' : ' locked-item');
+  a.href = p.free ? '#parva-' + p.n : 'premium.html';
+  a.innerHTML = '<span class="lock-icon">' + (p.free ? '📖' : '🔒') + '</span>' + p.n + '. ' + p.name;
+  navGrid.appendChild(a);
+});
+
+// Language switcher
+function setLang(lang, btn) {
+  document.querySelectorAll('.lang-btn').forEach(function(b) { b.classList.remove('active'); });
+  btn.classList.add('active');
+  // Toggle parva titles
+  document.querySelectorAll('.parva-title').forEach(function(el) {
+    el.style.display = el.dataset.lang === lang ? 'block' : 'none';
+  });
+  // Toggle story text divs and h3s
+  var allLangs = ['en','hi','kn','te','ta','ml','gu'];
+  allLangs.forEach(function(l) {
+    document.querySelectorAll('[data-lang="' + l + '"]').forEach(function(el) {
+      el.style.display = (l === lang) ? '' : 'none';
+    });
+  });
+}
+
+// Init — show English by default
+document.querySelectorAll('[data-lang]').forEach(function(el) {
+  if (el.dataset.lang !== 'en') el.style.display = 'none';
+});
+</script>
+
+<script type="module" src="nav.js"></script>
+</body>
+</html>
