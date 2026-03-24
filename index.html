@@ -152,18 +152,18 @@
     text-align: center; text-decoration: none; margin-bottom: 10px;
     box-shadow: 0 4px 16px rgba(232,97,26,0.35);
   }
-  @media (max-width: 768px) {
+    @media (max-width: 768px) {
     .nav-links { display: none; }
     .nav-cta { display: none; }
     .burger { display: flex; }
     .nav-logo { font-size: 15px; }
     .nav-logo img { width: 32px; height: 32px; }
     section { padding: 60px 0; }
-    .hero-inner { padding: 50px 20px; }
+    .hero-inner { padding: 50px 20px; grid-template-columns: 1fr; }
     .hero h1 { font-size: clamp(28px, 8vw, 42px); }
     .hero-sub { font-size: 16px; }
     .hero-desc { font-size: 14px; }
-    .hero-stats { gap: 20px; }
+    .hero-stats { gap: 20px; flex-wrap: wrap; justify-content: center; }
     .hero-stat strong { font-size: 20px; }
     .mission-grid, .scripture-grid, .lessons-grid { grid-template-columns: 1fr; }
     .questions-grid, .verse-cats { grid-template-columns: 1fr; }
@@ -365,7 +365,7 @@
 <nav>
   <div class="nav-inner">
     <a class="nav-logo" href="index.html">
-      <img src="logo.jpeg" alt="DharmaChat"/>
+      <img src="logo.jpeg" style="width:38px;height:38px;border-radius:50%;object-fit:cover;box-shadow:0 0 10px rgba(212,160,23,0.5);" alt="DharmaChat"/>
       DharmaChat
     </a>
     <ul class="nav-links">
@@ -375,12 +375,9 @@
     </ul>
     <div class="nav-cta">
       <div id="navAuth"></div>
-      <a class="nav-try-btn" href="chat.html">Try Free</a>
+      <a class="btn-primary" href="chat.html">Try Free</a>
     </div>
-    <!-- Burger button (mobile only) -->
-    <button class="burger" id="burgerBtn" aria-label="Open menu">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="burger" id="burgerBtn" aria-label="Open menu">☰</button>
   </div>
 </nav>
 
@@ -1215,5 +1212,10 @@ function notifyForApp() {
 </script>
 
 <script type="module" src="nav.js"></script>
+<script>
+  document.getElementById('burgerBtn').addEventListener('click', function() {
+    alert('Menu opened! (We will connect the full drawer in next step)');
+  });
+</script>  
 </body>
 </html>
