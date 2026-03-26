@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Shlokas About Service — DharmaChat Sacred Shlokas</title>
+<meta name="description" content="Selfless service (Seva) is one of the most powerful practices in Hindu spirituality. The Bhagavad Gita teaches Nishkama Karma — action without desire for p..."/>
+<link rel="icon" type="image/jpeg" href="favicon.jpeg"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{--saffron:#E8611A;--saffron-lt:#F5832A;--gold:#D4A017;--gold-lt:#F0C040;--maroon:#6B1A1A;--maroon-dk:#3E0000;--cream:#FDF6E3;--cream-dk:#F5EDD0;--text-dark:#1E0A00;--text-mid:#5A3010;--text-light:#9A6835;--white:#FFFFFF}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans',sans-serif;background:var(--cream);color:var(--text-dark)}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(253,246,227,0.95);backdrop-filter:blur(12px);border-bottom:2px solid rgba(212,160,23,0.2);padding:0 24px}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:68px}
+.nav-logo{display:flex;align-items:center;gap:10px;font-family:'Cinzel Decorative',serif;font-weight:700;font-size:20px;color:var(--maroon);text-decoration:none}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-family:'Cinzel',serif;font-size:13px;font-weight:600;color:var(--text-mid);text-decoration:none;letter-spacing:.04em;transition:color .2s}
+.nav-links a:hover{color:var(--saffron)}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--saffron),var(--gold));color:var(--white);font-family:'Cinzel',serif;font-weight:700;font-size:14px;letter-spacing:.04em;padding:12px 28px;border-radius:50px;border:none;cursor:pointer;box-shadow:0 4px 24px rgba(232,97,26,0.4);text-decoration:none;transition:transform .2s}
+.btn-primary:hover{transform:translateY(-2px)}
+@media(max-width:700px){.nav-links{display:none}}
+
+/* HERO */
+.hero{background:linear-gradient(160deg,var(--maroon-dk) 0%,var(--maroon) 50%,#8B2500 100%);padding:80px 24px 60px;text-align:center;position:relative;overflow:hidden}
+.hero::after{content:'\0950';position:absolute;right:-40px;top:50%;transform:translateY(-50%);font-size:400px;color:rgba(212,160,23,0.04);font-family:'EB Garamond',serif;pointer-events:none}
+.hero-breadcrumb{font-family:'Cinzel',serif;font-size:12px;letter-spacing:.08em;margin-bottom:20px}
+.hero-breadcrumb a{color:rgba(212,160,23,0.5);text-decoration:none;transition:color .2s}
+.hero-breadcrumb a:hover{color:var(--gold-lt)}
+.hero-breadcrumb span{color:rgba(255,255,255,0.3)}
+.hero-emoji{font-size:56px;margin-bottom:16px;display:block}
+.hero h1{font-family:'Cinzel Decorative',serif;font-size:clamp(28px,4vw,44px);color:var(--gold-lt);line-height:1.25;margin-bottom:16px;position:relative;z-index:2}
+.hero-cat{display:inline-block;background:rgba(212,160,23,0.15);border:1px solid rgba(212,160,23,0.3);border-radius:20px;padding:4px 14px;font-family:'Cinzel',serif;font-size:11px;letter-spacing:.1em;color:var(--gold-lt);margin-bottom:20px}
+.hero p{font-family:'EB Garamond',serif;font-size:18px;font-style:italic;color:rgba(255,255,255,0.7);line-height:1.8;max-width:750px;margin:0 auto;position:relative;z-index:2}
+
+/* SHLOKAS */
+.shlokas-wrap{max-width:800px;margin:0 auto;padding:60px 24px}
+.shloka-card{background:var(--white);border-radius:20px;padding:36px 32px;margin-bottom:28px;box-shadow:0 4px 24px rgba(107,26,26,0.08);border:1px solid rgba(212,160,23,0.12);transition:transform .2s}
+.shloka-card:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(107,26,26,0.12)}
+.shloka-num{font-family:'Cinzel Decorative',serif;font-size:36px;color:rgba(212,160,23,0.15);line-height:1;margin-bottom:16px}
+.shloka-sanskrit{font-family:'EB Garamond',serif;font-size:clamp(18px,2.5vw,24px);color:var(--gold);line-height:1.8;margin-bottom:12px;font-style:italic}
+.shloka-translit{font-family:'EB Garamond',serif;font-size:14px;color:var(--text-light);font-style:italic;line-height:1.7;margin-bottom:16px}
+.shloka-divider{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.shloka-divider::before,.shloka-divider::after{content:'';flex:1;height:1px;background:rgba(212,160,23,0.2)}
+.shloka-divider span{color:rgba(212,160,23,0.4);font-size:10px}
+.shloka-meaning{font-size:16px;color:var(--text-dark);line-height:1.8;margin-bottom:16px}
+.shloka-source{font-family:'Cinzel',serif;font-size:12px;letter-spacing:.06em;color:var(--saffron);display:flex;align-items:center;gap:8px}
+.shloka-source::before{content:'';width:20px;height:2px;background:var(--gold);display:inline-block}
+.shloka-actions{display:flex;gap:10px;margin-top:16px;padding-top:16px;border-top:1px solid rgba(212,160,23,0.1)}
+.shloka-actions button{background:rgba(232,97,26,0.06);border:1px solid rgba(212,160,23,0.15);border-radius:8px;padding:6px 14px;font-family:'Cinzel',serif;font-size:10px;letter-spacing:.06em;color:var(--text-mid);cursor:pointer;transition:all .2s}
+.shloka-actions button:hover{background:rgba(232,97,26,0.15);border-color:var(--saffron);color:var(--saffron)}
+
+/* CTA */
+.cta-section{background:linear-gradient(160deg,var(--maroon-dk),#4A0A00);padding:60px 24px;text-align:center}
+.cta-section h2{font-family:'Cinzel Decorative',serif;font-size:clamp(22px,3vw,32px);color:var(--gold-lt);margin-bottom:12px}
+.cta-section p{font-family:'EB Garamond',serif;font-size:17px;font-style:italic;color:rgba(255,255,255,0.6);margin-bottom:28px;max-width:500px;margin-left:auto;margin-right:auto}
+
+/* RELATED */
+.related{max-width:800px;margin:0 auto;padding:40px 24px 60px}
+.related h3{font-family:'Cinzel',serif;font-size:18px;color:var(--maroon);margin-bottom:20px}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.related-link{display:block;background:var(--white);border:1px solid rgba(212,160,23,0.12);border-radius:12px;padding:16px;text-decoration:none;transition:all .2s;color:var(--saffron);font-family:'Cinzel',serif;font-size:13px;font-weight:600}
+.related-link:hover{background:rgba(232,97,26,0.06);border-color:var(--saffron);transform:translateY(-2px)}
+
+/* FOOTER */
+footer{background:var(--maroon-dk);color:rgba(255,255,255,0.5);padding:40px 24px;text-align:center;font-size:13px}
+footer a{color:var(--gold-lt);text-decoration:none}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">
+      <img src="logo.jpeg" style="width:36px;height:36px;border-radius:50%;object-fit:cover;box-shadow:0 0 10px rgba(212,160,23,0.5)" alt="DharmaChat"/>
+      DharmaChat
+    </a>
+    <ul class="nav-links">
+      <li><a href="articles.html">Articles</a></li>
+      <li><a href="lessons.html">Lessons</a></li>
+      <li><a href="community.html">Community</a></li>
+    </ul>
+    <a class="btn-primary" href="chat.html">Try Free</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-breadcrumb"><a href="index.html">Home</a> <span>›</span> <a href="index.html#sacred-verses">Sacred Shlokas</a> <span>›</span> <a href="#">Shlokas About Service</a></div>
+  <span class="hero-emoji">🙌</span>
+  <div class="hero-cat">DHARMA & ETHICS</div>
+  <h1>Shlokas About Service</h1>
+  <p>Selfless service (Seva) is one of the most powerful practices in Hindu spirituality. The Bhagavad Gita teaches Nishkama Karma — action without desire for personal reward. When we serve others without expectation, we serve the divine itself. These shlokas inspire a life of dedicated, joyful service to all beings.</p>
+</section>
+
+<div class="shlokas-wrap">
+  <div class="shloka-card">
+    <div class="shloka-num">01</div>
+    <div class="shloka-sanskrit">कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।</div>
+    <div class="shloka-translit">Karmanye vadhikaraste ma phaleshu kadachana</div>
+    <div class="shloka-divider"><span>✦</span></div>
+    <div class="shloka-meaning">You have the right to perform your duty, but you are not entitled to the fruits of your actions. Serve selflessly.</div>
+    <div class="shloka-source">Bhagavad Gita 2.47</div>
+    <div class="shloka-actions">
+      <button onclick="copyS(this,'कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।')">Copy Sanskrit</button>
+      <button onclick="shareWA('कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।','You have the right to perform your duty, but you are not entitled to the fruits of your actions. Serve selflessly.','Bhagavad Gita 2.47')">Share WhatsApp</button>
+      <button onclick="window.location.href='chat.html'">Ask AI About This</button>
+    </div>
+  </div>
+  <div class="shloka-card">
+    <div class="shloka-num">02</div>
+    <div class="shloka-sanskrit">परोपकाराय फलन्ति वृक्षाः।</div>
+    <div class="shloka-translit">Paropakaraya phalanti vrikshah</div>
+    <div class="shloka-divider"><span>✦</span></div>
+    <div class="shloka-meaning">Trees bear fruit for others. Rivers flow for others. This body too exists for the service of others.</div>
+    <div class="shloka-source">Subhashitani</div>
+    <div class="shloka-actions">
+      <button onclick="copyS(this,'परोपकाराय फलन्ति वृक्षाः।')">Copy Sanskrit</button>
+      <button onclick="shareWA('परोपकाराय फलन्ति वृक्षाः।','Trees bear fruit for others. Rivers flow for others. This body too exists for the service of others.','Subhashitani')">Share WhatsApp</button>
+      <button onclick="window.location.href='chat.html'">Ask AI About This</button>
+    </div>
+  </div>
+  <div class="shloka-card">
+    <div class="shloka-num">03</div>
+    <div class="shloka-sanskrit">योगः कर्मसु कौशलम्।</div>
+    <div class="shloka-translit">Yogah karmasu kaushalam</div>
+    <div class="shloka-divider"><span>✦</span></div>
+    <div class="shloka-meaning">Yoga is excellence in action. Performing service with full skill, awareness, and devotion — that is true yoga.</div>
+    <div class="shloka-source">Bhagavad Gita 2.50</div>
+    <div class="shloka-actions">
+      <button onclick="copyS(this,'योगः कर्मसु कौशलम्।')">Copy Sanskrit</button>
+      <button onclick="shareWA('योगः कर्मसु कौशलम्।','Yoga is excellence in action. Performing service with full skill, awareness, and devotion — that is true yoga.','Bhagavad Gita 2.50')">Share WhatsApp</button>
+      <button onclick="window.location.href='chat.html'">Ask AI About This</button>
+    </div>
+  </div>
+  <div class="shloka-card">
+    <div class="shloka-num">04</div>
+    <div class="shloka-sanskrit">नियतं कुरु कर्म त्वं कर्म ज्यायो ह्यकर्मणः।</div>
+    <div class="shloka-translit">Niyatam kuru karma tvam karma jyayo hyakarmanah</div>
+    <div class="shloka-divider"><span>✦</span></div>
+    <div class="shloka-meaning">Perform your prescribed duties. Action is superior to inaction. Even the maintenance of the body is not possible without action.</div>
+    <div class="shloka-source">Bhagavad Gita 3.8</div>
+    <div class="shloka-actions">
+      <button onclick="copyS(this,'नियतं कुरु कर्म त्वं कर्म ज्यायो ह्यकर्मणः।')">Copy Sanskrit</button>
+      <button onclick="shareWA('नियतं कुरु कर्म त्वं कर्म ज्यायो ह्यकर्मणः।','Perform your prescribed duties. Action is superior to inaction. Even the maintenance of the body is not possible without action.','Bhagavad Gita 3.8')">Share WhatsApp</button>
+      <button onclick="window.location.href='chat.html'">Ask AI About This</button>
+    </div>
+  </div>
+  <div class="shloka-card">
+    <div class="shloka-num">05</div>
+    <div class="shloka-sanskrit">तत्त्वविद्यात्मवान् दक्षो भूतानां हितकाम्यया।</div>
+    <div class="shloka-translit">Tattvavid atmaavan daksho bhutanaam hitakamyaya</div>
+    <div class="shloka-divider"><span>✦</span></div>
+    <div class="shloka-meaning">The truly wise, skilled, and self-realized person works only for the welfare of all beings. Service is the natural expression of wisdom.</div>
+    <div class="shloka-source">Bhagavata Purana</div>
+    <div class="shloka-actions">
+      <button onclick="copyS(this,'तत्त्वविद्यात्मवान् दक्षो भूतानां हितकाम्यया।')">Copy Sanskrit</button>
+      <button onclick="shareWA('तत्त्वविद्यात्मवान् दक्षो भूतानां हितकाम्यया।','The truly wise, skilled, and self-realized person works only for the welfare of all beings. Service is the natural expression of wisdom.','Bhagavata Purana')">Share WhatsApp</button>
+      <button onclick="window.location.href='chat.html'">Ask AI About This</button>
+    </div>
+  </div>
+
+</div>
+
+<section class="cta-section">
+  <h2>Want to explore deeper?</h2>
+  <p>Ask DharmaChat AI any question about shlokas about service and get answers grounded in sacred scripture.</p>
+  <a class="btn-primary" href="chat.html">Ask DharmaChat AI 🕉️</a>
+</section>
+
+<div class="related">
+  <h3>Explore More Sacred Shlokas</h3>
+  <div class="related-grid">
+    <a class="related-link" href="shlokas-about-love.html">❤️ Shlokas About Love & Devotion</a>
+    <a class="related-link" href="shlokas-about-marriage.html">💍 Shlokas About Marriage</a>
+    <a class="related-link" href="shlokas-about-friendship.html">🤝 Shlokas About Friendship</a>
+    <a class="related-link" href="shlokas-about-family.html">👨‍👩‍👧‍👦 Shlokas About Family</a>
+    <a class="related-link" href="shlokas-about-self-discipline.html">🧘 Shlokas About Self-Discipline</a>
+    <a class="related-link" href="shlokas-about-patience.html">🌱 Shlokas About Patience</a>
+    <a class="related-link" href="shlokas-about-knowledge.html">📚 Shlokas About Knowledge</a>
+    <a class="related-link" href="shlokas-about-courage.html">🦁 Shlokas About Courage</a>
+  </div>
+</div>
+
+<footer>
+  <p>🕉️ DharmaChat — Built with reverence for Sanatana Dharma</p>
+  <p style="margin-top:8px"><a href="index.html">Home</a> · <a href="chat.html">AI Guide</a> · <a href="privacy.html">Privacy</a> · <a href="premium.html">Premium</a></p>
+  <p style="margin-top:12px;color:rgba(255,255,255,0.3)">© 2026 DharmaChat. All Rights Reserved.</p>
+</footer>
+
+<script>
+function copyS(btn,t){navigator.clipboard.writeText(t.replace(/<br>/g,'\n'));btn.textContent='Copied!';setTimeout(function(){btn.textContent='Copy Sanskrit'},2000)}
+function shareWA(d,e,s){var t='🕉️ Sacred Shloka\n\n'+d.replace(/<br>/g,'\n')+'\n\n'+e+'\n\n— '+s+'\n\nExplore more at dharmachat.in';window.open('https://wa.me/?text='+encodeURIComponent(t),'_blank')}
+</script>
+</body>
+</html>
