@@ -522,5 +522,7 @@ var grid=document.getElementById('kandaNavGrid');
 kandas.forEach(function(k,i){var a=document.createElement('a');a.href=k.free?'#k-'+(i+1):'premium.html';a.className='k-nav-item';a.innerHTML=(k.free?'📖':'🔒')+' Kanda '+k.n+' · '+k.title;grid.appendChild(a);});
 function setLang(lang,btn){document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.remove('active');});btn.classList.add('active');document.querySelectorAll('[data-lang]').forEach(function(el){el.style.display=el.getAttribute('data-lang')===lang?'':'none';});}
 </script>
+
+<script src="dc-premium-unlock.js"></script>
 </body>
 </html>

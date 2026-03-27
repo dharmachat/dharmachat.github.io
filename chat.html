@@ -263,6 +263,23 @@
   let currentUser = null;
   let questionsUsed = 0;
   let isGoogleUser = false;
+  let isPremium = false;
+
+  // Check premium status from localStorage (set by premium.html on payment success)
+  function checkPremiumStatus() {
+    try {
+      const raw = localStorage.getItem('dc_premium');
+      if (!raw) return false;
+      const data = JSON.parse(raw);
+      if (!data || !data.expiry) return false;
+      if (new Date(data.expiry) <= new Date()) {
+        localStorage.removeItem('dc_premium');
+        return false;
+      }
+      return true;
+    } catch (e) { return false; }
+  }
+  isPremium = checkPremiumStatus();
 
   // Check guest session on load
   window.addEventListener('load', () => {
@@ -387,6 +404,11 @@
   };
 
   function loadQuestionsUsed() {
+    if (isPremium) {
+      questionsUsed = 0; // Premium users always have unlimited questions
+      updateQuestionsDisplay();
+      return;
+    }
     const today = new Date().toDateString();
     const stored = JSON.parse(localStorage.getItem('dc_usage') || '{}');
     if (stored.date !== today) {
@@ -399,6 +421,7 @@
   }
 
   function saveQuestionsUsed() {
+    if (isPremium) return; // Premium users — no counter
     const today = new Date().toDateString();
     questionsUsed++;
     localStorage.setItem('dc_usage', JSON.stringify({ date: today, count: questionsUsed }));
@@ -406,6 +429,13 @@
   }
 
   function updateQuestionsDisplay() {
+    if (isPremium) {
+      document.getElementById('questionsLeft').textContent = '👑 Premium — Unlimited';
+      document.getElementById('questionsLeft').style.background = 'rgba(29,158,117,0.15)';
+      document.getElementById('questionsLeft').style.borderColor = 'rgba(29,158,117,0.3)';
+      document.getElementById('questionsLeft').style.color = '#1D9E75';
+      return;
+    }
     const remaining = Math.max(0, FREE_LIMIT - questionsUsed);
     document.getElementById('questionsLeft').textContent = remaining + ' questions left today';
     if (remaining === 0) {
@@ -416,7 +446,7 @@
   }
 
   window.sendMessage = async function() {
-    if (questionsUsed >= FREE_LIMIT) { document.getElementById('limitBanner').classList.add('show'); return; }
+    if (!isPremium && questionsUsed >= FREE_LIMIT) { document.getElementById('limitBanner').classList.add('show'); return; }
     const input = document.getElementById('userInput');
     const text = input.value.trim();
     if (!text || isLoading) return;
