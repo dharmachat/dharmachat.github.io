@@ -69,7 +69,7 @@ nav{background:var(--maroon-dk);border-bottom:1px solid rgba(212,160,23,0.2);pad
 .nav-link{font-family:'Cinzel',serif;font-size:12px;color:rgba(240,192,64,0.65);text-decoration:none;letter-spacing:.06em}
 .nav-link:hover{color:var(--gold-lt)}
 .btn-upgrade{background:linear-gradient(135deg,var(--gold),var(--saffron));color:white;font-family:'Cinzel',serif;font-size:12px;font-weight:700;padding:8px 20px;border-radius:50px;text-decoration:none}
-.hero{background:linear-gradient(160deg,var(--maroon-dk) 0%,#3A0808 35%,#6A1A00 60%,#2A0A2A 100%);padding:80px 24px 60px;text-align:center;position:relative;overflow:hidden}
+.hero{background:linear-gradient(160deg,#2A0000 0%,#3E0000 30%,#5A0A0A 60%,#3E0000 100%);padding:80px 24px 60px;text-align:center;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='60' cy='60' r='58' fill='none' stroke='%23D4A017' stroke-opacity='0.07' stroke-width='1'/%3E%3Ccircle cx='60' cy='60' r='40' fill='none' stroke='%23D4A017' stroke-opacity='0.05' stroke-width='1'/%3E%3C/svg%3E") repeat;opacity:.7}
 .hero::after{content:'🌀';position:absolute;right:-10px;top:50%;transform:translateY(-50%);font-size:360px;opacity:.04;pointer-events:none}
 .hero-tag{display:inline-block;background:rgba(212,160,23,0.15);border:1px solid rgba(212,160,23,0.35);color:var(--gold-lt);font-family:'Cinzel',serif;font-size:11px;letter-spacing:.14em;padding:5px 18px;border-radius:20px;margin-bottom:20px}
@@ -82,6 +82,14 @@ nav{background:var(--maroon-dk);border-bottom:1px solid rgba(212,160,23,0.2);pad
 .hero-stat{text-align:center}
 .hero-stat strong{display:block;font-family:'Cinzel Decorative',serif;font-size:24px;color:var(--gold-lt);line-height:1}
 .hero-stat span{font-family:'Cinzel',serif;font-size:10px;letter-spacing:.1em;color:rgba(255,255,255,0.4);margin-top:4px;display:block}
+
+.hero-swords{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.hero-swords svg{position:absolute;width:100%;height:100%;opacity:.06}
+.hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 70%,rgba(212,160,23,0.12) 0%,transparent 65%);pointer-events:none}
+.hero-divider{position:relative;width:160px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 28px}
+.hero-quote{position:relative;max-width:680px;margin:0 auto 32px;background:rgba(255,255,255,0.04);border:1px solid rgba(212,160,23,0.15);border-radius:16px;padding:22px 30px}
+.hero-quote p{font-family:'EB Garamond',serif;font-style:italic;font-size:18px;color:rgba(255,255,255,0.6);line-height:1.75;margin-bottom:8px}
+.hero-quote cite{font-family:'Cinzel',serif;font-size:10px;letter-spacing:.1em;color:var(--gold-dk)}
 .premium-badge{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,rgba(212,160,23,0.2),rgba(232,97,26,0.15));border:1px solid rgba(212,160,23,0.4);border-radius:50px;padding:8px 20px;font-family:'Cinzel',serif;font-size:12px;color:var(--gold-lt)}
 .lang-bar{background:var(--maroon-dk);border-bottom:1px solid rgba(212,160,23,0.15);padding:14px 24px;position:sticky;top:64px;z-index:100}
 .lang-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
@@ -371,55 +379,622 @@ footer a{color:rgba(240,192,64,0.5);text-decoration:none;margin:0 10px}
   <div class="p-divider"><span>ॐ</span></div>
 
   <!-- PURANAS 3-18 LOCKED -->
+
+  <div class="purana-divider"><span>ॐ</span></div>
   <div class="purana locked-purana" id="p-3">
     <div class="purana-header">
       <div class="purana-num">03</div>
-      <div>
-        <div class="purana-badge">PREMIUM · 24,000 VERSES</div>
-        <div class="purana-title">Shiva Purana — The Story of the Supreme Yogi</div>
-        <div class="purana-sanskrit">शिवपुराण</div>
-        <div class="purana-meta">SHIVA'S 12 JYOTIRLINGAS · SATI · PARVATI · KARTIKEYA · GANESHA · ARDHANARISHVARA</div>
+      <div class="purana-title-wrap">
+        <div class="purana-badge">👑 PREMIUM · 6 BOOKS · 23,000 VERSES</div>
+        <div class="purana-title" data-lang="en">Vishnu Purana — Prahlada and the Narasimha Avatar</div>
+        <div class="purana-title" data-lang="hi" style="display:none">विष्णु पुराण</div>
+        <div class="purana-title" data-lang="kn" style="display:none">ವಿಷ್ಣು ಪುರಾಣ</div>
+        <div class="purana-title" data-lang="te" style="display:none">విష్ణు పురాణం</div>
+        <div class="purana-title" data-lang="ta" style="display:none">விஷ்ணு புராணம்</div>
+        <div class="purana-title" data-lang="ml" style="display:none">വിഷ്ണു പുരാണം</div>
+        <div class="purana-sanskrit">विष्णुपुराणम्</div>
+        <div class="purana-meta">6 BOOKS · PRAHLADA · NARASIMHA · KRISHNA'S LINEAGE</div>
       </div>
     </div>
     <div class="purana-content">
       <div class="story">
-        <h3>How Shiva Won Parvati — The Love Story That Moved the Entire Universe</h3>
-        <div class="story-text"><p>The Shiva Purana contains the complete story of Lord Shiva from the death of Sati to his marriage with Parvati, the establishment of the 12 Jyotirlingas, and the birth of Kartikeya and Ganesha. It reveals why Shiva is simultaneously destroyer and lover, ascetic and householder...</p></div>
-      </div>
-    </div>
-    <div class="paywall-overlay">
-      <div class="paywall-box">
-        <div class="paywall-icon">🔐</div>
-        <h3>Unlock All 18 Mahapuranas</h3>
-        <p>Shiva Purana, Devi Bhagavata, Garuda Purana, Brahma Purana, and 14 more — the complete mythological treasury of Hinduism.</p>
-        <div class="paywall-features">
-          <span class="paywall-feature">ALL 18 PURANAS</span>
-          <span class="paywall-feature">6 LANGUAGES</span>
-          <span class="paywall-feature">COMPLETE STORIES</span>
-          <span class="paywall-feature">EVERY KEY SHLOKA</span>
+        <div class="story-label">✦ THE STORY</div>
+        <h3 data-lang="en">Vishnu Purana — Prahlada and the Narasimha Avatar</h3>
+        <h3 data-lang="hi" style="display:none">विष्णु पुराण</h3>
+        <h3 data-lang="kn" style="display:none">ವಿಷ್ಣು ಪುರಾಣ</h3>
+        <h3 data-lang="te" style="display:none">విష్ణు పురాణం</h3>
+        <h3 data-lang="ta" style="display:none">விஷ்ணு புராணம்</h3>
+        <h3 data-lang="ml" style="display:none">വിഷ്ണു പുരാണം</h3>
+        <div class="story-text">
+          <div data-lang="en"><p>The <strong>Vishnu Purana</strong> is one of the most systematically composed Puranas — a complete cosmology centred on Lord Vishnu. Its most beloved story is that of <strong>Prahlada</strong>, the child devotee whose demon-king father <strong>Hiranyakashipu</strong> persecuted him relentlessly for refusing to worship anyone but Vishnu. No torture could harm Prahlada — not fire, not serpents, not the tusks of elephants, not poison. Finally, Vishnu appears as <strong>Narasimha</strong> — half man, half lion — at dusk, on a threshold, and kills the demon king. The Narasimha form appears because Hiranyakashipu had a boon that no man or animal, god or demon, could kill him — at no time of day or night, inside or outside any building. Vishnu, as always, finds the exact truth that fulfils the letter of every condition while delivering justice.</p>
+<p>The Vishnu Purana also gives the most beautiful description of <strong>Vaikuntha</strong> (Vishnu's divine abode), the complete genealogy of the kings of the Solar and Lunar dynasties from which Rama and Krishna would eventually be born, and the doctrine of the four cosmic ages (Yugas) and how dharma declines through each.</p></div>
+          <div data-lang="hi" style="display:none"><p><strong>विष्णु पुराण</strong> — प्रह्लाद की अनन्य भक्ति और नरसिंह अवतार। रात-दिन नहीं, अन्दर-बाहर नहीं, मनुष्य-पशु नहीं — नरसिंह देहली पर, संध्या में। ईश्वर हर शर्त पूरी करता है।</p></div>
+          <div data-lang="kn" style="display:none"><p><strong>ವಿಷ್ಣು ಪುರಾಣ</strong> — ಪ್ರಹ್ಲಾದ ಭಕ್ತಿ ಮತ್ತು ನರಸಿಂಹ ಅವತಾರ. ಪ್ರತಿಯೊಂದು ಷರತ್ತು ಪಾಲಿಸಿ ನ್ಯಾಯ ನೀಡಿದ ವಿಷ್ಣು.</p></div>
+          <div data-lang="te" style="display:none"><p><strong>విష్ణు పురాణం</strong> — ప్రహ్లాద భక్తి మరియు నరసింహ అవతారం. ప్రతి నిబంధన నెరవేర్చి న్యాయం అందించిన విష్ణువు.</p></div>
+          <div data-lang="ta" style="display:none"><p><strong>விஷ்ணு புராணம்</strong> — பிரஹ்லாத பக்தியும் நரசிம்ம அவதாரமும். ஒவ்வொரு நிபந்தனையையும் நிறைவேற்றி நீதி வழங்கிய விஷ்ணு.</p></div>
+          <div data-lang="ml" style="display:none"><p><strong>വിഷ്ണു പുരാണം</strong> — പ്രഹ്ലാദ ഭക്തിയും നരസിംഹ അവതാരവും. ഓരോ വ്യവസ്ഥയും പൂർത്തിയാക്കി നീതി നൽകിയ വിഷ്ണു.</p></div>
+
         </div>
-        <a class="btn-unlock" href="premium.html">Unlock All 18 Puranas — ₹199/month</a>
-        <div class="paywall-note">7-DAY FREE TRIAL · CANCEL ANYTIME · ALL 18+ SCRIPTURES INCLUDED</div>
       </div>
     </div>
+    <div class="paywall-overlay"><div class="paywall-box"><div class="paywall-icon">🔱</div><h3>Unlock Vishnu Purana — Prahlada and the Narasimha Avatar</h3><p>The Vishnu Purana — Prahlada and the Narasimha Avatar — one of the 18 Mahapuranas, available in 6 Indian languages.</p><div class="paywall-features"><span class="paywall-feature">✦ All 18 Puranas</span><span class="paywall-feature">✦ 6 Languages</span><span class="paywall-feature">✦ 400K Verses</span><span class="paywall-feature">✦ AI Chat</span></div><a href="premium.html" class="btn-unlock">👑 Unlock Premium — ₹199/month</a><div class="paywall-note">7-day free trial · Cancel anytime</div></div></div>
   </div>
-
-  <!-- Preview of all 18 Puranas -->
-  <div style="background:white;border-radius:16px;border:1px solid rgba(107,26,26,0.08);padding:28px;margin-bottom:40px;">
-    <h3 style="font-family:'Cinzel',serif;font-size:14px;letter-spacing:.1em;color:var(--maroon-dk);margin-bottom:20px;">📖 ALL 18 MAHAPURANAS · UNLOCK THE COMPLETE MYTHOLOGY →</h3>
-    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;">
-      <div style="padding:12px;border-radius:10px;border:1px solid rgba(107,26,26,0.08);"><div style="font-family:'Cinzel',serif;font-size:10px;color:var(--saffron);">SHIVA PURANA · 24,000 VERSES</div><div style="font-family:'EB Garamond',serif;font-style:italic;font-size:12px;color:var(--text-mid);margin-top:3px;">Sati, Parvati, the 12 Jyotirlingas, birth of Ganesha and Kartikeya. Shiva as the Supreme Being.</div></div>
-      <div style="padding:12px;border-radius:10px;border:1px solid rgba(107,26,26,0.08);"><div style="font-family:'Cinzel',serif;font-size:10px;color:var(--saffron);">DEVI BHAGAVATA · 18,000 VERSES</div><div style="font-family:'EB Garamond',serif;font-style:italic;font-size:12px;color:var(--text-mid);margin-top:3px;">The goddess as the Supreme Power. Durga, Kali, Saraswati, Lakshmi — the many faces of the Divine Mother.</div></div>
-      <div style="padding:12px;border-radius:10px;border:1px solid rgba(107,26,26,0.08);"><div style="font-family:'Cinzel',serif;font-size:10px;color:var(--gold-dk);">★ GARUDA PURANA · THE AFTERLIFE</div><div style="font-family:'EB Garamond',serif;font-style:italic;font-size:12px;color:var(--text-mid);margin-top:3px;">What happens after death — the soul's journey, the 14 planes of existence, karma's consequences. Read at every Hindu funeral.</div></div>
-      <div style="padding:12px;border-radius:10px;border:1px solid rgba(107,26,26,0.08);"><div style="font-family:'Cinzel',serif;font-size:10px;color:var(--saffron);">BRAHMA PURANA · 10,000 VERSES</div><div style="font-family:'EB Garamond',serif;font-style:italic;font-size:12px;color:var(--text-mid);margin-top:3px;">The oldest of the Puranas. Creation stories, the sacred site of Jagannath Puri, pilgrimages and their significance.</div></div>
-      <div style="padding:12px;border-radius:10px;border:1px solid rgba(107,26,26,0.08);"><div style="font-family:'Cinzel',serif;font-size:10px;color:var(--saffron);">BRAHMANDA PURANA</div><div style="font-family:'EB Garamond',serif;font-style:italic;font-size:12px;color:var(--text-mid);margin-top:3px;">The cosmic egg — Brahmaanda. The origin of the universe from nothingness. Astrology, creation cycles.</div></div>
-      <div style="padding:12px;border-radius:10px;border:1px solid rgba(107,26,26,0.08);"><div style="font-family:'Cinzel',serif;font-size:10px;color:var(--saffron);">MARKANDEYA PURANA</div><div style="font-family:'EB Garamond',serif;font-style:italic;font-size:12px;color:var(--text-mid);margin-top:3px;">Contains the Devi Mahatmya — the most powerful scripture on the Divine Goddess. Chanted at Navratri.</div></div>
-      <div style="padding:12px;border-radius:10px;border:1px solid rgba(107,26,26,0.08);grid-column:1/-1;"><div style="font-family:'Cinzel',serif;font-size:10px;color:var(--gold-dk);">AND 12 MORE: Agni · Narada · Padma · Linga · Varaha · Skanda · Kurma · Matsya · Vamana · Brahma Vaivarta · Harivamsa</div><div style="font-family:'EB Garamond',serif;font-style:italic;font-size:12px;color:var(--text-mid);margin-top:3px;">Each containing treasures of Hindu knowledge — stories of festivals, pilgrimage sites, yogic practices, astronomy, medicine, statecraft, art, and the science of living.</div></div>
+  <div class="purana-divider"><span>ॐ</span></div>
+  <div class="purana locked-purana" id="p-4">
+    <div class="purana-header">
+      <div class="purana-num">04</div>
+      <div class="purana-title-wrap">
+        <div class="purana-badge">👑 PREMIUM · 7 BOOKS · 24,000 VERSES</div>
+        <div class="purana-title" data-lang="en">Shiva Purana — The Marriage of Shiva and Parvati</div>
+        <div class="purana-title" data-lang="hi" style="display:none">शिव पुराण</div>
+        <div class="purana-title" data-lang="kn" style="display:none">ಶಿವ ಪುರಾಣ</div>
+        <div class="purana-title" data-lang="te" style="display:none">శివ పురాణం</div>
+        <div class="purana-title" data-lang="ta" style="display:none">சிவ புராணம்</div>
+        <div class="purana-title" data-lang="ml" style="display:none">ശിവ പുരാണം</div>
+        <div class="purana-sanskrit">शिवपुराणम्</div>
+        <div class="purana-meta">7 BOOKS · SHIVA-PARVATI · JYOTIRLINGAS · DAKSHA YAJNA</div>
+      </div>
     </div>
-    <div style="text-align:center;margin-top:20px;"><a href="premium.html" style="display:inline-block;padding:14px 36px;background:linear-gradient(135deg,var(--saffron),var(--gold));color:white;font-family:'Cinzel',serif;font-size:13px;font-weight:700;letter-spacing:.06em;border-radius:50px;text-decoration:none;box-shadow:0 4px 20px rgba(232,97,26,0.4);">Unlock All 18 Puranas — ₹199/month →</a></div>
+    <div class="purana-content">
+      <div class="story">
+        <div class="story-label">✦ THE STORY</div>
+        <h3 data-lang="en">Shiva Purana — The Marriage of Shiva and Parvati</h3>
+        <h3 data-lang="hi" style="display:none">शिव पुराण</h3>
+        <h3 data-lang="kn" style="display:none">ಶಿವ ಪುರಾಣ</h3>
+        <h3 data-lang="te" style="display:none">శివ పురాణం</h3>
+        <h3 data-lang="ta" style="display:none">சிவ புராணம்</h3>
+        <h3 data-lang="ml" style="display:none">ശിവ പുരാണം</h3>
+        <div class="story-text">
+          <div data-lang="en"><p>The <strong>Shiva Purana</strong> is the supreme scripture of the Shaiva tradition — 24,000 verses dedicated to the glory and nature of Lord Shiva. Its most beloved story is the marriage of Shiva and Parvati. After Sati (Shiva's first wife) died in Daksha's yajna, Shiva was consumed by grief. Sati was reborn as Parvati, daughter of the Himalayas, and underwent extraordinary tapas (austerities) for thousands of years to win Shiva as her husband again. The gods sent Kamadeva (the god of desire) to distract Shiva from meditation — Shiva opened his third eye and burned Kama to ash. Eventually, Shiva accepted Parvati — and the gods rejoiced, for only from the union of Shiva and Shakti could the warrior Skanda (Karttikeya) be born to defeat the demon Tarakasura.</p>
+<p>The Shiva Purana also describes the twelve <strong>Jyotirlingas</strong> across India — the places where Shiva appeared as an infinite column of light — and the famous story of Daksha's yajna, which led to Sati's death and Shiva's grief that shook the three worlds.</p></div>
+          <div data-lang="hi" style="display:none"><p><strong>शिव पुराण</strong> — शिव-पार्वती विवाह, पार्वती का तप, कामदेव दहन, बारह ज्योतिर्लिंग, दक्ष यज्ञ। शिव-शक्ति मिलन से कार्तिकेय जन्म।</p></div>
+          <div data-lang="kn" style="display:none"><p><strong>ಶಿವ ಪುರಾಣ</strong> — ಶಿವ-ಪಾರ್ವತಿ ವಿವಾಹ, ಕಾಮದಹನ, ಜ್ಯೋತಿರ್ಲಿಂಗ, ದಕ್ಷ ಯಜ್ಞ. ಶಿವ-ಶಕ್ತಿ ಸಮ್ಮಿಲನ.</p></div>
+          <div data-lang="te" style="display:none"><p><strong>శివ పురాణం</strong> — శివ-పార్వతి వివాహం, కామదహనం, జ్యోతిర్లింగాలు, దక్ష యజ్ఞం. శివ-శక్తి సంమిళనం.</p></div>
+          <div data-lang="ta" style="display:none"><p><strong>சிவ புராணம்</strong> — சிவன்-பார்வதி திருமணம், காமதகனம், ஜ்யோதிர்லிங்கங்கள், தக்ஷன் யாகம்.</p></div>
+          <div data-lang="ml" style="display:none"><p><strong>ശിവ പുരാണം</strong> — ശിവ-പാർവ്വതി വിവാഹം, കാമദഹനം, ജ്യോതിർലിംഗം, ദക്ഷ യജ്ഞം.</p></div>
+
+        </div>
+      </div>
+    </div>
+    <div class="paywall-overlay"><div class="paywall-box"><div class="paywall-icon">🔱</div><h3>Unlock Shiva Purana — The Marriage of Shiva and Parvati</h3><p>The Shiva Purana — The Marriage of Shiva and Parvati — one of the 18 Mahapuranas, available in 6 Indian languages.</p><div class="paywall-features"><span class="paywall-feature">✦ All 18 Puranas</span><span class="paywall-feature">✦ 6 Languages</span><span class="paywall-feature">✦ 400K Verses</span><span class="paywall-feature">✦ AI Chat</span></div><a href="premium.html" class="btn-unlock">👑 Unlock Premium — ₹199/month</a><div class="paywall-note">7-day free trial · Cancel anytime</div></div></div>
+  </div>
+  <div class="purana-divider"><span>ॐ</span></div>
+  <div class="purana locked-purana" id="p-5">
+    <div class="purana-header">
+      <div class="purana-num">05</div>
+      <div class="purana-title-wrap">
+        <div class="purana-badge">👑 PREMIUM · 12 BOOKS · 18,000 VERSES ★ THE GREATEST</div>
+        <div class="purana-title" data-lang="en">Bhagavata Purana — Krishna's Complete Story ★</div>
+        <div class="purana-title" data-lang="hi" style="display:none">भागवत पुराण ★</div>
+        <div class="purana-title" data-lang="kn" style="display:none">ಭಾಗವತ ಪುರಾಣ ★</div>
+        <div class="purana-title" data-lang="te" style="display:none">భాగవత పురాణం ★</div>
+        <div class="purana-title" data-lang="ta" style="display:none">பாகவத புராணம் ★</div>
+        <div class="purana-title" data-lang="ml" style="display:none">ഭാഗവത പുരാണം ★</div>
+        <div class="purana-sanskrit">श्रीमद्भागवतम्</div>
+        <div class="purana-meta">12 BOOKS · 18,000 VERSES · KRISHNA · PRAHLADA · THE GREATEST PURANA ★</div>
+      </div>
+    </div>
+    <div class="purana-content">
+      <div class="story">
+        <div class="story-label">✦ THE STORY</div>
+        <h3 data-lang="en">Bhagavata Purana — Krishna's Complete Story ★</h3>
+        <h3 data-lang="hi" style="display:none">भागवत पुराण ★</h3>
+        <h3 data-lang="kn" style="display:none">ಭಾಗವತ ಪುರಾಣ ★</h3>
+        <h3 data-lang="te" style="display:none">భాగవత పురాణం ★</h3>
+        <h3 data-lang="ta" style="display:none">பாகவத புராணம் ★</h3>
+        <h3 data-lang="ml" style="display:none">ഭാഗവത പുരാണം ★</h3>
+        <div class="story-text">
+          <div data-lang="en"><p>The <strong>Bhagavata Purana</strong> (Srimad Bhagavatam) is the crown jewel of all Puranas — 18,000 verses in 12 books, the most beloved scripture in the entire Vaishnava tradition. It was composed by Vyasa after completing all the Vedas and the Mahabharata, when he still felt an inexplicable sadness. The sage Narada told him: "You have described dharma, artha, kama, moksha — but you have not fully described the glory of the Lord. Write what your heart knows." And the Bhagavatam was born.</p>
+<p>The Bhagavatam is told by the sage <strong>Shuka</strong> to the dying king <strong>Parikshit</strong> — grandson of Arjuna — who has been cursed to die in seven days. Parikshit asks: what should a man do who knows he is about to die? The tenth book — containing Krishna's life from birth in the prison, through his Vrindavan childhood, the Govardhan episode, the Raas Leela with the gopis, the Mathura period, and the Kurukshetra war — is the most beloved section of the most beloved Purana.</p>
+<p>The Bhagavatam's deepest teaching: love of God is not a path toward liberation — love of God IS the supreme state. The gopis of Vrindavan represent the pinnacle of devotion: a love so complete that the boundary between lover and beloved dissolves entirely.</p></div>
+          <div data-lang="hi" style="display:none"><p><strong>भागवत पुराण ★</strong> — व्यास का अंतिम महाग्रंथ। मरणासन्न परीक्षित को शुक की कथा। दशम स्कन्ध — कृष्ण का सम्पूर्ण जीवन। गोपियों की भक्ति — प्रेम ही परम अवस्था।</p></div>
+          <div data-lang="kn" style="display:none"><p><strong>ಭಾಗವತ ಪುರಾಣ ★</strong> — ಮರಣಾಸನ್ನ ಪರೀಕ್ಷಿತಿಗೆ ಶುಕ ಕಥೆ. ದಶಮ ಸ್ಕಂಧ — ಕೃಷ್ಣ ಜೀವನ. ಗೋಪಿಯರ ಭಕ್ತಿ — ಪ್ರೇಮ ಪರಮ ಅವಸ್ಥೆ.</p></div>
+          <div data-lang="te" style="display:none"><p><strong>భాగవత పురాణం ★</strong> — మరణాసన్న పరీక్షిత్‌కు శుకుడు కథ. దశమ స్కంధం — కృష్ణ జీవితం. గోపికల భక్తి — ప్రేమే పరమ స్థితి.</p></div>
+          <div data-lang="ta" style="display:none"><p><strong>பாகவத புராணம் ★</strong> — மரணத்திற்கு நெருங்கிய பரீட்சித்திற்கு சுகர் கதை. பத்தாவது ஸ்கந்தம் — கிருஷ்ண வாழ்க்கை. கோபியர் பக்தி — அன்பே பரம நிலை.</p></div>
+          <div data-lang="ml" style="display:none"><p><strong>ഭാഗവത പുരാണം ★</strong> — മരണ സന്നിധ്യിൽ പരീക്ഷിത്തിന് ശുകർ കഥ. ദശമ സ്കന്ധം — കൃഷ്ണ ജീവിതം. ഗോപികളുടെ ഭക്തി — പ്രേമം തന്നെ പരമ അവസ്ഥ.</p></div>
+
+        </div>
+      </div>
+    </div>
+    <div class="paywall-overlay"><div class="paywall-box"><div class="paywall-icon">🦚</div><h3>Unlock Bhagavata Purana — Krishna's Complete Story ★</h3><p>The Bhagavata Purana — Krishna's Complete Story ★ — one of the 18 Mahapuranas, available in 6 Indian languages.</p><div class="paywall-features"><span class="paywall-feature">✦ All 18 Puranas</span><span class="paywall-feature">✦ 6 Languages</span><span class="paywall-feature">✦ 400K Verses</span><span class="paywall-feature">✦ AI Chat</span></div><a href="premium.html" class="btn-unlock">👑 Unlock Premium — ₹199/month</a><div class="paywall-note">7-day free trial · Cancel anytime</div></div></div>
+  </div>
+  <div class="purana-divider"><span>ॐ</span></div>
+  <div class="purana locked-purana" id="p-6">
+    <div class="purana-header">
+      <div class="purana-num">06</div>
+      <div class="purana-title-wrap">
+        <div class="purana-badge">👑 PREMIUM · 25,000 VERSES</div>
+        <div class="purana-title" data-lang="en">Narada Purana — The Sage of Devotion</div>
+        <div class="purana-title" data-lang="hi" style="display:none">नारद पुराण</div>
+        <div class="purana-title" data-lang="kn" style="display:none">ನಾರದ ಪುರಾಣ</div>
+        <div class="purana-title" data-lang="te" style="display:none">నారద పురాణం</div>
+        <div class="purana-title" data-lang="ta" style="display:none">நாரத புராணம்</div>
+        <div class="purana-title" data-lang="ml" style="display:none">നാരദ പുരാണം</div>
+        <div class="purana-sanskrit">नारदपुराणम्</div>
+        <div class="purana-meta">4 BOOKS · BHAKTI · TIRTHAS · NARADA'S COSMIC MISCHIEF</div>
+      </div>
+    </div>
+    <div class="purana-content">
+      <div class="story">
+        <div class="story-label">✦ THE STORY</div>
+        <h3 data-lang="en">Narada Purana — The Sage of Devotion</h3>
+        <h3 data-lang="hi" style="display:none">नारद पुराण</h3>
+        <h3 data-lang="kn" style="display:none">ನಾರದ ಪುರಾಣ</h3>
+        <h3 data-lang="te" style="display:none">నారద పురాణం</h3>
+        <h3 data-lang="ta" style="display:none">நாரத புராணம்</h3>
+        <h3 data-lang="ml" style="display:none">നാരദ പുരാണം</h3>
+        <div class="story-text">
+          <div data-lang="en"><p>The Narada Purana is dedicated to the great celestial sage Narada — cosmic minstrel, eternal traveller between worlds. It contains extensive teachings on Bhakti, sacred places (tirthas) across India, and the dharma of different social roles. Most beloved are the stories of Narada's divine interventions — his apparent mischief that always ultimately serves devotion and liberation. He is the Mahabharata's most paradoxical character: a gossip who speaks only truth, a troublemaker whose troubles always lead to God.</p></div>
+          <div data-lang="hi" style="display:none"><p>नारद पुराण — भक्ति, तीर्थ और नारद की लीलाओं का खज़ाना।</p></div>
+          <div data-lang="kn" style="display:none"><p>ನಾರದ ಪುರಾಣ — ಭಕ್ತಿ, ತೀರ್ಥ, ನಾರದ ಲೀಲೆ.</p></div>
+          <div data-lang="te" style="display:none"><p>నారద పురాణం — భక్తి, తీర్థ, నారద లీలలు.</p></div>
+          <div data-lang="ta" style="display:none"><p>நாரத புராணம் — பக்தி, தீர்த்தம், நாரதர் லீலை.</p></div>
+          <div data-lang="ml" style="display:none"><p>നാരദ പുരാണം — ഭക്തി, തീർഥം, നാരദ ലീല.</p></div>
+
+        </div>
+      </div>
+    </div>
+    <div class="paywall-overlay"><div class="paywall-box"><div class="paywall-icon">📿</div><h3>Unlock Narada Purana — The Sage of Devotion</h3><p>The Narada Purana — The Sage of Devotion — one of the 18 Mahapuranas, available in 6 Indian languages.</p><div class="paywall-features"><span class="paywall-feature">✦ All 18 Puranas</span><span class="paywall-feature">✦ 6 Languages</span><span class="paywall-feature">✦ 400K Verses</span><span class="paywall-feature">✦ AI Chat</span></div><a href="premium.html" class="btn-unlock">👑 Unlock Premium — ₹199/month</a><div class="paywall-note">7-day free trial · Cancel anytime</div></div></div>
+  </div>
+  <div class="purana-divider"><span>ॐ</span></div>
+  <div class="purana locked-purana" id="p-7">
+    <div class="purana-header">
+      <div class="purana-num">07</div>
+      <div class="purana-title-wrap">
+        <div class="purana-badge">👑 PREMIUM · 9,000 VERSES · DEVI MAHATMYA</div>
+        <div class="purana-title" data-lang="en">Markandeya Purana — The Devi Mahatmya</div>
+        <div class="purana-title" data-lang="hi" style="display:none">मार्कण्डेय पुराण</div>
+        <div class="purana-title" data-lang="kn" style="display:none">ಮಾರ್ಕಂಡೇಯ ಪುರಾಣ</div>
+        <div class="purana-title" data-lang="te" style="display:none">మార్కండేయ పురాణం</div>
+        <div class="purana-title" data-lang="ta" style="display:none">மார்கண்டேய புராணம்</div>
+        <div class="purana-title" data-lang="ml" style="display:none">മാർകണ്ഡേയ പുരാണം</div>
+        <div class="purana-sanskrit">मार्कण्डेयपुराणम्</div>
+        <div class="purana-meta">9,000 VERSES · DEVI MAHATMYA · DURGA · NAVRATRI</div>
+      </div>
+    </div>
+    <div class="purana-content">
+      <div class="story">
+        <div class="story-label">✦ THE STORY</div>
+        <h3 data-lang="en">Markandeya Purana — The Devi Mahatmya</h3>
+        <h3 data-lang="hi" style="display:none">मार्कण्डेय पुराण</h3>
+        <h3 data-lang="kn" style="display:none">ಮಾರ್ಕಂಡೇಯ ಪುರಾಣ</h3>
+        <h3 data-lang="te" style="display:none">మార్కండేయ పురాణం</h3>
+        <h3 data-lang="ta" style="display:none">மார்கண்டேய புராணம்</h3>
+        <h3 data-lang="ml" style="display:none">മാർകണ്ഡേയ പുരാണം</h3>
+        <div class="story-text">
+          <div data-lang="en"><p>The Markandeya Purana contains one of the most powerful texts in all of Hinduism: the Devi Mahatmya (Durga Saptashati) — 700 verses describing the Divine Mother Durga's victory over the demons Mahishasura, Shumbha, and Nishumbha. Chanted across India during Navratri, it is the primary scripture of the Shakta tradition. The Purana also contains the story of Markandeya himself — the sage blessed with immortality through devotion to Shiva, who defeated Yama, the god of death, on the boy's behalf.</p></div>
+          <div data-lang="hi" style="display:none"><p>मार्कण्डेय पुराण — देवी महात्म्य: महिषासुर वध, नवरात्रि पाठ।</p></div>
+          <div data-lang="kn" style="display:none"><p>ಮಾರ್ಕಂಡೇಯ ಪುರಾಣ — ದೇವಿ ಮಹಾತ್ಮ್ಯ: ಮಹಿಷಾಸುರ ವಧ.</p></div>
+          <div data-lang="te" style="display:none"><p>మార్కండేయ పురాణం — దేవీ మహాత్మ్యం: మహిషాసుర వధ.</p></div>
+          <div data-lang="ta" style="display:none"><p>மார்கண்டேய புராணம் — தேவி மகாத்மியம்: மகிஷாசுர வதம்.</p></div>
+          <div data-lang="ml" style="display:none"><p>മാർകണ്ഡേയ പുരാണം — ദേവി മാഹാത്മ്യം: മഹിഷാസുര വധം.</p></div>
+
+        </div>
+      </div>
+    </div>
+    <div class="paywall-overlay"><div class="paywall-box"><div class="paywall-icon">🌺</div><h3>Unlock Markandeya Purana — The Devi Mahatmya</h3><p>The Markandeya Purana — The Devi Mahatmya — one of the 18 Mahapuranas, available in 6 Indian languages.</p><div class="paywall-features"><span class="paywall-feature">✦ All 18 Puranas</span><span class="paywall-feature">✦ 6 Languages</span><span class="paywall-feature">✦ 400K Verses</span><span class="paywall-feature">✦ AI Chat</span></div><a href="premium.html" class="btn-unlock">👑 Unlock Premium — ₹199/month</a><div class="paywall-note">7-day free trial · Cancel anytime</div></div></div>
+  </div>
+  <div class="purana-divider"><span>ॐ</span></div>
+  <div class="purana locked-purana" id="p-8">
+    <div class="purana-header">
+      <div class="purana-num">08</div>
+      <div class="purana-title-wrap">
+        <div class="purana-badge">👑 PREMIUM · 15,400 VERSES</div>
+        <div class="purana-title" data-lang="en">Agni Purana — The Encyclopedia of Ancient India</div>
+        <div class="purana-title" data-lang="hi" style="display:none">अग्नि पुराण</div>
+        <div class="purana-title" data-lang="kn" style="display:none">ಅಗ್ನಿ ಪುರಾಣ</div>
+        <div class="purana-title" data-lang="te" style="display:none">అగ్ని పురాణం</div>
+        <div class="purana-title" data-lang="ta" style="display:none">அக்னி புராணம்</div>
+        <div class="purana-title" data-lang="ml" style="display:none">അഗ്നി പുരാണം</div>
+        <div class="purana-sanskrit">अग्निपुराणम्</div>
+        <div class="purana-meta">15,400 VERSES · AYURVEDA · ASTROLOGY · WARFARE · POETRY</div>
+      </div>
+    </div>
+    <div class="purana-content">
+      <div class="story">
+        <div class="story-label">✦ THE STORY</div>
+        <h3 data-lang="en">Agni Purana — The Encyclopedia of Ancient India</h3>
+        <h3 data-lang="hi" style="display:none">अग्नि पुराण</h3>
+        <h3 data-lang="kn" style="display:none">ಅಗ್ನಿ ಪುರಾಣ</h3>
+        <h3 data-lang="te" style="display:none">అగ్ని పురాణం</h3>
+        <h3 data-lang="ta" style="display:none">அக்னி புராணம்</h3>
+        <h3 data-lang="ml" style="display:none">അഗ്നി പുരാണം</h3>
+        <div class="story-text">
+          <div data-lang="en"><p>The Agni Purana is the most encyclopaedic of all the Puranas — an astonishing treasury of ancient Indian knowledge covering every domain of life: cosmology, geography, medicine (Ayurveda), astrology, grammar, poetics, statecraft, military science, yoga, and philosophy. It is told by the sage Agni (Fire) to the sage Vasishtha, and covers everything from how to build a temple to how to fight a war. For scholars of ancient India, the Agni Purana is an irreplaceable primary source.</p></div>
+          <div data-lang="hi" style="display:none"><p>अग्नि पुराण — आयुर्वेद, ज्योतिष, काव्यशास्त्र, राजनीति — सम्पूर्ण ज्ञानकोश।</p></div>
+          <div data-lang="kn" style="display:none"><p>ಅಗ್ನಿ ಪುರಾಣ — ಆಯುರ್ವೇದ, ಜ್ಯೋತಿಷ, ಕಾವ್ಯ, ರಾಜನೀತಿ — ಜ್ಞಾನ ಭಂಡಾರ.</p></div>
+          <div data-lang="te" style="display:none"><p>అగ్ని పురాణం — ఆయుర్వేదం, జ్యోతిష్యం, కవిత్వం, రాజనీతి — జ్ఞాన కోశం.</p></div>
+          <div data-lang="ta" style="display:none"><p>அக்னி புராணம் — ஆயுர்வேதம், ஜோதிடம், கவிதை, அரசியல் — ஞான களஞ்சியம்.</p></div>
+          <div data-lang="ml" style="display:none"><p>അഗ്നി പുരാണം — ആയുർവേദം, ജ്യോതിഷം, കാവ്യം, രാഷ്ട്രീയം — ജ്ഞാന ഭണ്ഡാരം.</p></div>
+
+        </div>
+      </div>
+    </div>
+    <div class="paywall-overlay"><div class="paywall-box"><div class="paywall-icon">🔥</div><h3>Unlock Agni Purana — The Encyclopedia of Ancient India</h3><p>The Agni Purana — The Encyclopedia of Ancient India — one of the 18 Mahapuranas, available in 6 Indian languages.</p><div class="paywall-features"><span class="paywall-feature">✦ All 18 Puranas</span><span class="paywall-feature">✦ 6 Languages</span><span class="paywall-feature">✦ 400K Verses</span><span class="paywall-feature">✦ AI Chat</span></div><a href="premium.html" class="btn-unlock">👑 Unlock Premium — ₹199/month</a><div class="paywall-note">7-day free trial · Cancel anytime</div></div></div>
+  </div>
+  <div class="purana-divider"><span>ॐ</span></div>
+  <div class="purana locked-purana" id="p-9">
+    <div class="purana-header">
+      <div class="purana-num">09</div>
+      <div class="purana-title-wrap">
+        <div class="purana-badge">👑 PREMIUM · 14,500 VERSES</div>
+        <div class="purana-title" data-lang="en">Bhavishya Purana — Prophecies and Future Ages</div>
+        <div class="purana-title" data-lang="hi" style="display:none">भविष्य पुराण</div>
+        <div class="purana-title" data-lang="kn" style="display:none">ಭವಿಷ್ಯ ಪುರಾಣ</div>
+        <div class="purana-title" data-lang="te" style="display:none">భవిష్య పురాణం</div>
+        <div class="purana-title" data-lang="ta" style="display:none">பவிஷ்ய புராணம்</div>
+        <div class="purana-title" data-lang="ml" style="display:none">ഭവിഷ്യ പുരാണം</div>
+        <div class="purana-sanskrit">भविष्यपुराणम्</div>
+        <div class="purana-meta">14,500 VERSES · PROPHECIES · SOLAR DYNASTY · FESTIVALS</div>
+      </div>
+    </div>
+    <div class="purana-content">
+      <div class="story">
+        <div class="story-label">✦ THE STORY</div>
+        <h3 data-lang="en">Bhavishya Purana — Prophecies and Future Ages</h3>
+        <h3 data-lang="hi" style="display:none">भविष्य पुराण</h3>
+        <h3 data-lang="kn" style="display:none">ಭವಿಷ್ಯ ಪುರಾಣ</h3>
+        <h3 data-lang="te" style="display:none">భవిష్య పురాణం</h3>
+        <h3 data-lang="ta" style="display:none">பவிஷ்ய புராணம்</h3>
+        <h3 data-lang="ml" style="display:none">ഭവിഷ്യ പുരാണം</h3>
+        <div class="story-text">
+          <div data-lang="en"><p>The Bhavishya Purana (Purana of the Future) is one of the most unusual of the Mahapuranas — it claims to contain prophecies about events that would occur in future ages, including the appearance of certain historical figures. Whatever one makes of its prophetic passages, the Bhavishya Purana is a rich source for the origins of many Hindu festivals and vratas (sacred vows), especially those observed by women. It contains extensive teachings on the proper conduct of life for householders.</p></div>
+          <div data-lang="hi" style="display:none"><p>भविष्य पुराण — भविष्यवाणियाँ, त्योहारों की उत्पत्ति, व्रत कथाएँ।</p></div>
+          <div data-lang="kn" style="display:none"><p>ಭವಿಷ್ಯ ಪುರಾಣ — ಭವಿಷ್ಯವಾಣಿ, ಹಬ್ಬಗಳ ಮೂಲ, ವ್ರತ ಕಥೆ.</p></div>
+          <div data-lang="te" style="display:none"><p>భవిష్య పురాణం — భవిష్యవాణులు, పండుగల మూలం, వ్రత కథలు.</p></div>
+          <div data-lang="ta" style="display:none"><p>பவிஷ்ய புராணம் — தீர்க்கதரிசனம், திருவிழாக்களின் தோற்றம்.</p></div>
+          <div data-lang="ml" style="display:none"><p>ഭവിഷ്യ പുരാണം — പ്രവചനങ്ങൾ, ഉത്സവ ഉത്ഭവം, വ്രത കഥകൾ.</p></div>
+
+        </div>
+      </div>
+    </div>
+    <div class="paywall-overlay"><div class="paywall-box"><div class="paywall-icon">🔮</div><h3>Unlock Bhavishya Purana — Prophecies and Future Ages</h3><p>The Bhavishya Purana — Prophecies and Future Ages — one of the 18 Mahapuranas, available in 6 Indian languages.</p><div class="paywall-features"><span class="paywall-feature">✦ All 18 Puranas</span><span class="paywall-feature">✦ 6 Languages</span><span class="paywall-feature">✦ 400K Verses</span><span class="paywall-feature">✦ AI Chat</span></div><a href="premium.html" class="btn-unlock">👑 Unlock Premium — ₹199/month</a><div class="paywall-note">7-day free trial · Cancel anytime</div></div></div>
+  </div>
+  <div class="purana-divider"><span>ॐ</span></div>
+  <div class="purana locked-purana" id="p-10">
+    <div class="purana-header">
+      <div class="purana-num">10</div>
+      <div class="purana-title-wrap">
+        <div class="purana-badge">👑 PREMIUM · 10,000 VERSES</div>
+        <div class="purana-title" data-lang="en">Brahma Purana — The First of the Puranas</div>
+        <div class="purana-title" data-lang="hi" style="display:none">ब्रह्म पुराण</div>
+        <div class="purana-title" data-lang="kn" style="display:none">ಬ್ರಹ್ಮ ಪುರಾಣ</div>
+        <div class="purana-title" data-lang="te" style="display:none">బ్రహ్మ పురాణం</div>
+        <div class="purana-title" data-lang="ta" style="display:none">பிரம்ம புராணம்</div>
+        <div class="purana-title" data-lang="ml" style="display:none">ബ്രഹ്മ പുരാണം</div>
+        <div class="purana-sanskrit">ब्रह्मपुराणम्</div>
+        <div class="purana-meta">10,000 VERSES · CREATION · ODISHA TEMPLES · KRISHNA IN ORISSA</div>
+      </div>
+    </div>
+    <div class="purana-content">
+      <div class="story">
+        <div class="story-label">✦ THE STORY</div>
+        <h3 data-lang="en">Brahma Purana — The First of the Puranas</h3>
+        <h3 data-lang="hi" style="display:none">ब्रह्म पुराण</h3>
+        <h3 data-lang="kn" style="display:none">ಬ್ರಹ್ಮ ಪುರಾಣ</h3>
+        <h3 data-lang="te" style="display:none">బ్రహ్మ పురాణం</h3>
+        <h3 data-lang="ta" style="display:none">பிரம்ம புராணம்</h3>
+        <h3 data-lang="ml" style="display:none">ബ്രഹ്മ പുരാണം</h3>
+        <div class="story-text">
+          <div data-lang="en"><p>The Brahma Purana is traditionally listed first among the eighteen Mahapuranas. It begins with creation — Brahma's cosmic dream from which all worlds arise — and includes extensive descriptions of sacred sites, particularly those in Orissa (modern Odisha), making it an important text for the Jagannath tradition. It also contains a long section on Krishna's life and teachings that parallels the Bhagavata Purana.</p></div>
+          <div data-lang="hi" style="display:none"><p>ब्रह्म पुराण — सृष्टि, उड़ीसा के तीर्थ, जगन्नाथ परम्परा।</p></div>
+          <div data-lang="kn" style="display:none"><p>ಬ್ರಹ್ಮ ಪುರಾಣ — ಸೃಷ್ಟಿ, ಒಡಿಶಾ ತೀರ್ಥ, ಜಗನ್ನಾಥ.</p></div>
+          <div data-lang="te" style="display:none"><p>బ్రహ్మ పురాణం — సృష్టి, ఒడిశా తీర్థాలు, జగన్నాథ.</p></div>
+          <div data-lang="ta" style="display:none"><p>பிரம்ம புராணம் — சிருஷ்டி, ஒடிசா தீர்த்தம், ஜகந்நாத்.</p></div>
+          <div data-lang="ml" style="display:none"><p>ബ്രഹ്മ പുരാണം — സൃഷ്ടി, ഒഡിഷ തീർഥം, ജഗന്നാഥൻ.</p></div>
+
+        </div>
+      </div>
+    </div>
+    <div class="paywall-overlay"><div class="paywall-box"><div class="paywall-icon">🌸</div><h3>Unlock Brahma Purana — The First of the Puranas</h3><p>The Brahma Purana — The First of the Puranas — one of the 18 Mahapuranas, available in 6 Indian languages.</p><div class="paywall-features"><span class="paywall-feature">✦ All 18 Puranas</span><span class="paywall-feature">✦ 6 Languages</span><span class="paywall-feature">✦ 400K Verses</span><span class="paywall-feature">✦ AI Chat</span></div><a href="premium.html" class="btn-unlock">👑 Unlock Premium — ₹199/month</a><div class="paywall-note">7-day free trial · Cancel anytime</div></div></div>
+  </div>
+  <div class="purana-divider"><span>ॐ</span></div>
+  <div class="purana locked-purana" id="p-11">
+    <div class="purana-header">
+      <div class="purana-num">11</div>
+      <div class="purana-title-wrap">
+        <div class="purana-badge">👑 PREMIUM · 18,000 VERSES</div>
+        <div class="purana-title" data-lang="en">Brahmavaivarta Purana — Krishna and Radha</div>
+        <div class="purana-title" data-lang="hi" style="display:none">ब्रह्मवैवर्त पुराण</div>
+        <div class="purana-title" data-lang="kn" style="display:none">ಬ್ರಹ್ಮವೈವರ್ತ ಪುರಾಣ</div>
+        <div class="purana-title" data-lang="te" style="display:none">బ్రహ్మవైవర్త పురాణం</div>
+        <div class="purana-title" data-lang="ta" style="display:none">பிரம்மவைவர்த புராணம்</div>
+        <div class="purana-title" data-lang="ml" style="display:none">ബ്രഹ്മവൈവർത്ത പുരാണം</div>
+        <div class="purana-sanskrit">ब्रह्मवैवर्तपुराणम्</div>
+        <div class="purana-meta">18,000 VERSES · RADHA · KRISHNA'S DIVINE LOVE · SHAKTI</div>
+      </div>
+    </div>
+    <div class="purana-content">
+      <div class="story">
+        <div class="story-label">✦ THE STORY</div>
+        <h3 data-lang="en">Brahmavaivarta Purana — Krishna and Radha</h3>
+        <h3 data-lang="hi" style="display:none">ब्रह्मवैवर्त पुराण</h3>
+        <h3 data-lang="kn" style="display:none">ಬ್ರಹ್ಮವೈವರ್ತ ಪುರಾಣ</h3>
+        <h3 data-lang="te" style="display:none">బ్రహ్మవైవర్త పురాణం</h3>
+        <h3 data-lang="ta" style="display:none">பிரம்மவைவர்த புராணம்</h3>
+        <h3 data-lang="ml" style="display:none">ബ്രഹ്മവൈവർത്ത പുരാണം</h3>
+        <div class="story-text">
+          <div data-lang="en"><p>The Brahmavaivarta Purana is the Purana of divine transformation — focused on Krishna and his divine consort Radha. It contains the most elaborate and theologically rich descriptions of Radha in all of Sanskrit literature, presenting her not merely as Krishna's beloved but as the primordial Shakti, the divine feminine principle without which Krishna's creation cannot function. The love of Radha and Krishna is presented as the supreme cosmic reality — the dance of consciousness and its own bliss.</p></div>
+          <div data-lang="hi" style="display:none"><p>ब्रह्मवैवर्त पुराण — राधा-कृष्ण प्रेम: राधा परम शक्ति।</p></div>
+          <div data-lang="kn" style="display:none"><p>ಬ್ರಹ್ಮವೈವರ್ತ ಪುರಾಣ — ರಾಧಾ-ಕೃಷ್ಣ ಪ್ರೇಮ: ರಾಧಾ ಪರಮ ಶಕ್ತಿ.</p></div>
+          <div data-lang="te" style="display:none"><p>బ్రహ్మవైవర్త పురాణం — రాధా-కృష్ణ ప్రేమ: రాధ పరమ శక్తి.</p></div>
+          <div data-lang="ta" style="display:none"><p>பிரம்மவைவர்த புராணம் — ராதா-கிருஷ்ண அன்பு: ராதா பரம சக்தி.</p></div>
+          <div data-lang="ml" style="display:none"><p>ബ്രഹ്മവൈവർത്ത പുരാണം — രാധ-കൃഷ്ണ പ്രേമം: രാധ പരമ ശക്തി.</p></div>
+
+        </div>
+      </div>
+    </div>
+    <div class="paywall-overlay"><div class="paywall-box"><div class="paywall-icon">💛</div><h3>Unlock Brahmavaivarta Purana — Krishna and Radha</h3><p>The Brahmavaivarta Purana — Krishna and Radha — one of the 18 Mahapuranas, available in 6 Indian languages.</p><div class="paywall-features"><span class="paywall-feature">✦ All 18 Puranas</span><span class="paywall-feature">✦ 6 Languages</span><span class="paywall-feature">✦ 400K Verses</span><span class="paywall-feature">✦ AI Chat</span></div><a href="premium.html" class="btn-unlock">👑 Unlock Premium — ₹199/month</a><div class="paywall-note">7-day free trial · Cancel anytime</div></div></div>
+  </div>
+  <div class="purana-divider"><span>ॐ</span></div>
+  <div class="purana locked-purana" id="p-12">
+    <div class="purana-header">
+      <div class="purana-num">12</div>
+      <div class="purana-title-wrap">
+        <div class="purana-badge">👑 PREMIUM · 11,000 VERSES</div>
+        <div class="purana-title" data-lang="en">Linga Purana — The Supreme Shiva Linga</div>
+        <div class="purana-title" data-lang="hi" style="display:none">लिंग पुराण</div>
+        <div class="purana-title" data-lang="kn" style="display:none">ಲಿಂಗ ಪುರಾಣ</div>
+        <div class="purana-title" data-lang="te" style="display:none">లింగ పురాణం</div>
+        <div class="purana-title" data-lang="ta" style="display:none">லிங்க புராணம்</div>
+        <div class="purana-title" data-lang="ml" style="display:none">ലിംഗ പുരാണം</div>
+        <div class="purana-sanskrit">लिङ्गपुराणम्</div>
+        <div class="purana-meta">11,000 VERSES · SHIVA LINGA ORIGIN · JYOTIRLINGAS · SHIVA PHILOSOPHY</div>
+      </div>
+    </div>
+    <div class="purana-content">
+      <div class="story">
+        <div class="story-label">✦ THE STORY</div>
+        <h3 data-lang="en">Linga Purana — The Supreme Shiva Linga</h3>
+        <h3 data-lang="hi" style="display:none">लिंग पुराण</h3>
+        <h3 data-lang="kn" style="display:none">ಲಿಂಗ ಪುರಾಣ</h3>
+        <h3 data-lang="te" style="display:none">లింగ పురాణం</h3>
+        <h3 data-lang="ta" style="display:none">லிங்க புராணம்</h3>
+        <h3 data-lang="ml" style="display:none">ലിംഗ പുരാണം</h3>
+        <div class="story-text">
+          <div data-lang="en"><p>The Linga Purana explains the theological meaning of the Shiva Linga — the most widely worshipped form of Shiva across India. The Linga is not a physical symbol of fertility, as colonial scholars misunderstood; it is the symbol of Shiva as the formless absolute (Nishkala Brahman) — an infinite column of light, the axis of the cosmos, the presence of the divine that has no beginning and no end. The Purana describes how Brahma and Vishnu both tried to find the top and bottom of this infinite Linga and failed — thus recognising Shiva's supremacy.</p></div>
+          <div data-lang="hi" style="display:none"><p>लिंग पुराण — शिवलिंग का अर्थ: अनन्त प्रकाश स्तम्भ, ब्रह्म का निराकार रूप।</p></div>
+          <div data-lang="kn" style="display:none"><p>ಲಿಂಗ ಪುರಾಣ — ಶಿವಲಿಂಗ ಅರ್ಥ: ಅನಂತ ಜ್ಯೋತಿ ಸ್ತಂಭ.</p></div>
+          <div data-lang="te" style="display:none"><p>లింగ పురాణం — శివలింగ అర్థం: అనంత జ్యోతి స్తంభం.</p></div>
+          <div data-lang="ta" style="display:none"><p>லிங்க புராணம் — சிவலிங்க அர்த்தம்: அனந்த ஒளி தூண்.</p></div>
+          <div data-lang="ml" style="display:none"><p>ലിംഗ പുരാണം — ശിവലിംഗ അർഥം: അനന്ത ജ്യോതി സ്തംഭം.</p></div>
+
+        </div>
+      </div>
+    </div>
+    <div class="paywall-overlay"><div class="paywall-box"><div class="paywall-icon">🕎</div><h3>Unlock Linga Purana — The Supreme Shiva Linga</h3><p>The Linga Purana — The Supreme Shiva Linga — one of the 18 Mahapuranas, available in 6 Indian languages.</p><div class="paywall-features"><span class="paywall-feature">✦ All 18 Puranas</span><span class="paywall-feature">✦ 6 Languages</span><span class="paywall-feature">✦ 400K Verses</span><span class="paywall-feature">✦ AI Chat</span></div><a href="premium.html" class="btn-unlock">👑 Unlock Premium — ₹199/month</a><div class="paywall-note">7-day free trial · Cancel anytime</div></div></div>
+  </div>
+  <div class="purana-divider"><span>ॐ</span></div>
+  <div class="purana locked-purana" id="p-13">
+    <div class="purana-header">
+      <div class="purana-num">13</div>
+      <div class="purana-title-wrap">
+        <div class="purana-badge">👑 PREMIUM · 24,000 VERSES</div>
+        <div class="purana-title" data-lang="en">Varaha Purana — Vishnu as the Cosmic Boar</div>
+        <div class="purana-title" data-lang="hi" style="display:none">वराह पुराण</div>
+        <div class="purana-title" data-lang="kn" style="display:none">ವರಾಹ ಪುರಾಣ</div>
+        <div class="purana-title" data-lang="te" style="display:none">వరాహ పురాణం</div>
+        <div class="purana-title" data-lang="ta" style="display:none">வராஹ புராணம்</div>
+        <div class="purana-title" data-lang="ml" style="display:none">വരാഹ പുരാണം</div>
+        <div class="purana-sanskrit">वाराहपुराणम्</div>
+        <div class="purana-meta">24,000 VERSES · VARAHA AVATAR · EARTH RESCUED · SACRED GEOGRAPHY</div>
+      </div>
+    </div>
+    <div class="purana-content">
+      <div class="story">
+        <div class="story-label">✦ THE STORY</div>
+        <h3 data-lang="en">Varaha Purana — Vishnu as the Cosmic Boar</h3>
+        <h3 data-lang="hi" style="display:none">वराह पुराण</h3>
+        <h3 data-lang="kn" style="display:none">ವರಾಹ ಪುರಾಣ</h3>
+        <h3 data-lang="te" style="display:none">వరాహ పురాణం</h3>
+        <h3 data-lang="ta" style="display:none">வராஹ புராணம்</h3>
+        <h3 data-lang="ml" style="display:none">വരാഹ പുരാണം</h3>
+        <div class="story-text">
+          <div data-lang="en"><p>The Varaha Purana centres on Vishnu's third avatar — the cosmic Boar (Varaha) who dived into the primordial ocean to rescue the Earth (Bhudevi) after the demon Hiranyaksha dragged her to the bottom. Varaha fought Hiranyaksha for a thousand years before finally defeating him and lifting the earth on his tusks, restoring it to its place in the cosmos. The Purana contains extensive descriptions of sacred geography, proper conduct for householders, and devotional hymns to Vishnu.</p></div>
+          <div data-lang="hi" style="display:none"><p>वराह पुराण — वराह अवतार: हिरण्याक्ष वध, पृथ्वी उद्धार।</p></div>
+          <div data-lang="kn" style="display:none"><p>ವರಾಹ ಪುರಾಣ — ವರಾಹ ಅವತಾರ: ಹಿರಣ್ಯಾಕ್ಷ ವಧ, ಭೂ ಉದ್ಧಾರ.</p></div>
+          <div data-lang="te" style="display:none"><p>వరాహ పురాణం — వరాహ అవతారం: హిరణ్యాక్షుడి వధ, భూ ఉద్ధారణ.</p></div>
+          <div data-lang="ta" style="display:none"><p>வராஹ புராணம் — வராஹ அவதாரம்: ஹிரண்யாக்ஷன் வதம், பூமி உத்தாரணம்.</p></div>
+          <div data-lang="ml" style="display:none"><p>വരാഹ പുരാണം — വരാഹ അവതാരം: ഹിരണ്യാക്ഷ വധം, ഭൂ ഉദ്ധാരണം.</p></div>
+
+        </div>
+      </div>
+    </div>
+    <div class="paywall-overlay"><div class="paywall-box"><div class="paywall-icon">🐗</div><h3>Unlock Varaha Purana — Vishnu as the Cosmic Boar</h3><p>The Varaha Purana — Vishnu as the Cosmic Boar — one of the 18 Mahapuranas, available in 6 Indian languages.</p><div class="paywall-features"><span class="paywall-feature">✦ All 18 Puranas</span><span class="paywall-feature">✦ 6 Languages</span><span class="paywall-feature">✦ 400K Verses</span><span class="paywall-feature">✦ AI Chat</span></div><a href="premium.html" class="btn-unlock">👑 Unlock Premium — ₹199/month</a><div class="paywall-note">7-day free trial · Cancel anytime</div></div></div>
+  </div>
+  <div class="purana-divider"><span>ॐ</span></div>
+  <div class="purana locked-purana" id="p-14">
+    <div class="purana-header">
+      <div class="purana-num">14</div>
+      <div class="purana-title-wrap">
+        <div class="purana-badge">👑 PREMIUM · 81,100 VERSES</div>
+        <div class="purana-title" data-lang="en">Skanda Purana — The Largest Purana</div>
+        <div class="purana-title" data-lang="hi" style="display:none">स्कन्द पुराण</div>
+        <div class="purana-title" data-lang="kn" style="display:none">ಸ್ಕಂದ ಪುರಾಣ</div>
+        <div class="purana-title" data-lang="te" style="display:none">స్కంద పురాణం</div>
+        <div class="purana-title" data-lang="ta" style="display:none">ஸ்கந்த புராணம்</div>
+        <div class="purana-title" data-lang="ml" style="display:none">സ്കന്ദ പുരാണം</div>
+        <div class="purana-sanskrit">स्कन्दपुराणम्</div>
+        <div class="purana-meta">81,100 VERSES · THE LARGEST · MURUGAN · SACRED GEOGRAPHY</div>
+      </div>
+    </div>
+    <div class="purana-content">
+      <div class="story">
+        <div class="story-label">✦ THE STORY</div>
+        <h3 data-lang="en">Skanda Purana — The Largest Purana</h3>
+        <h3 data-lang="hi" style="display:none">स्कन्द पुराण</h3>
+        <h3 data-lang="kn" style="display:none">ಸ್ಕಂದ ಪುರಾಣ</h3>
+        <h3 data-lang="te" style="display:none">స్కంద పురాణం</h3>
+        <h3 data-lang="ta" style="display:none">ஸ்கந்த புராணம்</h3>
+        <h3 data-lang="ml" style="display:none">സ്കന്ദ പുരാണം</h3>
+        <div class="story-text">
+          <div data-lang="en"><p>The Skanda Purana is the largest of all the Mahapuranas — 81,100 verses, making it the largest Sanskrit text in existence. Named after Skanda (Karttikeya/Murugan), the son of Shiva and Parvati, it contains an enormous collection of stories, sacred geography, pilgrimage guides, legends of the Shiva Lingas, and devotional hymns. It is divided into seven vast sections (Khandas) covering every sacred region of India — from the Himalayas to the southern tip. The Skanda Purana is a universe of stories.</p></div>
+          <div data-lang="hi" style="display:none"><p>स्कन्द पुराण — ८१,१०० श्लोक, सबसे बड़ा पुराण। सम्पूर्ण भारत की तीर्थयात्रा।</p></div>
+          <div data-lang="kn" style="display:none"><p>ಸ್ಕಂದ ಪುರಾಣ — ೮೧,೧೦೦ ಶ್ಲೋಕ, ಅತ್ಯಂತ ದೊಡ್ಡ ಪುರಾಣ. ಭಾರತದ ತೀರ್ಥಯಾತ್ರೆ.</p></div>
+          <div data-lang="te" style="display:none"><p>స్కంద పురాణం — ౮౧,౧౦౦ శ్లోకాలు, అతిపెద్ద పురాణం. భారత్ తీర్థయాత్ర.</p></div>
+          <div data-lang="ta" style="display:none"><p>ஸ்கந்த புராணம் — ௮௧,௧௦௦ சுலோகங்கள், மிகப்பெரிய புராணம். இந்தியா முழு தீர்த்த யாத்திரை.</p></div>
+          <div data-lang="ml" style="display:none"><p>സ്കന്ദ പുരാണം — ൮൧,൧൦൦ ശ്ലോകം, ഏറ്റവും വലിയ പുരാണം. ഭാരത തീർഥ യാത്ര.</p></div>
+
+        </div>
+      </div>
+    </div>
+    <div class="paywall-overlay"><div class="paywall-box"><div class="paywall-icon">⚔️</div><h3>Unlock Skanda Purana — The Largest Purana</h3><p>The Skanda Purana — The Largest Purana — one of the 18 Mahapuranas, available in 6 Indian languages.</p><div class="paywall-features"><span class="paywall-feature">✦ All 18 Puranas</span><span class="paywall-feature">✦ 6 Languages</span><span class="paywall-feature">✦ 400K Verses</span><span class="paywall-feature">✦ AI Chat</span></div><a href="premium.html" class="btn-unlock">👑 Unlock Premium — ₹199/month</a><div class="paywall-note">7-day free trial · Cancel anytime</div></div></div>
+  </div>
+  <div class="purana-divider"><span>ॐ</span></div>
+  <div class="purana locked-purana" id="p-15">
+    <div class="purana-header">
+      <div class="purana-num">15</div>
+      <div class="purana-title-wrap">
+        <div class="purana-badge">👑 PREMIUM · 10,000 VERSES</div>
+        <div class="purana-title" data-lang="en">Vamana Purana — Vishnu's Dwarf Avatar</div>
+        <div class="purana-title" data-lang="hi" style="display:none">वामन पुराण</div>
+        <div class="purana-title" data-lang="kn" style="display:none">ವಾಮನ ಪುರಾಣ</div>
+        <div class="purana-title" data-lang="te" style="display:none">వామన పురాణం</div>
+        <div class="purana-title" data-lang="ta" style="display:none">வாமன புராணம்</div>
+        <div class="purana-title" data-lang="ml" style="display:none">വാമന പുരാണം</div>
+        <div class="purana-sanskrit">वामनपुराणम्</div>
+        <div class="purana-meta">10,000 VERSES · VAMANA AVATAR · BALI CHAKRAVARTI · THREE STEPS</div>
+      </div>
+    </div>
+    <div class="purana-content">
+      <div class="story">
+        <div class="story-label">✦ THE STORY</div>
+        <h3 data-lang="en">Vamana Purana — Vishnu's Dwarf Avatar</h3>
+        <h3 data-lang="hi" style="display:none">वामन पुराण</h3>
+        <h3 data-lang="kn" style="display:none">ವಾಮನ ಪುರಾಣ</h3>
+        <h3 data-lang="te" style="display:none">వామన పురాణం</h3>
+        <h3 data-lang="ta" style="display:none">வாமன புராணம்</h3>
+        <h3 data-lang="ml" style="display:none">വാമന പുരാണം</h3>
+        <div class="story-text">
+          <div data-lang="en"><p>The Vamana Purana tells one of the most beloved stories in all of Hindu mythology — the story of Vishnu's fifth avatar, the Vamana (dwarf). The demon king Bali Chakravarti, through extreme righteousness and austerities, had conquered the three worlds and dethroned the gods. A little dwarf brahmin came to him asking for just three paces of land. Bali, the most generous king who ever lived, immediately agreed. The dwarf grew to fill the universe — covering the earth in one step, the heavens in the second. For the third step, Bali offered his own head. Vishnu placed his foot on Bali's head and pushed him to the underworld — but also blessed him with immortality and the kingdom of Sutala.</p></div>
+          <div data-lang="hi" style="display:none"><p>वामन पुराण — बलि महाराज को वामन तीन पग भूमि में ब्रह्माण्ड नापते हैं।</p></div>
+          <div data-lang="kn" style="display:none"><p>ವಾಮನ ಪುರಾಣ — ಬಲಿ ಮಹಾರಾಜನ ಬಳಿ ವಾಮನ ಮೂರು ಹೆಜ್ಜೆ ಬ್ರಹ್ಮಾಂಡ ಅಳೆಯುತ್ತಾರೆ.</p></div>
+          <div data-lang="te" style="display:none"><p>వామన పురాణం — బలి మహారాజు దగ్గర వామనుడు మూడు అడుగులలో విశ్వం కొలుస్తాడు.</p></div>
+          <div data-lang="ta" style="display:none"><p>வாமன புராணம் — மாவலியிடம் வாமனன் மூன்று அடிகளில் பிரபஞ்சம் அளக்கிறான்.</p></div>
+          <div data-lang="ml" style="display:none"><p>വാമന പുരാണം — മഹാബലിയോട് വാമനൻ മൂന്ന് ചുവടിൽ ബ്രഹ്മാണ്ഡം അളക്കുന്നു.</p></div>
+
+        </div>
+      </div>
+    </div>
+    <div class="paywall-overlay"><div class="paywall-box"><div class="paywall-icon">👣</div><h3>Unlock Vamana Purana — Vishnu's Dwarf Avatar</h3><p>The Vamana Purana — Vishnu's Dwarf Avatar — one of the 18 Mahapuranas, available in 6 Indian languages.</p><div class="paywall-features"><span class="paywall-feature">✦ All 18 Puranas</span><span class="paywall-feature">✦ 6 Languages</span><span class="paywall-feature">✦ 400K Verses</span><span class="paywall-feature">✦ AI Chat</span></div><a href="premium.html" class="btn-unlock">👑 Unlock Premium — ₹199/month</a><div class="paywall-note">7-day free trial · Cancel anytime</div></div></div>
+  </div>
+  <div class="purana-divider"><span>ॐ</span></div>
+  <div class="purana locked-purana" id="p-16">
+    <div class="purana-header">
+      <div class="purana-num">16</div>
+      <div class="purana-title-wrap">
+        <div class="purana-badge">👑 PREMIUM · 17,000 VERSES</div>
+        <div class="purana-title" data-lang="en">Kurma Purana — Vishnu as the Divine Tortoise</div>
+        <div class="purana-title" data-lang="hi" style="display:none">कूर्म पुराण</div>
+        <div class="purana-title" data-lang="kn" style="display:none">ಕೂರ್ಮ ಪುರಾಣ</div>
+        <div class="purana-title" data-lang="te" style="display:none">కూర్మ పురాణం</div>
+        <div class="purana-title" data-lang="ta" style="display:none">கூர்ம புராணம்</div>
+        <div class="purana-title" data-lang="ml" style="display:none">കൂർമ്മ പുരാണം</div>
+        <div class="purana-sanskrit">कूर्मपुराणम्</div>
+        <div class="purana-meta">17,000 VERSES · SAMUDRA MANTHAN · KURMA AVATAR · COSMIC CHURNING</div>
+      </div>
+    </div>
+    <div class="purana-content">
+      <div class="story">
+        <div class="story-label">✦ THE STORY</div>
+        <h3 data-lang="en">Kurma Purana — Vishnu as the Divine Tortoise</h3>
+        <h3 data-lang="hi" style="display:none">कूर्म पुराण</h3>
+        <h3 data-lang="kn" style="display:none">ಕೂರ್ಮ ಪುರಾಣ</h3>
+        <h3 data-lang="te" style="display:none">కూర్మ పురాణం</h3>
+        <h3 data-lang="ta" style="display:none">கூர்ம புராணம்</h3>
+        <h3 data-lang="ml" style="display:none">കൂർമ്മ പുരാണം</h3>
+        <div class="story-text">
+          <div data-lang="en"><p>The Kurma Purana centres on Vishnu's second avatar — the cosmic Tortoise (Kurma) who appeared at the churning of the ocean (Samudra Manthan). When the gods and demons churned the primordial ocean using Mount Mandara as the churning rod and the serpent Vasuki as the rope, the mountain began to sink. Vishnu appeared as the great Tortoise and placed himself beneath the mountain as its support. From the churning arose: the divine physician Dhanvantari with the nectar of immortality, the goddess Lakshmi, the divine elephant Airavata, the divine horse Ucchaishravas, the Kalpavriksha (wish-fulfilling tree), and the deadly poison Halahala which Shiva drank to save the universe.</p></div>
+          <div data-lang="hi" style="display:none"><p>कूर्म पुराण — समुद्र मंथन: कूर्म अवतार, लक्ष्मी प्रकाश, शिव का हलाहल पान।</p></div>
+          <div data-lang="kn" style="display:none"><p>ಕೂರ್ಮ ಪುರಾಣ — ಸಮುದ್ರ ಮಂಥನ: ಕೂರ್ಮ ಅವತಾರ, ಲಕ್ಷ್ಮಿ ಜನ್ಮ, ಶಿವ ಹಲಾಹಲ ಪಾನ.</p></div>
+          <div data-lang="te" style="display:none"><p>కూర్మ పురాణం — సముద్ర మంథనం: కూర్మ అవతారం, లక్ష్మి జననం, శివుని విషపానం.</p></div>
+          <div data-lang="ta" style="display:none"><p>கூர்ம புராணம் — சமுத்திர மத்தனம்: கூர்ம அவதாரம், லட்சுமி தோற்றம், சிவன் ஆலகால பானம்.</p></div>
+          <div data-lang="ml" style="display:none"><p>കൂർമ്മ പുരാണം — സമുദ്ര മന്ഥനം: കൂർമ്മ അവതാരം, ലക്ഷ്മി ജനനം, ശിവൻ ഹലാഹല പാനം.</p></div>
+
+        </div>
+      </div>
+    </div>
+    <div class="paywall-overlay"><div class="paywall-box"><div class="paywall-icon">🐢</div><h3>Unlock Kurma Purana — Vishnu as the Divine Tortoise</h3><p>The Kurma Purana — Vishnu as the Divine Tortoise — one of the 18 Mahapuranas, available in 6 Indian languages.</p><div class="paywall-features"><span class="paywall-feature">✦ All 18 Puranas</span><span class="paywall-feature">✦ 6 Languages</span><span class="paywall-feature">✦ 400K Verses</span><span class="paywall-feature">✦ AI Chat</span></div><a href="premium.html" class="btn-unlock">👑 Unlock Premium — ₹199/month</a><div class="paywall-note">7-day free trial · Cancel anytime</div></div></div>
+  </div>
+  <div class="purana-divider"><span>ॐ</span></div>
+  <div class="purana locked-purana" id="p-17">
+    <div class="purana-header">
+      <div class="purana-num">17</div>
+      <div class="purana-title-wrap">
+        <div class="purana-badge">👑 PREMIUM · 14,000 VERSES</div>
+        <div class="purana-title" data-lang="en">Matsya Purana — The First Avatar of Vishnu</div>
+        <div class="purana-title" data-lang="hi" style="display:none">मत्स्य पुराण</div>
+        <div class="purana-title" data-lang="kn" style="display:none">ಮತ್ಸ್ಯ ಪುರಾಣ</div>
+        <div class="purana-title" data-lang="te" style="display:none">మత్స్య పురాణం</div>
+        <div class="purana-title" data-lang="ta" style="display:none">மத்ஸ்ய புராணம்</div>
+        <div class="purana-title" data-lang="ml" style="display:none">മത്സ്യ പുരാണം</div>
+        <div class="purana-sanskrit">मत्स्यपुराणम्</div>
+        <div class="purana-meta">14,000 VERSES · MATSYA AVATAR · THE GREAT FLOOD · MANU</div>
+      </div>
+    </div>
+    <div class="purana-content">
+      <div class="story">
+        <div class="story-label">✦ THE STORY</div>
+        <h3 data-lang="en">Matsya Purana — The First Avatar of Vishnu</h3>
+        <h3 data-lang="hi" style="display:none">मत्स्य पुराण</h3>
+        <h3 data-lang="kn" style="display:none">ಮತ್ಸ್ಯ ಪುರಾಣ</h3>
+        <h3 data-lang="te" style="display:none">మత్స్య పురాణం</h3>
+        <h3 data-lang="ta" style="display:none">மத்ஸ்ய புராணம்</h3>
+        <h3 data-lang="ml" style="display:none">മത്സ്യ പുരാണം</h3>
+        <div class="story-text">
+          <div data-lang="en"><p>The Matsya Purana begins at the very beginning of beginnings — with Vishnu's first avatar, the great Fish (Matsya). A tiny fish came to the sage-king Manu and begged to be protected from larger fish. Manu placed the fish in a vessel, and the fish grew — and grew — until the ocean itself was too small. Then the fish revealed itself as Vishnu and warned Manu: a great flood is coming that will destroy all creation. Build a boat. Gather the seeds of all life. I will come as the great fish and tow you to safety. Manu built the boat. The flood came. The great fish appeared. And Manu, towed to safety, became the ancestor of the human race after the waters receded. This is one of the world's oldest flood narratives.</p></div>
+          <div data-lang="hi" style="display:none"><p>मत्स्य पुराण — मत्स्य अवतार: मनु को महाप्रलय की चेतावनी, मानव जाति का पुनर्जन्म।</p></div>
+          <div data-lang="kn" style="display:none"><p>ಮತ್ಸ್ಯ ಪುರಾಣ — ಮತ್ಸ್ಯ ಅವತಾರ: ಮನು ಮಹಾಪ್ರಳಯ ಎಚ್ಚರಿಕೆ, ಮಾನವ ಪೂರ್ವಜ.</p></div>
+          <div data-lang="te" style="display:none"><p>మత్స్య పురాణం — మత్స్య అవతారం: మనువుకు మహాప్రళయ హెచ్చరిక, మానవ పూర్వజుడు.</p></div>
+          <div data-lang="ta" style="display:none"><p>மத்ஸ்ய புராணம் — மத்ஸ்ய அவதாரம்: மனுவுக்கு மகா பிரளய எச்சரிக்கை.</p></div>
+          <div data-lang="ml" style="display:none"><p>മത്സ്യ പുരാണം — മത്സ്യ അവതാരം: മനുവിന് മഹാ പ്രളയ മുന്നറിയിപ്പ്.</p></div>
+
+        </div>
+      </div>
+    </div>
+    <div class="paywall-overlay"><div class="paywall-box"><div class="paywall-icon">🐟</div><h3>Unlock Matsya Purana — The First Avatar of Vishnu</h3><p>The Matsya Purana — The First Avatar of Vishnu — one of the 18 Mahapuranas, available in 6 Indian languages.</p><div class="paywall-features"><span class="paywall-feature">✦ All 18 Puranas</span><span class="paywall-feature">✦ 6 Languages</span><span class="paywall-feature">✦ 400K Verses</span><span class="paywall-feature">✦ AI Chat</span></div><a href="premium.html" class="btn-unlock">👑 Unlock Premium — ₹199/month</a><div class="paywall-note">7-day free trial · Cancel anytime</div></div></div>
+  </div>
+  <div class="purana-divider"><span>ॐ</span></div>
+  <div class="purana locked-purana" id="p-18">
+    <div class="purana-header">
+      <div class="purana-num">18</div>
+      <div class="purana-title-wrap">
+        <div class="purana-badge">👑 PREMIUM · 18,000 VERSES</div>
+        <div class="purana-title" data-lang="en">Garuda Purana — Life, Death and the Afterlife</div>
+        <div class="purana-title" data-lang="hi" style="display:none">गरुड़ पुराण</div>
+        <div class="purana-title" data-lang="kn" style="display:none">ಗರುಡ ಪುರಾಣ</div>
+        <div class="purana-title" data-lang="te" style="display:none">గరుడ పురాణం</div>
+        <div class="purana-title" data-lang="ta" style="display:none">கருட புராணம்</div>
+        <div class="purana-title" data-lang="ml" style="display:none">ഗരുഡ പുരാണം</div>
+        <div class="purana-sanskrit">गरुडपुराणम्</div>
+        <div class="purana-meta">18,000 VERSES · DEATH RITUALS · AFTERLIFE · LIBERATION</div>
+      </div>
+    </div>
+    <div class="purana-content">
+      <div class="story">
+        <div class="story-label">✦ THE STORY</div>
+        <h3 data-lang="en">Garuda Purana — Life, Death and the Afterlife</h3>
+        <h3 data-lang="hi" style="display:none">गरुड़ पुराण</h3>
+        <h3 data-lang="kn" style="display:none">ಗರುಡ ಪುರಾಣ</h3>
+        <h3 data-lang="te" style="display:none">గరుడ పురాణం</h3>
+        <h3 data-lang="ta" style="display:none">கருட புராணம்</h3>
+        <h3 data-lang="ml" style="display:none">ഗരുഡ പുരാണം</h3>
+        <div class="story-text">
+          <div data-lang="en"><p>The <strong>Garuda Purana</strong> is the most read Purana in the context of death and mourning in Hindu tradition — it is traditionally recited in the days following a death in the family. Named after Garuda (Vishnu's divine eagle mount), it contains the most detailed description in all of Sanskrit literature of what happens to the soul after death: the journey through the realms of Yama, the accounting of karma, the different states of existence that await different souls based on their actions.</p>
+<p>But the Garuda Purana is profoundly misunderstood as merely a text about death and punishment. Its deeper teaching is liberation: the best preparation for death is a life lived in dharma and devotion. The Purana contains extensive teachings on Vishnu's nature and glory, the proper conduct of life, and the paths to liberation. Its vision of the afterlife is not meant to frighten but to orient — to show the soul that its actions in this life matter deeply, and that the best action in every moment is devotion to the divine.</p></div>
+          <div data-lang="hi" style="display:none"><p><strong>गरुड़ पुराण</strong> — मृत्यु के बाद की यात्रा का सबसे विस्तृत विवरण। मृत्यु के समय पाठ की परम्परा। गहरा संदेश: श्रेष्ठ जीवन — मुक्ति का श्रेष्ठ मार्ग।</p></div>
+          <div data-lang="kn" style="display:none"><p><strong>ಗರುಡ ಪುರಾಣ</strong> — ಮೃತ್ಯು ನಂತರ ಯಾತ್ರೆಯ ವಿಸ್ತಾರ ವಿವರಣೆ. ಗಂಭೀರ ಸಂದೇಶ: ಉತ್ತಮ ಜೀವನ — ಮೋಕ್ಷದ ದಾರಿ.</p></div>
+          <div data-lang="te" style="display:none"><p><strong>గరుడ పురాణం</strong> — మరణం తర్వాత ప్రయాణం యొక్క వివరమైన వర్ణన. లోతైన సందేశం: ఉత్తమ జీవితం — ముక్తి మార్గం.</p></div>
+          <div data-lang="ta" style="display:none"><p><strong>கருட புராணம்</strong> — மரணத்திற்கு பிறகான பயணத்தின் விரிவான விளக்கம். ஆழமான செய்தி: சிறந்த வாழ்க்கை — மோட்சத்தின் வழி.</p></div>
+          <div data-lang="ml" style="display:none"><p><strong>ഗരുഡ പുരാണം</strong> — മൃത്യുവിനുശേഷം യാത്രയുടെ വിശദ വർണ്ണന. ആഴമേറിയ സന്ദേശം: ഉത്തമ ജീവൻ — മോക്ഷ മാർഗ്ഗം.</p></div>
+
+        </div>
+      </div>
+    </div>
+    <div class="paywall-overlay"><div class="paywall-box"><div class="paywall-icon">🦅</div><h3>Unlock Garuda Purana — Life, Death and the Afterlife</h3><p>The Garuda Purana — Life, Death and the Afterlife — one of the 18 Mahapuranas, available in 6 Indian languages.</p><div class="paywall-features"><span class="paywall-feature">✦ All 18 Puranas</span><span class="paywall-feature">✦ 6 Languages</span><span class="paywall-feature">✦ 400K Verses</span><span class="paywall-feature">✦ AI Chat</span></div><a href="premium.html" class="btn-unlock">👑 Unlock Premium — ₹199/month</a><div class="paywall-note">7-day free trial · Cancel anytime</div></div></div>
   </div>
 
-</div><!-- end .main -->
+</div>
 
 <footer>
   <p><a href="index.html">Home</a><a href="bhagavad-gita.html">Bhagavad Gita</a><a href="ramayana.html">Ramayana</a><a href="premium.html">Go Premium</a></p>
