@@ -71,6 +71,15 @@
 <link rel="shortcut icon" type="image/jpeg" href="favicon.jpeg"/>
 <link rel="apple-touch-icon" href="logo.jpeg"/>
 <link rel="apple-touch-icon" sizes="180x180" href="logo.jpeg"/>
+<!-- PWA -->
+<link rel="manifest" href="/manifest.json"/>
+<meta name="theme-color" content="#3E0000"/>
+<meta name="mobile-web-app-capable" content="yes"/>
+<!-- iOS "Add to Home Screen" -->
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="apple-mobile-web-app-title" content="DharmaChat"/>
+<link rel="apple-touch-startup-image" href="/logo.jpeg"/>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
   :root {
@@ -834,7 +843,6 @@ days.forEach(function(d,i) {
 </script>
 
 <!-- SHLOKA OF THE DAY -->
-<section class="shloka of the day" id="shloka of the day-section">
 <section style="background:linear-gradient(160deg,#2A0000 0%,#4A0808 50%,#2A0000 100%);padding:80px 24px;position:relative;overflow:hidden;">
   <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,rgba(212,160,23,0.6),transparent);"></div>
   <div style="position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,rgba(212,160,23,0.6),transparent);"></div>
@@ -1107,7 +1115,7 @@ loadShloka();
 </section>
 
 <!-- SCRIPTURES -->
-<section class="scriptures" id="scriptures-section">
+<section class="scriptures">
   <div class="container" style="position:relative;z-index:2;">
     <div class="section-tag">Sacred Texts</div>
     <h2 class="section-title">Explore 18+ Sacred Scriptures</h2>
@@ -1248,7 +1256,7 @@ loadShloka();
 </section>
 
 <!-- QUESTIONS -->
-<section class="questions" id="questions-section">
+<section class="questions">
   <div class="container">
     <div class="questions-header">
       <div class="section-tag">Community Questions</div>
@@ -1297,7 +1305,7 @@ loadShloka();
 </section>
 
 <!-- VERSE COLLECTIONS -->
-<section class="verses" id="shlokas-section">
+<section class="verses">
   <div class="container">
     <div class="verses-header">
       <div class="section-tag">Sacred Verses</div>
@@ -1434,10 +1442,10 @@ loadShloka();
     
     <div style="display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-bottom:40px;">
       <a href="#" style="display:block">
-        <img src="app-store-badge.svg" style="height:120px;width:auto;" alt="Download on the App Store">
+        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" style="height:56px;width:auto;" alt="Download on the App Store">
       </a>
       <a href="#" style="display:block">
-        <img src="google-play-badge.svg" style="height:120px;width:auto;" alt="Get it on Google Play">
+        <img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" style="height:56px;width:auto;" alt="Get it on Google Play">
       </a>
     </div>
 
@@ -1525,38 +1533,27 @@ function notifyForApp() {
           DharmaChat
         </div>
         <p>The world's most comprehensive Hindu scripture companion — bringing the eternal wisdom of Sanatana Dharma to every seeker, everywhere.</p>
-        <div style="margin-top:20px;">
-          <p style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:.1em;color:rgba(255,255,255,0.35);margin-bottom:10px;">COMING SOON ON</p>
-          <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
-            <a href="#" aria-label="Download on the App Store" style="display:block;opacity:0.75;transition:opacity .2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.75'">
-              <img src="app-store-badge.svg" alt="Download on the App Store" style="height:38px;width:auto;"/>
-            </a>
-            <a href="#" aria-label="Get it on Google Play" style="display:block;opacity:0.75;transition:opacity .2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.75'">
-              <img src="google-play-badge.svg" alt="Get it on Google Play" style="height:38px;width:auto;"/>
-            </a>
-          </div>
-        </div>
       </div>
       <div class="footer-col">
         <h4>Scriptures</h4>
         <ul>
           <li><a href="bhagavad-gita-18-chapters.html">Bhagavad Gita</a></li>
-          <li><a href="mahabharata.html">Mahabharata</a></li>
-          <li><a href="ramayana.html">Ramayana</a></li>
-          <li><a href="upanishads.html">Upanishads</a></li>
-          <li><a href="vedas.html">Vedas</a></li>
-          <li><a href="puranas.html">Puranas</a></li>
+          <li><a href="who-is-karna.html">Mahabharata</a></li>
+          <li><a href="who-is-hanuman.html">Ramayana</a></li>
+          <li><a href="what-is-moksha.html">Upanishads</a></li>
+          <li><a href="what-are-the-4-vedas.html">Vedas</a></li>
+          <li><a href="what-happens-after-death.html">Puranas</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Explore</h4>
         <ul>
-          <li><a href="index.html#shloka of the day-section">Shloka of the Day</a></li>
-          <li><a href="index.html#lessons-section">All Dharma Lessons</a></li>
-          <li><a href="index.html#shlokas-section">All Shlokas</a></li>
-          <li><a href="index.html#questions-section">Top Questions</a></li>
-          <li><a href="index.html#scriptures-section">Character Library</a></li>
-          <li><a href="chat.html">Ask Dharma AI</a></li>
+          <li><a href="index.html#lessons-section">Shloka of the Day</a></li>
+          <li><a href="articles.html">All Dharma Lessons</a></li>
+          <li><a href="articles.html">All Shlokas</a></li>
+          <li><a href="articles.html">Top Questions</a></li>
+          <li><a href="articles.html">Character Library</a></li>
+          <li><a href="articles.html">Dharma Glossary</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -1566,7 +1563,7 @@ function notifyForApp() {
           <li><a href="community.html">Contact</a></li>
           <li><a href="community.html">Community</a></li>
           <li><a href="articles.html">Blog</a></li>
-          <li><a href="premium.html">Go Premium</a></li>
+          <li><a href="community.html">Podcast</a></li>
           <li><a href="privacy.html">Privacy Policy</a></li>
           <li><a href="privacy.html">Terms &amp; Conditions</a></li>
         </ul>
@@ -1582,6 +1579,7 @@ function notifyForApp() {
     </div>
   </div>
 </footer>
+
 <script>
   function toggleFaq(el) {
     el.parentElement.classList.toggle('open');
@@ -1595,5 +1593,117 @@ function notifyForApp() {
 </script>
 
 <script type="module" src="nav.js"></script>
+
+<!-- PWA Install Banner -->
+<div id="pwa-banner" style="display:none;position:fixed;bottom:80px;left:16px;right:16px;z-index:9999;background:linear-gradient(135deg,#3E0000,#5A0A0A);border:1px solid rgba(212,160,23,0.4);border-radius:16px;padding:16px 18px;box-shadow:0 8px 32px rgba(0,0,0,0.4);display:flex;align-items:center;gap:14px;">
+  <img src="/logo.jpeg" style="width:44px;height:44px;border-radius:10px;flex-shrink:0;" alt="DharmaChat"/>
+  <div style="flex:1;min-width:0;">
+    <div style="font-family:'Cinzel',serif;font-size:13px;color:#F0C040;font-weight:700;margin-bottom:2px;">Install DharmaChat</div>
+    <div style="font-size:11px;color:rgba(255,255,255,0.6);line-height:1.4;">Add to Home Screen for the app experience — free, instant, no App Store needed.</div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:6px;flex-shrink:0;">
+    <button id="pwa-install-btn" style="background:linear-gradient(135deg,#E8611A,#D4A017);border:none;border-radius:8px;color:white;font-family:'Cinzel',serif;font-size:11px;font-weight:700;padding:7px 14px;cursor:pointer;white-space:nowrap;">Install</button>
+    <button id="pwa-dismiss-btn" style="background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:8px;color:rgba(255,255,255,0.4);font-size:10px;padding:5px 10px;cursor:pointer;">Not now</button>
+  </div>
+</div>
+
+<!-- iOS "Add to Home Screen" tip (shows only on Safari iOS) -->
+<div id="ios-banner" style="display:none;position:fixed;bottom:80px;left:16px;right:16px;z-index:9999;background:linear-gradient(135deg,#3E0000,#5A0A0A);border:1px solid rgba(212,160,23,0.4);border-radius:16px;padding:16px 18px;box-shadow:0 8px 32px rgba(0,0,0,0.4);">
+  <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+    <img src="/logo.jpeg" style="width:40px;height:40px;border-radius:9px;flex-shrink:0;" alt="DharmaChat"/>
+    <div>
+      <div style="font-family:'Cinzel',serif;font-size:13px;color:#F0C040;font-weight:700;">Install DharmaChat</div>
+      <div style="font-size:11px;color:rgba(255,255,255,0.5);">Get the app — free, instant</div>
+    </div>
+    <button id="ios-dismiss-btn" style="margin-left:auto;background:transparent;border:none;color:rgba(255,255,255,0.4);font-size:20px;cursor:pointer;line-height:1;">×</button>
+  </div>
+  <div style="font-size:12px;color:rgba(255,255,255,0.65);line-height:1.6;text-align:center;background:rgba(255,255,255,0.05);border-radius:10px;padding:10px;">
+    Tap <span style="color:#F0C040;font-weight:700;">Share</span>
+    <svg style="width:14px;height:14px;vertical-align:middle;fill:none;stroke:#F0C040;stroke-width:2;" viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8M16 6l-4-4-4 4M12 2v13"/></svg>
+    then tap <span style="color:#F0C040;font-weight:700;">"Add to Home Screen"</span>
+    <svg style="width:14px;height:14px;vertical-align:middle;fill:none;stroke:#F0C040;stroke-width:2;" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+  </div>
+</div>
+
+<script>
+// ── Service Worker Registration ──────────────────────
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw.js').then(function(reg) {
+      console.log('DharmaChat SW registered:', reg.scope);
+    }).catch(function(err) {
+      console.log('SW registration failed:', err);
+    });
+  });
+}
+
+// ── Android PWA Install Banner ────────────────────────
+var deferredPrompt = null;
+var pwaBanner = document.getElementById('pwa-banner');
+var iosBanner = document.getElementById('ios-banner');
+
+// Detect iOS Safari
+var isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+var isInStandaloneMode = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+
+// Don't show if already installed as PWA
+if (!isInStandaloneMode) {
+  // Dismissed state (don't re-show for 7 days)
+  var dismissed = localStorage.getItem('pwa_banner_dismissed');
+  var dismissedRecently = dismissed && (Date.now() - parseInt(dismissed)) < 7 * 24 * 60 * 60 * 1000;
+
+  if (!dismissedRecently) {
+    // Android: listen for browser's beforeinstallprompt
+    window.addEventListener('beforeinstallprompt', function(e) {
+      e.preventDefault();
+      deferredPrompt = e;
+      // Show after 5 seconds on the page
+      setTimeout(function() {
+        if (pwaBanner) pwaBanner.style.display = 'flex';
+      }, 5000);
+    });
+
+    // iOS Safari: show manual tip after 8 seconds
+    if (isIOS && isSafari) {
+      setTimeout(function() {
+        if (iosBanner) iosBanner.style.display = 'block';
+      }, 8000);
+    }
+  }
+}
+
+// Install button (Android)
+var installBtn = document.getElementById('pwa-install-btn');
+if (installBtn) {
+  installBtn.addEventListener('click', function() {
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(function(choiceResult) {
+      if (choiceResult.outcome === 'accepted') {
+        console.log('PWA installed');
+      }
+      deferredPrompt = null;
+      if (pwaBanner) pwaBanner.style.display = 'none';
+    });
+  });
+}
+
+// Dismiss buttons
+var dismissBtn = document.getElementById('pwa-dismiss-btn');
+if (dismissBtn) {
+  dismissBtn.addEventListener('click', function() {
+    if (pwaBanner) pwaBanner.style.display = 'none';
+    localStorage.setItem('pwa_banner_dismissed', Date.now().toString());
+  });
+}
+var iosDismissBtn = document.getElementById('ios-dismiss-btn');
+if (iosDismissBtn) {
+  iosDismissBtn.addEventListener('click', function() {
+    if (iosBanner) iosBanner.style.display = 'none';
+    localStorage.setItem('pwa_banner_dismissed', Date.now().toString());
+  });
+}
+</script>
 </body>
 </html>
