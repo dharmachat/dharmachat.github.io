@@ -738,16 +738,84 @@
 
 <script>
 (function(){
-  var btn = document.getElementById('burgerBtn');
+  var btn    = document.getElementById('burgerBtn');
   var drawer = document.getElementById('mobileDrawer');
-  var overlay = document.getElementById('drawerOverlay');
+  var overlay= document.getElementById('drawerOverlay');
   var closeX = document.getElementById('drawerClose');
+
   function openD(){ drawer.classList.add('open'); btn.classList.add('open'); document.body.style.overflow='hidden'; }
   function closeD(){ drawer.classList.remove('open'); btn.classList.remove('open'); document.body.style.overflow=''; }
+
   btn.addEventListener('click', function(){ drawer.classList.contains('open') ? closeD() : openD(); });
   overlay.addEventListener('click', closeD);
   closeX.addEventListener('click', closeD);
   drawer.querySelectorAll('.d-links a').forEach(function(a){ a.addEventListener('click', closeD); });
+
+  // ── Auth state sync ──────────────────────────────
+  var userRow  = document.getElementById('drawer-user-row');
+  var photo    = document.getElementById('drawer-photo');
+  var nameEl   = document.getElementById('drawer-name');
+  var emailEl  = document.getElementById('drawer-email');
+  var authSlot = document.getElementById('drawer-auth-slot');
+
+  function syncDrawerAuth(){
+    var navAuth = document.getElementById('navAuth');
+    if (!navAuth) return;
+
+    // Signed IN: navAuth will contain an <img> (user photo)
+    var userImg = navAuth.querySelector('img');
+    if (userImg && userImg.src && !userImg.src.endsWith(window.location.pathname)) {
+      // Show user row
+      userRow.style.display = 'flex';
+      photo.src = userImg.src;
+      var nm = navAuth.querySelector('.user-name') || navAuth.querySelector('span');
+      nameEl.textContent  = nm  ? nm.textContent.trim()  : '';
+      var em = navAuth.querySelector('.user-email');
+      emailEl.textContent = em  ? em.textContent.trim()  : '';
+
+      // Mirror the sign-out button from navAuth
+      var navBtn = navAuth.querySelector('button');
+      var signOutFn = navBtn ? (navBtn.getAttribute('onclick') || '') : 'signOutUser()';
+      authSlot.innerHTML =
+        '<button onclick="'+signOutFn+'" '+
+        'style="width:100%;background:transparent;border:1.5px solid rgba(107,26,26,0.25);'+
+        'border-radius:12px;padding:11px;font-family:Cinzel,serif;font-size:12px;'+
+        'letter-spacing:.05em;color:var(--maroon-dk);cursor:pointer;transition:all .2s;"'+
+        ' onmouseover="this.style.background=\'rgba(232,97,26,0.08)\'"'+
+        ' onmouseout="this.style.background=\'transparent\'">Sign Out</button>';
+
+    } else {
+      // Signed OUT: hide user row, show Sign In button
+      userRow.style.display = 'none';
+      nameEl.textContent  = '';
+      emailEl.textContent = '';
+      photo.src = '';
+
+      // The Sign In button clicks nav.js's own sign-in button (reuses its Firebase popup)
+      authSlot.innerHTML =
+        '<button onclick="(function(){'+
+          'var nb=document.querySelector(\'#navAuth button\');'+
+          'if(nb){nb.click();}'+
+          'else{window.location=\'chat.html\';}'+
+        '})()" '+
+        'style="width:100%;background:transparent;border:1.5px solid rgba(212,160,23,0.4);'+
+        'border-radius:12px;padding:11px;font-family:Cinzel,serif;font-size:12px;'+
+        'letter-spacing:.05em;color:var(--maroon);cursor:pointer;transition:all .2s;"'+
+        ' onmouseover="this.style.background=\'rgba(212,160,23,0.08)\'"'+
+        ' onmouseout="this.style.background=\'transparent\'">Sign In with Google</button>';
+    }
+  }
+
+  // Watch navAuth for changes (nav.js updates it after Firebase loads)
+  var navAuth = document.getElementById('navAuth');
+  if (navAuth) {
+    new MutationObserver(syncDrawerAuth)
+      .observe(navAuth, { childList:true, subtree:true, attributes:true });
+  }
+  // Also poll — Firebase can take 1-2s to initialise
+  setTimeout(syncDrawerAuth, 500);
+  setTimeout(syncDrawerAuth, 1500);
+  setTimeout(syncDrawerAuth, 3000);
 })();
 </script>
 
@@ -1470,10 +1538,10 @@ loadShloka();
     
     <div style="display:flex;justify-content:center;align-items:center;gap:16px;flex-wrap:nowrap;margin-bottom:28px;">
       <a href="#" style="display:block;opacity:0.9;transition:opacity .2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'">
-        <img src="app-store-badge.svg" style="height:52px;width:auto;" alt="Download on the App Store">
+        <img src="app-store-badge.svg" style="height:150px;width:auto;" alt="Download on the App Store">
       </a>
       <a href="#" style="display:block;opacity:0.9;transition:opacity .2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'">
-        <img src="google-play-badge.svg" style="height:52px;width:auto;" alt="Get it on Google Play">
+        <img src="google-play-badge.svg" style="height:153px;width:auto;" alt="Get it on Google Play">
       </a>
     </div>
 
