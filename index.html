@@ -1442,10 +1442,10 @@ loadShloka();
     
     <div style="display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-bottom:40px;">
       <a href="#" style="display:block">
-       <img src="app-store-badge.svg" style="height:120px;width:auto;" alt="Download on the App Store">
+       <img src="app-store-badge.svg" style="height:150px;width:auto;" alt="Download on the App Store">
       </a>
       <a href="#" style="display:block">
-        <img src="google-play-badge.svg" style="height:120px;width:auto;" alt="Get it on Google Play">
+        <img src="google-play-badge.svg" style="height:150px;width:auto;" alt="Get it on Google Play">
       </a>
     </div>
 
@@ -1453,7 +1453,7 @@ loadShloka();
       <!-- FIX: Changed id from "appEmail" to match the notifyForApp() function -->
       <input id="appEmail" type="email" placeholder="Your email address" style="width:100%;padding:16px 20px;border-radius:50px;border:1px solid rgba(212,160,23,0.4);background:rgba(255,255,255,0.1);color:white;font-size:16px;outline:none;margin-bottom:16px">
       <div id="appNotifyMsg" style="min-height:20px;margin-bottom:12px;font-family:'Cinzel',serif;font-size:13px;"></div>
-      <button onclick="notifyForApp()" style="width:100%;padding:16px;background:linear-gradient(135deg,var(--saffron),var(--gold));border:none;border-radius:50px;color:white;font-family:'Cinzel',serif;font-size:15px;font-weight:700;cursor:pointer">Notify Me When App Launches 🔔</button>
+      <button onclick="notifyForApp()" style="width:100%;padding:16px;background:linear-gradient(135deg,var(--saffron),var(--gold));border:none;border-radius:50px;color:white;font-family:'Cinzel',serif;font-size:15px;font-weight:700;cursor:pointer">Notify Me When App Launches </button>
     </div>
   </div>
 </section>
@@ -1594,116 +1594,145 @@ function notifyForApp() {
 
 <script type="module" src="nav.js"></script>
 
-<!-- PWA Install Banner -->
-<div id="pwa-banner" style="display:none;position:fixed;bottom:80px;left:16px;right:16px;z-index:9999;background:linear-gradient(135deg,#3E0000,#5A0A0A);border:1px solid rgba(212,160,23,0.4);border-radius:16px;padding:16px 18px;box-shadow:0 8px 32px rgba(0,0,0,0.4);display:flex;align-items:center;gap:14px;">
-  <img src="/logo.jpeg" style="width:44px;height:44px;border-radius:10px;flex-shrink:0;" alt="DharmaChat"/>
+<!-- PWA Banners — mobile only, slide-up animation -->
+<style>
+  @keyframes pwaSlideUp {
+    from { transform: translateY(120%); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
+  }
+  .pwa-popup {
+    display: none;
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(120%);
+    width: calc(100% - 48px);
+    max-width: 380px;
+    z-index: 9999;
+    background: linear-gradient(135deg,#3E0000,#5A0A0A);
+    border: 1px solid rgba(212,160,23,0.45);
+    border-radius: 24px;
+    padding: 14px 16px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+  }
+  .pwa-popup.pwa-visible {
+    display: flex;
+    animation: pwaSlideUp 0.5s cubic-bezier(0.34,1.56,0.64,1) forwards;
+  }
+  .pwa-popup-ios.pwa-visible {
+    display: block;
+  }
+  /* Hide on desktop — show only on touch/mobile screens */
+  @media (min-width: 768px) {
+    .pwa-popup { display: none !important; }
+  }
+  .pwa-x {
+    position: absolute;
+    top: 10px; right: 12px;
+    background: rgba(255,255,255,0.12);
+    border: none;
+    border-radius: 50%;
+    width: 22px; height: 22px;
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .pwa-x:hover { background: rgba(255,255,255,0.22); }
+</style>
+
+<!-- Android install banner -->
+<div id="pwa-banner" class="pwa-popup" style="align-items:center;gap:12px;">
+  <button id="pwa-dismiss-btn" class="pwa-x" aria-label="Close">×</button>
+  <img src="/logo.jpeg" style="width:38px;height:38px;border-radius:10px;flex-shrink:0;" alt="DharmaChat"/>
   <div style="flex:1;min-width:0;">
-    <div style="font-family:'Cinzel',serif;font-size:13px;color:#F0C040;font-weight:700;margin-bottom:2px;">Install DharmaChat</div>
-    <div style="font-size:11px;color:rgba(255,255,255,0.6);line-height:1.4;">Add to Home Screen for the app experience — free, instant, no App Store needed.</div>
+    <div style="font-family:'Cinzel',serif;font-size:12px;color:#F0C040;font-weight:700;margin-bottom:2px;">Install DharmaChat</div>
+    <div style="font-size:10px;color:rgba(255,255,255,0.55);line-height:1.4;">Add to Home Screen — free, instant, no App Store needed.</div>
   </div>
-  <div style="display:flex;flex-direction:column;gap:6px;flex-shrink:0;">
-    <button id="pwa-install-btn" style="background:linear-gradient(135deg,#E8611A,#D4A017);border:none;border-radius:8px;color:white;font-family:'Cinzel',serif;font-size:11px;font-weight:700;padding:7px 14px;cursor:pointer;white-space:nowrap;">Install</button>
-    <button id="pwa-dismiss-btn" style="background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:8px;color:rgba(255,255,255,0.4);font-size:10px;padding:5px 10px;cursor:pointer;">Not now</button>
-  </div>
+  <button id="pwa-install-btn" style="background:linear-gradient(135deg,#E8611A,#D4A017);border:none;border-radius:50px;color:white;font-family:'Cinzel',serif;font-size:10px;font-weight:700;padding:7px 16px;cursor:pointer;white-space:nowrap;flex-shrink:0;">Install</button>
 </div>
 
-<!-- iOS "Add to Home Screen" tip (shows only on Safari iOS) -->
-<div id="ios-banner" style="display:none;position:fixed;bottom:80px;left:16px;right:16px;z-index:9999;background:linear-gradient(135deg,#3E0000,#5A0A0A);border:1px solid rgba(212,160,23,0.4);border-radius:16px;padding:16px 18px;box-shadow:0 8px 32px rgba(0,0,0,0.4);">
-  <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
-    <img src="/logo.jpeg" style="width:40px;height:40px;border-radius:9px;flex-shrink:0;" alt="DharmaChat"/>
+<!-- iOS Safari tip banner -->
+<div id="ios-banner" class="pwa-popup pwa-popup-ios" style="position:relative;flex-direction:column;gap:10px;">
+  <button id="ios-dismiss-btn" class="pwa-x" aria-label="Close">×</button>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <img src="/logo.jpeg" style="width:36px;height:36px;border-radius:9px;flex-shrink:0;" alt="DharmaChat"/>
     <div>
-      <div style="font-family:'Cinzel',serif;font-size:13px;color:#F0C040;font-weight:700;">Install DharmaChat</div>
-      <div style="font-size:11px;color:rgba(255,255,255,0.5);">Get the app — free, instant</div>
+      <div style="font-family:'Cinzel',serif;font-size:12px;color:#F0C040;font-weight:700;">Install DharmaChat</div>
+      <div style="font-size:10px;color:rgba(255,255,255,0.5);">Get the app — free &amp; instant</div>
     </div>
-    <button id="ios-dismiss-btn" style="margin-left:auto;background:transparent;border:none;color:rgba(255,255,255,0.4);font-size:20px;cursor:pointer;line-height:1;">×</button>
   </div>
-  <div style="font-size:12px;color:rgba(255,255,255,0.65);line-height:1.6;text-align:center;background:rgba(255,255,255,0.05);border-radius:10px;padding:10px;">
+  <div style="font-size:11px;color:rgba(255,255,255,0.65);line-height:1.65;text-align:center;background:rgba(255,255,255,0.05);border-radius:14px;padding:10px 12px;">
     Tap <span style="color:#F0C040;font-weight:700;">Share</span>
-    <svg style="width:14px;height:14px;vertical-align:middle;fill:none;stroke:#F0C040;stroke-width:2;" viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8M16 6l-4-4-4 4M12 2v13"/></svg>
-    then tap <span style="color:#F0C040;font-weight:700;">"Add to Home Screen"</span>
-    <svg style="width:14px;height:14px;vertical-align:middle;fill:none;stroke:#F0C040;stroke-width:2;" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+    <svg style="width:13px;height:13px;vertical-align:middle;fill:none;stroke:#F0C040;stroke-width:2;" viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8M16 6l-4-4-4 4M12 2v13"/></svg>
+    then <span style="color:#F0C040;font-weight:700;">"Add to Home Screen"</span>
   </div>
 </div>
 
 <script>
-// ── Service Worker Registration ──────────────────────
+// ── Service Worker ─────────────────────────────────────
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function() {
-    navigator.serviceWorker.register('/sw.js').then(function(reg) {
-      console.log('DharmaChat SW registered:', reg.scope);
-    }).catch(function(err) {
-      console.log('SW registration failed:', err);
-    });
+    navigator.serviceWorker.register('/sw.js');
   });
 }
 
-// ── Android PWA Install Banner ────────────────────────
-var deferredPrompt = null;
-var pwaBanner = document.getElementById('pwa-banner');
-var iosBanner = document.getElementById('ios-banner');
+// ── PWA Banner Logic ───────────────────────────────────
+(function() {
+  var isIOS         = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  var isSafari      = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+  var isStandalone  = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+  var isMobile      = window.innerWidth < 768;
 
-// Detect iOS Safari
-var isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
-var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-var isInStandaloneMode = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+  // Already running as installed PWA — never show
+  if (isStandalone || !isMobile) return;
 
-// Don't show if already installed as PWA
-if (!isInStandaloneMode) {
-  // Dismissed state (don't re-show for 7 days)
-  var dismissed = localStorage.getItem('pwa_banner_dismissed');
-  var dismissedRecently = dismissed && (Date.now() - parseInt(dismissed)) < 7 * 24 * 60 * 60 * 1000;
+  var dismissed = localStorage.getItem('pwa_dismissed');
+  if (dismissed && (Date.now() - parseInt(dismissed)) < 7 * 24 * 60 * 60 * 1000) return;
 
-  if (!dismissedRecently) {
-    // Android: listen for browser's beforeinstallprompt
-    window.addEventListener('beforeinstallprompt', function(e) {
-      e.preventDefault();
-      deferredPrompt = e;
-      // Show after 5 seconds on the page
-      setTimeout(function() {
-        if (pwaBanner) pwaBanner.style.display = 'flex';
-      }, 5000);
-    });
+  var pwaBanner  = document.getElementById('pwa-banner');
+  var iosBanner  = document.getElementById('ios-banner');
+  var deferredPrompt = null;
 
-    // iOS Safari: show manual tip after 8 seconds
-    if (isIOS && isSafari) {
-      setTimeout(function() {
-        if (iosBanner) iosBanner.style.display = 'block';
-      }, 8000);
-    }
+  function showBanner(el) {
+    el.classList.add('pwa-visible');
   }
-}
+  function hideBanner(el) {
+    el.style.animation = 'none';
+    el.style.transform = 'translateX(-50%) translateY(120%)';
+    el.style.opacity   = '0';
+    el.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
+    setTimeout(function() { el.classList.remove('pwa-visible'); }, 300);
+    localStorage.setItem('pwa_dismissed', Date.now().toString());
+  }
 
-// Install button (Android)
-var installBtn = document.getElementById('pwa-install-btn');
-if (installBtn) {
-  installBtn.addEventListener('click', function() {
+  // Android Chrome install prompt
+  window.addEventListener('beforeinstallprompt', function(e) {
+    e.preventDefault();
+    deferredPrompt = e;
+    setTimeout(function() { showBanner(pwaBanner); }, 5000);
+  });
+
+  // iOS Safari tip
+  if (isIOS && isSafari) {
+    setTimeout(function() { showBanner(iosBanner); }, 8000);
+  }
+
+  // Install button
+  document.getElementById('pwa-install-btn').addEventListener('click', function() {
     if (!deferredPrompt) return;
     deferredPrompt.prompt();
-    deferredPrompt.userChoice.then(function(choiceResult) {
-      if (choiceResult.outcome === 'accepted') {
-        console.log('PWA installed');
-      }
+    deferredPrompt.userChoice.then(function(result) {
       deferredPrompt = null;
-      if (pwaBanner) pwaBanner.style.display = 'none';
+      hideBanner(pwaBanner);
     });
   });
-}
 
-// Dismiss buttons
-var dismissBtn = document.getElementById('pwa-dismiss-btn');
-if (dismissBtn) {
-  dismissBtn.addEventListener('click', function() {
-    if (pwaBanner) pwaBanner.style.display = 'none';
-    localStorage.setItem('pwa_banner_dismissed', Date.now().toString());
-  });
-}
-var iosDismissBtn = document.getElementById('ios-dismiss-btn');
-if (iosDismissBtn) {
-  iosDismissBtn.addEventListener('click', function() {
-    if (iosBanner) iosBanner.style.display = 'none';
-    localStorage.setItem('pwa_banner_dismissed', Date.now().toString());
-  });
-}
+  // X dismiss buttons
+  document.getElementById('pwa-dismiss-btn').addEventListener('click', function() { hideBanner(pwaBanner); });
+  document.getElementById('ios-dismiss-btn').addEventListener('click', function() { hideBanner(iosBanner); });
+})();
 </script>
 </body>
 </html>
