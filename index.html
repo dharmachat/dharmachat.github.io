@@ -1890,13 +1890,6 @@ if ('serviceWorker' in navigator) {
 
   var plan = (premium.plan === 'yearly' || premium.plan === 'annual') ? 'Annual' : 'Monthly';
 
-  /* Hero buttons — replace "Try DharmaChat Free" with premium dashboard */
-  var heroBtns = document.getElementById('heroBtns');
-  if (heroBtns) {
-    heroBtns.innerHTML =
-      '<a class="chat.html" href="chat.html"> TRY DHARMACHAT FOR FREE</a>'
-  }
-
   /* "Go Premium" nav link → "👑 Premium Member" */
   var navLink = document.getElementById('navPremiumLink');
   if (navLink) {
