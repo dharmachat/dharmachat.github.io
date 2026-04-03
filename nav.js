@@ -528,7 +528,42 @@ function updateDesktopAuth(user) {
   window.__dcNavSignIn  = async () => { try { await signInWithPopup(auth, provider); } catch(e) {} };
   window.__dcNavSignOut = async () => { await fbSignOut(auth); localStorage.removeItem('dc_guest'); location.reload(); };
 }
+// ── Hide "Try Free" button for premium users ─────────────────
+function hideTryFreeIfPremium(user) {
+  const premium = readPremium();
+  if (!premium) return; // not premium — leave button alone
 
+  // Target every common pattern the Try Free / Try button appears as
+  const selectors = [
+    'a.btn-primary',          // orange CTA buttons
+    'a.btn-upgrade',          // upgrade CTAs
+    'a[href="chat.html"]',    // Try Free links to chat
+    'a[href="premium.html"]', // Go Premium links
+  ];
+
+  selectors.forEach(function(sel) {
+    document.querySelectorAll(sel).forEach(function(el) {
+      const txt = el.textContent.trim().toLowerCase();
+      // Only affect buttons that say "try free", "try", "go premium", "upgrade"
+      if (
+        txt.includes('try') ||
+        txt.includes('go premium') ||
+        txt.includes('upgrade') ||
+        txt.includes('subscribe')
+      ) {
+        // Replace with a non-clickable "Premium" badge
+        el.textContent   = '👑 Premium';
+        el.removeAttribute('href');
+        el.style.background    = 'linear-gradient(135deg,#8B1A1A,#D4A017)';
+        el.style.cursor        = 'default';
+        el.style.pointerEvents = 'none';
+        el.style.opacity       = '0.9';
+        el.style.fontSize      = '12px';
+        el.style.letterSpacing = '.06em';
+      }
+    });
+  });
+}
 // ── Init ─────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   const { drawerEl, overlayEl } = buildDrawer();
@@ -538,6 +573,7 @@ document.addEventListener('DOMContentLoaded', () => {
   onAuthStateChanged(auth, (user) => {
     updateDesktopAuth(user);
     updateDrawerUser(user);
+    hideTryFreeIfPremium(user);
   });
 
   // Handle guest
