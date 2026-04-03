@@ -509,7 +509,7 @@ function updateDesktopAuth(user) {
       <div style="display:flex;align-items:center;gap:10px;">
         ${photo ? `<img src="${photo}" style="width:32px;height:32px;border-radius:50%;object-fit:cover;border:2px solid rgba(212,160,23,0.4);" onerror="this.style.display='none'"/>` : ''}
         <span style="font-family:Cinzel,serif;font-size:12px;color:rgba(240,192,64,0.9);">${name}</span>
-        ${premium ? `<span style="font-family:Cinzel,serif;font-size:10px;color:#F0C040;background:rgba(212,160,23,0.15);border:1px solid rgba(212,160,23,0.35);border-radius:20px;padding:3px 10px;letter-spacing:.04em;">👑 Premium</span>` : ''}
+        ${premium ? `<span id="dcNavPremiumBadge" style="font-family:Cinzel,serif;font-size:10px;color:#F0C040;background:rgba(212,160,23,0.15);border:1px solid rgba(212,160,23,0.35);border-radius:20px;padding:3px 10px;letter-spacing:.04em;">👑 Premium</span>` : ''}
         <button onclick="window.__dcNavSignOut()" style="font-family:Cinzel,serif;font-size:10px;color:rgba(255,255,255,0.4);background:none;border:1px solid rgba(255,255,255,0.15);border-radius:20px;padding:4px 10px;cursor:pointer;letter-spacing:.04em;">Sign Out</button>
       </div>`;
   } else if (premium) {
@@ -543,6 +543,7 @@ function hideTryFreeIfPremium(user) {
 
   selectors.forEach(function(sel) {
     document.querySelectorAll(sel).forEach(function(el) {
+      if (el.id === 'dcNavPremiumBadge' || el.closest('#navAuth')) return;
       const txt = el.textContent.trim().toLowerCase();
       // Only affect buttons that say "try free", "try", "go premium", "upgrade"
       if (
