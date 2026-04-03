@@ -350,7 +350,6 @@ function hideTryFreeIfPremium() {
   const selectors = [
     'a.btn-primary',
     'a.btn-upgrade',
-    'a[href="chat.html"]',
     'a[href="premium.html"]',
   ];
 
