@@ -1,11 +1,14 @@
-// ── DharmaChat Shared Navigation v4.0 ────────────────────────
-// Full mobile + desktop premium awareness. Handles async Firebase
-// auth, drawer state refresh, and robust Try Free hiding.
+// ── DharmaChat Shared Navigation v5.0 ────────────────────────
+// Cross-device premium sync via Firebase Firestore.
+// Premium status written to Firestore on purchase, read from
+// Firestore on every login — works on any device, any browser.
 // ─────────────────────────────────────────────────────────────
 
 import { initializeApp }    from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
 import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut as fbSignOut }
   from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+import { getFirestore, doc, getDoc, setDoc }
+  from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
 
 const firebaseConfig = {
   apiKey:            "AIzaSyDvw26WTzNRsBBgjXG9At60pN8ApDvPB7o",
@@ -18,39 +21,28 @@ const firebaseConfig = {
 
 const app      = initializeApp(firebaseConfig);
 const auth     = getAuth(app);
+const db       = getFirestore(app);
 const provider = new GoogleAuthProvider();
+
+// ── Expose Firestore helpers globally so premium.html can use them ──
+// premium.html imports are separate — we bridge via window globals
+window.__dcFirestore = db;
+window.__dcSetDoc    = setDoc;
+window.__dcDoc       = doc;
 
 // ── Inject CSS ───────────────────────────────────────────────
 const style = document.createElement('style');
 style.textContent = `
-.dc-burger {
-  display:none;flex-direction:column;gap:5px;cursor:pointer;
-  padding:6px;border:none;background:none;z-index:1001;
-}
-.dc-burger span {
-  display:block;width:24px;height:2px;
-  background:rgba(240,192,64,0.8);border-radius:2px;transition:all .3s ease;
-}
+.dc-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;border:none;background:none;z-index:1001;}
+.dc-burger span{display:block;width:24px;height:2px;background:rgba(240,192,64,0.8);border-radius:2px;transition:all .3s ease;}
 .dc-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
 .dc-burger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
 .dc-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-.dc-overlay {
-  display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);
-  z-index:999;backdrop-filter:blur(2px);opacity:0;transition:opacity .3s ease;
-}
+.dc-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:999;backdrop-filter:blur(2px);opacity:0;transition:opacity .3s ease;}
 .dc-overlay.show{display:block;opacity:1;}
-.dc-drawer {
-  position:fixed;top:0;right:-320px;width:300px;height:100vh;
-  background:linear-gradient(160deg,#3E0000 0%,#5A0A0A 100%);
-  z-index:1000;transition:right .35s cubic-bezier(.4,0,.2,1);
-  display:flex;flex-direction:column;
-  box-shadow:-8px 0 40px rgba(0,0,0,0.5);overflow-y:auto;
-}
+.dc-drawer{position:fixed;top:0;right:-320px;width:300px;height:100vh;background:linear-gradient(160deg,#3E0000 0%,#5A0A0A 100%);z-index:1000;transition:right .35s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;box-shadow:-8px 0 40px rgba(0,0,0,0.5);overflow-y:auto;}
 .dc-drawer.open{right:0;}
-.dc-drawer-head {
-  padding:20px 24px;border-bottom:1px solid rgba(212,160,23,0.15);
-  display:flex;align-items:center;justify-content:space-between;
-}
+.dc-drawer-head{padding:20px 24px;border-bottom:1px solid rgba(212,160,23,0.15);display:flex;align-items:center;justify-content:space-between;}
 .dc-drawer-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
 .dc-drawer-logo img{width:36px;height:36px;border-radius:50%;object-fit:cover;box-shadow:0 0 10px rgba(212,160,23,0.4);}
 .dc-drawer-logo span{font-family:'Cinzel Decorative',serif;font-size:15px;color:#F0C040;}
@@ -77,11 +69,11 @@ style.textContent = `
 .dc-drawer-cta a:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(232,97,26,0.45);}
 .dc-drawer-signout{width:100%;padding:10px;background:none;border:1px solid rgba(255,255,255,0.1);border-radius:50px;color:rgba(255,255,255,0.35);font-family:'Cinzel',serif;font-size:11px;letter-spacing:.06em;cursor:pointer;transition:all .2s;}
 .dc-drawer-signout:hover{border-color:rgba(255,255,255,0.2);color:rgba(255,255,255,0.6);}
-@media (max-width:860px){.dc-burger{display:flex !important;}}
+@media(max-width:860px){.dc-burger{display:flex !important;}}
 `;
 document.head.appendChild(style);
 
-// ── Helpers ──────────────────────────────────────────────────
+// ── Constants ────────────────────────────────────────────────
 const path     = window.location.pathname.split('/').pop() || 'index.html';
 const isActive = (href) => (path === href || path === href.replace('.html','')) ? 'active' : '';
 
@@ -93,15 +85,14 @@ const navLinks = [
   { href:'chat.html',      emoji:'🤖', label:'AI Chat' },
 ];
 
-const googleSVG = (w,h) => `<svg width="${w}" height="${h}" viewBox="0 0 24 24">
+const googleSVG = (w, h) => `<svg width="${w}" height="${h}" viewBox="0 0 24 24">
   <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
   <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
   <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
   <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
 </svg>`;
 
-// ── FIX 1: Read premium — handles iOS Safari private mode ────
-// Uses try/catch so a SecurityError in private mode doesn't crash.
+// ── Read premium from localStorage (local cache) ─────────────
 function readPremium() {
   try {
     const raw = localStorage.getItem('dc_premium');
@@ -116,7 +107,56 @@ function readPremium() {
   } catch(e) { return null; }
 }
 
-// ── Build drawer (called once at DOMContentLoaded) ───────────
+// ── THE CORE FIX: Sync premium from Firestore → localStorage ─
+// Called every time Firebase auth resolves with a logged-in user.
+// Reads the user's premium record from Firestore (server-side,
+// cross-device) and writes it to localStorage so dc-premium-unlock.js
+// and all page scripts can find it immediately.
+async function syncPremiumFromFirestore(user) {
+  if (!user) return;
+  try {
+    const premiumRef = doc(db, 'users', user.uid, 'premium', 'status');
+    const snap       = await getDoc(premiumRef);
+
+    if (!snap.exists()) {
+      // No Firestore record — this user hasn't purchased
+      // Leave localStorage as-is (don't wipe a valid local record)
+      return;
+    }
+
+    const data = snap.data();
+
+    // Check expiry
+    if (data.expiry && new Date(data.expiry) <= new Date()) {
+      // Premium expired — clean up both stores
+      try { localStorage.removeItem('dc_premium'); } catch(e) {}
+      return;
+    }
+
+    // ✅ Valid premium found in Firestore — write to localStorage
+    // This is the fix: mobile gets premium even though it never paid locally
+    try {
+      localStorage.setItem('dc_premium', JSON.stringify(data));
+    } catch(e) {
+      // iOS private mode — use sessionStorage
+      try { sessionStorage.setItem('dc_premium', JSON.stringify(data)); } catch(e2) {}
+    }
+
+    // Refresh all UI now that premium is confirmed
+    updateDrawerPremiumState();
+    updateDesktopAuth(user);
+    hideTryFreeIfPremium();
+
+    // Trigger dc-premium-unlock.js to re-run if already loaded
+    if (window.__dcPremiumUnlock) window.__dcPremiumUnlock();
+
+  } catch(err) {
+    // Network error or Firestore unavailable — fall back to localStorage silently
+    console.warn('[DharmaChat] Firestore premium sync failed, using local cache:', err.message);
+  }
+}
+
+// ── Build drawer ─────────────────────────────────────────────
 function buildDrawer() {
   const premium = readPremium();
 
@@ -129,13 +169,11 @@ function buildDrawer() {
 
   const premiumRowHtml = premium
     ? `<a id="dcDrawerPremiumLink" href="premium.html" style="color:#F0C040;">
-        <span class="dc-nav-emoji">👑</span>
-        Premium Member
+        <span class="dc-nav-emoji">👑</span>Premium Member
         <span class="dc-nav-badge" style="background:rgba(212,160,23,0.2);color:#F0C040;border-color:rgba(212,160,23,0.4);">ACTIVE</span>
       </a>`
     : `<a id="dcDrawerPremiumLink" href="premium.html">
-        <span class="dc-nav-emoji">👑</span>
-        Premium Plan
+        <span class="dc-nav-emoji">👑</span>Premium Plan
         <span class="dc-nav-badge">UPGRADE</span>
       </a>`;
 
@@ -144,12 +182,12 @@ function buildDrawer() {
     : `<a id="dcDrawerCta" href="chat.html">Ask DharmaChat AI →</a>`;
 
   const drawerEl = document.createElement('div');
-  drawerEl.id        = 'dcDrawer';
+  drawerEl.id = 'dcDrawer';
   drawerEl.className = 'dc-drawer';
   drawerEl.innerHTML = `
     <div class="dc-drawer-head">
       <a class="dc-drawer-logo" href="index.html">
-        <img src="assets/images/logo.jpeg" alt="DharmaChat"/>
+        <img src="logo.jpeg" alt="DharmaChat"/>
         <span>DharmaChat</span>
       </a>
       <button class="dc-close" id="dcClose" aria-label="Close menu">✕</button>
@@ -169,8 +207,8 @@ function buildDrawer() {
       <button class="dc-drawer-signout" id="dcDrawerSignOut" style="display:none;">Sign Out</button>
     </div>`;
 
-  const overlayEl    = document.createElement('div');
-  overlayEl.id       = 'dcOverlay';
+  const overlayEl = document.createElement('div');
+  overlayEl.id = 'dcOverlay';
   overlayEl.className = 'dc-overlay';
 
   document.body.appendChild(overlayEl);
@@ -178,32 +216,25 @@ function buildDrawer() {
   return { drawerEl, overlayEl };
 }
 
-// ── FIX 2: Update drawer premium state after Firebase auth ───
-// THIS is the missing piece for mobile — the drawer is built
-// once, but Firebase auth resolves async. This syncs the drawer
-// LIVE after auth confirms, fixing the mobile "UPGRADE" bug.
+// ── Update drawer premium row + CTA after async auth ─────────
 function updateDrawerPremiumState() {
   const premium = readPremium();
 
-  // Update premium nav row
   const premiumLink = document.getElementById('dcDrawerPremiumLink');
   if (premiumLink) {
     if (premium) {
       premiumLink.style.color = '#F0C040';
-      premiumLink.innerHTML   = `
-        <span class="dc-nav-emoji">👑</span>
-        Premium Member
+      premiumLink.innerHTML = `
+        <span class="dc-nav-emoji">👑</span>Premium Member
         <span class="dc-nav-badge" style="background:rgba(212,160,23,0.2);color:#F0C040;border-color:rgba(212,160,23,0.4);">ACTIVE</span>`;
     } else {
       premiumLink.style.color = '';
-      premiumLink.innerHTML   = `
-        <span class="dc-nav-emoji">👑</span>
-        Premium Plan
+      premiumLink.innerHTML = `
+        <span class="dc-nav-emoji">👑</span>Premium Plan
         <span class="dc-nav-badge">UPGRADE</span>`;
     }
   }
 
-  // Update drawer CTA button
   const ctaLink = document.getElementById('dcDrawerCta');
   if (ctaLink) {
     if (premium) {
@@ -317,7 +348,7 @@ function updateDrawerUser(user) {
 // ── Update desktop navAuth ───────────────────────────────────
 function updateDesktopAuth(user) {
   const navAuth = document.getElementById('navAuth');
-  if (!navAuth) return; // not present on all pages — safe to skip
+  if (!navAuth) return;
 
   const premium = readPremium();
 
@@ -328,9 +359,7 @@ function updateDesktopAuth(user) {
       <div style="display:flex;align-items:center;gap:10px;">
         ${photo ? `<img src="${photo}" style="width:32px;height:32px;border-radius:50%;object-fit:cover;border:2px solid rgba(212,160,23,0.4);" onerror="this.style.display='none'"/>` : ''}
         <span style="font-family:Cinzel,serif;font-size:12px;color:rgba(240,192,64,0.9);">${name}</span>
-        ${premium
-          ? `<span id="dcNavPremiumBadge" style="font-family:Cinzel,serif;font-size:10px;color:#F0C040;background:rgba(212,160,23,0.15);border:1px solid rgba(212,160,23,0.35);border-radius:20px;padding:3px 10px;letter-spacing:.04em;">👑 Premium</span>`
-          : ''}
+        ${premium ? `<span id="dcNavPremiumBadge" style="font-family:Cinzel,serif;font-size:10px;color:#F0C040;background:rgba(212,160,23,0.15);border:1px solid rgba(212,160,23,0.35);border-radius:20px;padding:3px 10px;letter-spacing:.04em;">👑 Premium</span>` : ''}
         <button onclick="window.__dcNavSignOut()" style="font-family:Cinzel,serif;font-size:10px;color:rgba(255,255,255,0.4);background:none;border:1px solid rgba(255,255,255,0.15);border-radius:20px;padding:4px 10px;cursor:pointer;letter-spacing:.04em;">Sign Out</button>
       </div>`;
   } else if (premium) {
@@ -353,41 +382,22 @@ function updateDesktopAuth(user) {
   };
 }
 
-// ── FIX 3: Hide "Try Free" — safe on both mobile & desktop ───
-// Strategy: scan by TEXT not by broad class selectors.
-// Guard every zone we must never touch.
-// Run twice: on auth resolve + 300ms later (catches late-renders).
+// ── Hide Try Free / upgrade buttons for premium users ────────
 function hideTryFreeIfPremium() {
   if (!readPremium()) return;
 
-  // Zones we NEVER touch regardless of what's inside
-  const PROTECTED_ZONES = [
-    '#navAuth',          // desktop premium badge
-    '#dcNavPremiumBadge',// desktop premium badge (alternate id)
-    '#dcDrawer',         // entire mobile drawer (has its own premium logic)
-    '#heroBtns',         // hero section CTA — always visible
-    '.hero',             // hero section wrapper — always visible
-    '.hero-btns',        // hero buttons wrapper
-    'footer',            // footer links
-  ];
+  const PROTECTED = ['#navAuth','#dcNavPremiumBadge','#dcDrawer','#heroBtns','.hero','.hero-btns','footer'];
 
-  // Walk every <a> and <button> on the page
   document.querySelectorAll('a, button').forEach(function(el) {
-    // Skip if inside any protected zone
-    for (let i = 0; i < PROTECTED_ZONES.length; i++) {
-      if (el.closest(PROTECTED_ZONES[i])) return;
+    for (let i = 0; i < PROTECTED.length; i++) {
+      if (el.closest(PROTECTED[i])) return;
     }
-
-    // Skip the dcNavPremiumBadge element itself
     if (el.id === 'dcNavPremiumBadge') return;
 
-    // Only act on elements that look like "upgrade" prompts by text
     const txt = el.textContent.trim().toLowerCase();
-    const isTryFree   = txt === 'try free' || txt === 'try dharmachat free' || txt.startsWith('try ');
-    const isGoPremium = txt === 'go premium' || txt === '👑 go premium';
-    const isUpgrade   = txt.includes('upgrade') || txt.includes('subscribe');
-
-    if (isTryFree || isGoPremium || isUpgrade) {
+    if (txt === 'try free' || txt === 'try dharmachat free' || txt.startsWith('try ') ||
+        txt === 'go premium' || txt === '👑 go premium' ||
+        txt.includes('upgrade') || txt.includes('subscribe')) {
       el.style.setProperty('display', 'none', 'important');
     }
   });
@@ -399,21 +409,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const burger = buildBurger();
   wireEvents(burger, drawerEl, overlayEl);
 
-  // FIX 4: onAuthStateChanged updates BOTH desktop nav AND mobile drawer
-  onAuthStateChanged(auth, (user) => {
-    updateDesktopAuth(user);       // desktop #navAuth badge
-    updateDrawerUser(user);        // drawer avatar / sign-in button
-    updateDrawerPremiumState();    // FIX: sync drawer premium row + CTA after async auth
-    hideTryFreeIfPremium();        // hide "Try Free" / "Go Premium" buttons
+  onAuthStateChanged(auth, async (user) => {
+    updateDesktopAuth(user);
+    updateDrawerUser(user);
+
+    if (user) {
+      // ✅ KEY FIX: Pull premium status from Firestore and sync to localStorage
+      // This makes premium work on every device the user signs into
+      await syncPremiumFromFirestore(user);
+    }
+
+    updateDrawerPremiumState();
+    hideTryFreeIfPremium();
   });
 
-  // Handle guest without Firebase
   if (!auth.currentUser) {
     updateDrawerUser(null);
   }
 
-  // FIX 5: Second pass 300ms after auth — catches dynamically rendered buttons
-  // (index.html inline scripts add buttons after DOMContentLoaded)
   window.addEventListener('load', () => {
     setTimeout(hideTryFreeIfPremium, 300);
   });

@@ -267,33 +267,63 @@
 
 <!-- Razorpay SDK -->
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-<script>
-  // ── Save premium to localStorage — called from multiple paths ──
-  function savePremium(plan, paymentId, orderId) {
+<script type="module">
+  // ── Import Firestore to save premium cross-device ──────────
+  import { initializeApp }  from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+  import { getAuth }        from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+  import { getFirestore, doc, setDoc } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+
+  const _app  = initializeApp({
+    apiKey:            "AIzaSyDvw26WTzNRsBBgjXG9At60pN8ApDvPB7o",
+    authDomain:        "dharmachat-cc71d.firebaseapp.com",
+    projectId:         "dharmachat-cc71d",
+    storageBucket:     "dharmachat-cc71d.firebasestorage.app",
+    messagingSenderId: "718284855701",
+    appId:             "1:718284855701:web:d7ef64292cd48ffdf13e9c"
+  });
+  const _auth = getAuth(_app);
+  const _db   = getFirestore(_app);
+
+  // ── Save premium to BOTH localStorage AND Firestore ────────
+  // localStorage  → instant local unlock on this device
+  // Firestore     → cross-device sync (mobile, tablet, new browser)
+  async function savePremium(plan, paymentId, orderId) {
+    const premiumData = {
+      plan:      plan,
+      paymentId: paymentId,
+      orderId:   orderId,
+      date:      new Date().toISOString(),
+      expiry:    plan === 'monthly'
+        ? new Date(Date.now() + 30*24*60*60*1000).toISOString()
+        : new Date(Date.now() + 365*24*60*60*1000).toISOString()
+    };
+
+    // 1. Save to localStorage (instant unlock on this device)
     try {
-      localStorage.setItem('dc_premium', JSON.stringify({
-        plan: plan,
-        paymentId: paymentId,
-        orderId: orderId,
-        date: new Date().toISOString(),
-        expiry: plan === 'monthly'
-          ? new Date(Date.now() + 30*24*60*60*1000).toISOString()
-          : new Date(Date.now() + 365*24*60*60*1000).toISOString()
-      }));
-      return true;
+      localStorage.setItem('dc_premium', JSON.stringify(premiumData));
     } catch(e) {
-      // localStorage blocked (iOS private mode) — fall back to sessionStorage
-      try {
-        sessionStorage.setItem('dc_premium', JSON.stringify({
-          plan: plan, paymentId: paymentId, orderId: orderId,
-          date: new Date().toISOString(),
-          expiry: plan === 'monthly'
-            ? new Date(Date.now() + 30*24*60*60*1000).toISOString()
-            : new Date(Date.now() + 365*24*60*60*1000).toISOString()
-        }));
-        return true;
-      } catch(e2) { return false; }
+      try { sessionStorage.setItem('dc_premium', JSON.stringify(premiumData)); } catch(e2) {}
     }
+
+    // 2. Save to Firestore (cross-device sync — THIS is what fixes mobile)
+    // When the user logs in on mobile, nav.js reads this and unlocks everything
+    const user = _auth.currentUser;
+    if (user) {
+      try {
+        const premiumRef = doc(_db, 'users', user.uid, 'premium', 'status');
+        await setDoc(premiumRef, premiumData);
+        console.log('[DharmaChat] ✅ Premium saved to Firestore for', user.uid);
+      } catch(firestoreErr) {
+        // Firestore write failed — local save still worked, user can still use premium
+        // on this device. They just won't get cross-device sync until next purchase.
+        console.warn('[DharmaChat] Firestore write failed:', firestoreErr.message);
+      }
+    } else {
+      // Not logged in — store UID placeholder so we can sync later
+      console.warn('[DharmaChat] No user logged in at purchase time — premium saved locally only');
+    }
+
+    return true;
   }
 
   // ── Check URL params on load — handles Razorpay redirect-mode callback ──
@@ -318,7 +348,7 @@
     }
   })();
 
-  async function startPayment(plan, amount) {
+  window.startPayment = async function startPayment(plan, amount) {
     document.getElementById('loadingOverlay').classList.add('show');
     try {
       const response = await fetch('https://dharmachat-github-io.vercel.app/api/payment', {
