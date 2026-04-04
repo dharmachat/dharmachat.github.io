@@ -50,12 +50,13 @@
     /* vedas.html */
     '.veda.locked-veda .veda-content,' +
     /* puranas.html */
-    '.purana.locked-purana .purana-content' +
+    '.purana.locked-purana .purana-content,' +
+    /* bhagavad-gita-18-chapters: chapter-content inside locked-chapter */ '.chapter.locked-chapter .chapter-content' +
     '{filter:none!important;max-height:none!important;' +
     'overflow:visible!important;user-select:auto!important;' +
     'pointer-events:auto!important;}' +
-    /* Hide ALL paywall overlays on premium pages */
-    '.paywall-overlay{display:none!important;}';
+    /* Hide ALL paywall overlays and paywall wraps on premium pages */
+    '.paywall-overlay,.paywall-wrap{display:none!important;}';
 
   var styleEl = document.createElement('style');
   styleEl.id  = 'dc-premium-unlock-v3';
@@ -87,14 +88,14 @@
       }
 
       /* Hide the paywall overlay */
-      var overlay = wrapper.querySelector('.paywall-overlay');
+      var overlay = wrapper.querySelector('.paywall-overlay, .paywall-wrap');
       if (overlay) {
         overlay.style.setProperty('display', 'none', 'important');
       }
     });
 
-    /* Catch any standalone paywall overlays not inside a wrapper */
-    document.querySelectorAll('.paywall-overlay').forEach(function (el) {
+    /* Catch any standalone paywall overlays/wraps not inside a wrapper */
+    document.querySelectorAll('.paywall-overlay, .paywall-wrap').forEach(function (el) {
       el.style.setProperty('display', 'none', 'important');
     });
 
@@ -153,23 +154,10 @@
       }
     });
 
-    /* ── 6. Update "Go Premium" / "btn-upgrade" links for premium users ── */
-    /* Any hardcoded "👑 Go Premium" nav button becomes "👑 Premium Member" */
-    document.querySelectorAll('a.btn-upgrade, a[href="premium.html"].btn-upgrade').forEach(function(a) {
-      a.textContent  = '👑 Premium Member';
-      a.href         = 'premium.html';
-      a.style.background = 'linear-gradient(135deg,#3E0000,#5A0A0A)';
-      a.style.border     = '1px solid rgba(212,160,23,0.4)';
-      a.style.cursor     = 'default';
-      a.style.pointerEvents = 'none';
-    });
-
-    /* Footer / inline "Go Premium" anchor links */
-    document.querySelectorAll('a[href="premium.html"]').forEach(function(a) {
-      if (a.textContent.trim() === 'Go Premium' || a.textContent.trim() === '👑 Go Premium') {
-        a.textContent = '👑 Premium';
-        a.style.opacity = '0.7';
-      }
+    /* ── 6. Hide "Go Premium" / "btn-upgrade" buttons for premium users ── */
+    /* nav.js already shows the premium badge — just hide the upgrade button */
+    document.querySelectorAll('a.btn-upgrade').forEach(function(a) {
+      a.style.setProperty('display', 'none', 'important');
     });
 
     console.log('[DharmaChat] ✅ Premium unlocked — all content accessible.');
