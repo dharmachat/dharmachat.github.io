@@ -1402,7 +1402,8 @@ document.querySelectorAll('[data-lang]').forEach(function(el) {
 });
 </script>
 
-<script src="dc-premium-unlock.js?v=4"></script>
 <script type="module" src="nav.js"></script>
+
+<script src="dc-premium-unlock.js?v=3"></script>
 </body>
 </html>

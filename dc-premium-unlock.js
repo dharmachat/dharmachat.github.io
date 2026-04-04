@@ -994,7 +994,7 @@ loadProfile();
   <p style="margin-top:6px;font-size:11px;color:rgba(255,255,255,0.3);">Founded & built by Sukhil Babu · Bengaluru, India</p>
 </footer>
 
-<script src="dc-premium-unlock.js?v=4"></script>
+<script src="dc-premium-unlock.js?v=3"></script>
 <script type="module" src="nav.js"></script>
 </body>
 </html>
