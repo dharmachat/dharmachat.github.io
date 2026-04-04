@@ -268,6 +268,56 @@
 <!-- Razorpay SDK -->
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>
+  // ── Save premium to localStorage — called from multiple paths ──
+  function savePremium(plan, paymentId, orderId) {
+    try {
+      localStorage.setItem('dc_premium', JSON.stringify({
+        plan: plan,
+        paymentId: paymentId,
+        orderId: orderId,
+        date: new Date().toISOString(),
+        expiry: plan === 'monthly'
+          ? new Date(Date.now() + 30*24*60*60*1000).toISOString()
+          : new Date(Date.now() + 365*24*60*60*1000).toISOString()
+      }));
+      return true;
+    } catch(e) {
+      // localStorage blocked (iOS private mode) — fall back to sessionStorage
+      try {
+        sessionStorage.setItem('dc_premium', JSON.stringify({
+          plan: plan, paymentId: paymentId, orderId: orderId,
+          date: new Date().toISOString(),
+          expiry: plan === 'monthly'
+            ? new Date(Date.now() + 30*24*60*60*1000).toISOString()
+            : new Date(Date.now() + 365*24*60*60*1000).toISOString()
+        }));
+        return true;
+      } catch(e2) { return false; }
+    }
+  }
+
+  // ── Check URL params on load — handles Razorpay redirect-mode callback ──
+  // On mobile, Razorpay uses redirect instead of popup. It appends
+  // razorpay_payment_id + razorpay_order_id to the URL on success.
+  (function checkPaymentReturn() {
+    const params = new URLSearchParams(window.location.search);
+    const paymentId = params.get('razorpay_payment_id');
+    const orderId   = params.get('razorpay_order_id');
+    const plan      = params.get('plan') || localStorage.getItem('dc_pending_plan') || 'monthly';
+
+    if (paymentId && orderId) {
+      savePremium(plan, paymentId, orderId);
+      try { localStorage.removeItem('dc_pending_plan'); } catch(e) {}
+      // Clean URL without reloading
+      window.history.replaceState({}, '', 'premium.html');
+      // Show success screen
+      document.addEventListener('DOMContentLoaded', function() {
+        var overlay = document.getElementById('successOverlay');
+        if (overlay) overlay.classList.add('show');
+      });
+    }
+  })();
+
   async function startPayment(plan, amount) {
     document.getElementById('loadingOverlay').classList.add('show');
     try {
@@ -286,46 +336,69 @@
       const data = await response.json();
       document.getElementById('loadingOverlay').classList.remove('show');
 
+      // Store pending plan so redirect-mode callback can read it
+      try { localStorage.setItem('dc_pending_plan', plan); } catch(e) {}
+
+      // Detect mobile — Razorpay uses redirect on mobile WebView/browsers
+      const isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+
       const options = {
         key: data.keyId,
         amount: data.amount,
         currency: data.currency,
         name: 'DharmaChat',
-        description: plan === 'monthly' ? 'Premium Monthly — Unlimited Dharmic Wisdom' : 'Premium Yearly — Full Sacred Access',
+        description: plan === 'monthly'
+          ? 'Premium Monthly — Unlimited Dharmic Wisdom'
+          : 'Premium Yearly — Full Sacred Access',
         image: 'https://dharmachat.in/logo.jpeg',
         order_id: data.orderId,
+
+        // ── Redirect callback URL for mobile ──────────────────
+        // Razorpay appends ?razorpay_payment_id=&razorpay_order_id= to this URL
+        callback_url: 'https://dharmachat.in/premium.html?plan=' + plan,
+        redirect: true,
+
+        // ── Popup handler for desktop ─────────────────────────
         handler: function(response) {
-          // Payment successful
-          localStorage.setItem('dc_premium', JSON.stringify({
-            plan: plan,
-            paymentId: response.razorpay_payment_id,
-            orderId: response.razorpay_order_id,
-            date: new Date().toISOString(),
-            expiry: plan === 'monthly'
-              ? new Date(Date.now() + 30*24*60*60*1000).toISOString()
-              : new Date(Date.now() + 365*24*60*60*1000).toISOString()
-          }));
+          savePremium(plan, response.razorpay_payment_id, response.razorpay_order_id);
+          try { localStorage.removeItem('dc_pending_plan'); } catch(e) {}
           document.getElementById('successOverlay').classList.add('show');
         },
-        prefill: {
-          name: '',
-          email: '',
-          contact: ''
-        },
+
+        prefill: { name: '', email: '', contact: '' },
         notes: { plan: plan },
-        theme: {
-          color: '#E8611A'
-        },
+        theme: { color: '#E8611A' },
         modal: {
           ondismiss: function() {
             document.getElementById('loadingOverlay').classList.remove('show');
+          },
+          // Prevent Razorpay from blocking back-button on mobile
+          escape: true,
+          animation: true,
+          backdropclose: false
+        },
+        config: {
+          display: {
+            // Show all payment methods including UPI (most used on mobile in India)
+            blocks: {
+              utib: { name: 'Pay via UPI', instruments: [{ method: 'upi' }] },
+              other: { name: 'Other Payment Methods', instruments: [
+                { method: 'card' },
+                { method: 'netbanking' },
+                { method: 'wallet' }
+              ]}
+            },
+            sequence: ['block.utib', 'block.other'],
+            preferences: { show_default_blocks: false }
           }
         }
       };
 
       const rzp = new Razorpay(options);
       rzp.on('payment.failed', function(response) {
-        alert('Payment failed. Please try again or contact support.');
+        try { localStorage.removeItem('dc_pending_plan'); } catch(e) {}
+        document.getElementById('loadingOverlay').classList.remove('show');
+        alert('Payment failed: ' + (response.error.description || 'Please try again.'));
       });
       rzp.open();
 
