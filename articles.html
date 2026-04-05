@@ -73,55 +73,36 @@ nav{background:var(--maroon-dk);border-bottom:1px solid rgba(212,160,23,0.2);pad
 .section-label::after{content:'';flex:1;height:1px;background:rgba(107,26,26,0.12)}
 
 /* FEATURED */
-.featured-article{display:grid;grid-template-columns:1fr 1fr;gap:0;background:white;border-radius:20px;border:1px solid rgba(107,26,26,0.08);box-shadow:0 4px 24px rgba(107,26,26,0.08);overflow:hidden;margin-bottom:56px;text-decoration:none;transition:all .3s}
+.featured-article{display:grid;grid-template-columns:1fr 1fr;gap:0;background:white;border-radius:20px;border:1px solid rgba(107,26,26,0.08);box-shadow:0 4px 24px rgba(107,26,26,0.08);overflow:hidden;margin-bottom:56px;text-decoration:none;transition:all .3s;cursor:pointer}
 .featured-article:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(107,26,26,0.14)}
-.featured-img{width:100%;min-height:340px;position:relative;overflow:hidden}
-.featured-img img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform .4s ease}
-.featured-article:hover .featured-img img{transform:scale(1.04)}
-.featured-img-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
-.featured-img-fallback svg{width:90px;height:90px;fill:rgba(255,255,255,0.2)}
-.featured-body{padding:44px}
-.featured-tag{display:inline-flex;align-items:center;gap:6px;font-family:'Cinzel',serif;font-size:10px;letter-spacing:.1em;padding:5px 14px;border-radius:20px;background:rgba(232,97,26,0.1);color:var(--saffron);margin-bottom:18px}
-.featured-tag svg{width:12px;height:12px}
-.featured-title{font-family:'Cinzel',serif;font-size:24px;color:var(--maroon-dk);font-weight:700;line-height:1.3;margin-bottom:16px}
-.featured-excerpt{font-family:'EB Garamond',serif;font-style:italic;font-size:17px;color:#666;line-height:1.8;margin-bottom:24px}
-.featured-meta{display:flex;align-items:center;gap:8px;font-family:'Cinzel',serif;font-size:11px;color:#aaa;letter-spacing:.04em;margin-bottom:20px}
-.featured-meta svg{width:13px;height:13px;stroke:#aaa;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.featured-dot{color:#ddd}
-.featured-shloka{background:rgba(212,160,23,0.06);border-left:3px solid rgba(212,160,23,0.4);padding:14px 18px;border-radius:0 10px 10px 0;margin-bottom:28px}
-.featured-shloka p{font-family:'EB Garamond',serif;font-style:italic;font-size:15px;color:var(--maroon);line-height:1.6;margin-bottom:6px}
+.featured-img-placeholder{width:100%;min-height:320px;display:flex;align-items:center;justify-content:center;font-size:80px}
+.featured-body{padding:40px}
+.featured-tag{display:inline-block;font-family:'Cinzel',serif;font-size:10px;letter-spacing:.1em;padding:4px 14px;border-radius:20px;background:rgba(232,97,26,0.1);color:var(--saffron);margin-bottom:16px}
+.featured-title{font-family:'Cinzel',serif;font-size:22px;color:var(--maroon-dk);font-weight:700;line-height:1.35;margin-bottom:14px}
+.featured-excerpt{font-family:'EB Garamond',serif;font-style:italic;font-size:17px;color:#666;line-height:1.75;margin-bottom:24px}
+.featured-shloka{background:rgba(212,160,23,0.06);border-left:3px solid rgba(212,160,23,0.4);padding:12px 16px;border-radius:0 8px 8px 0;margin-bottom:24px}
+.featured-shloka p{font-family:'EB Garamond',serif;font-style:italic;font-size:15px;color:var(--maroon);line-height:1.6;margin-bottom:4px}
 .featured-shloka cite{font-family:'Cinzel',serif;font-size:10px;color:var(--gold-dk);letter-spacing:.06em;font-style:normal}
 .featured-footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
-.featured-share{display:flex;gap:8px}
-.featured-share-btn{display:flex;align-items:center;gap:6px;padding:9px 16px;border:none;border-radius:50px;font-family:'Cinzel',serif;font-size:11px;letter-spacing:.04em;cursor:pointer;transition:all .2s}
-.featured-share-wa{background:rgba(37,211,102,0.1);color:#25D366;border:1px solid rgba(37,211,102,0.25)}
-.featured-share-wa:hover{background:rgba(37,211,102,0.2)}
-.featured-share-cp{background:rgba(107,26,26,0.06);color:var(--maroon);border:1px solid rgba(107,26,26,0.15)}
-.featured-share-cp:hover{background:rgba(107,26,26,0.1)}
-.featured-share-btn svg{width:13px;height:13px;fill:currentColor}
-.btn-read-more{padding:12px 28px;background:linear-gradient(135deg,var(--saffron),var(--gold));border:none;border-radius:50px;color:white;font-family:'Cinzel',serif;font-size:12px;font-weight:700;letter-spacing:.06em;cursor:pointer;text-decoration:none;transition:all .2s;display:inline-block}
+.featured-date{font-family:'Cinzel',serif;font-size:11px;color:#aaa;letter-spacing:.04em}
+.btn-read-more{padding:11px 24px;background:linear-gradient(135deg,var(--saffron),var(--gold));border:none;border-radius:50px;color:white;font-family:'Cinzel',serif;font-size:12px;font-weight:700;letter-spacing:.06em;cursor:pointer;text-decoration:none;transition:all .2s;display:inline-block}
 .btn-read-more:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(232,97,26,0.3)}
+/* Rainbow glow animation for highlighted card */
+@keyframes rainbowGlow{
+  0%  {box-shadow:0 0 0 3px #E8611A,0 0 28px rgba(232,97,26,0.5)}
+  20% {box-shadow:0 0 0 3px #D4A017,0 0 28px rgba(212,160,23,0.55)}
+  40% {box-shadow:0 0 0 3px #25D366,0 0 28px rgba(37,211,102,0.45)}
+  60% {box-shadow:0 0 0 3px #4A90D9,0 0 28px rgba(74,144,217,0.5)}
+  80% {box-shadow:0 0 0 3px #9B59B6,0 0 28px rgba(155,89,182,0.5)}
+  100%{box-shadow:0 0 0 3px #E8611A,0 0 28px rgba(232,97,26,0.5)}
+}
+.card-highlight{animation:rainbowGlow 2s linear infinite;border-color:transparent!important;border-radius:16px;z-index:2;position:relative}
 
 /* FILTER TABS */
 .filter-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:36px}
 .filter-tab{font-family:'Cinzel',serif;font-size:11px;letter-spacing:.06em;padding:9px 20px;border-radius:50px;border:1px solid rgba(107,26,26,0.15);background:transparent;color:#888;cursor:pointer;transition:all .2s}
 .filter-tab:hover{border-color:rgba(107,26,26,0.3);color:var(--maroon)}
 .filter-tab.active{background:var(--maroon-dk);color:var(--gold-lt);border-color:var(--maroon-dk)}
-
-/* CATEGORIES */
-.categories-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;margin-bottom:72px}
-.cat-card{border-radius:20px;overflow:hidden;cursor:pointer;transition:all .3s;text-decoration:none;display:block}
-.cat-card:hover{transform:translateY(-5px);box-shadow:0 16px 48px rgba(107,26,26,0.18)}
-.cat-img{width:100%;height:180px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.cat-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:transform .4s}
-.cat-card:hover .cat-img img{transform:scale(1.06)}
-.cat-icon-wrap{width:72px;height:72px;border-radius:50%;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;position:relative;z-index:1}
-.cat-icon-wrap svg{width:36px;height:36px;fill:rgba(255,255,255,0.9)}
-.cat-body{padding:22px 24px;background:white;border:1px solid rgba(107,26,26,0.08);border-top:none;border-radius:0 0 20px 20px}
-.cat-name{font-family:'Cinzel',serif;font-size:16px;color:var(--maroon-dk);font-weight:700;margin-bottom:7px}
-.cat-desc{font-family:'EB Garamond',serif;font-style:italic;font-size:14px;color:#888;line-height:1.6;margin-bottom:14px}
-.cat-tags{display:flex;flex-wrap:wrap;gap:6px}
-.cat-tag{font-family:'Cinzel',serif;font-size:9px;letter-spacing:.06em;padding:4px 11px;background:rgba(107,26,26,0.05);border:1px solid rgba(107,26,26,0.12);border-radius:20px;color:var(--text-lt)}
 
 /* ARTICLES GRID */
 .articles-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:28px;flex-wrap:wrap;gap:12px}
@@ -273,48 +254,26 @@ footer{background:var(--maroon-dk);color:rgba(255,255,255,0.6);padding:60px 0 32
 <!-- PAGE BODY -->
 <div class="page-body">
 
-<!-- FEATURED (rotates daily) -->
+<!-- FEATURED (rotates daily, click scrolls to card) -->
 <div class="section-label">&#10022; FEATURED ARTICLE</div>
-<a id="featuredLink" href="who-is-lord-krishna.html" class="featured-article">
-  <div id="featuredImg" class="featured-img" style="background:linear-gradient(135deg,#3E0000,#6B1A1A);">
-    <img id="featuredPhoto" src="article-krishna.jpg" alt="Featured Article" loading="lazy" onerror="this.style.display='none'"/>
-    <div class="featured-img-fallback">
-      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
-    </div>
+<div id="featuredLink" class="featured-article" onclick="scrollToFeatured(event)" style="cursor:pointer;">
+  <div id="featuredPlaceholder" class="featured-img-placeholder" style="background:linear-gradient(135deg,#3E0000,#6B1A1A);">
+    <span id="featuredEmoji" style="font-size:80px;">&#x1F99A;</span>
   </div>
   <div class="featured-body">
-    <div id="featuredTag" class="featured-tag">
-      <svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"/></svg>
-      <span id="featuredTagText">BHAGAVAD GITA</span>
-    </div>
+    <div id="featuredTag" class="featured-tag">&#x1F338; BHAGAVAD GITA</div>
     <div id="featuredTitle" class="featured-title">Who is Lord Krishna? Life, Teachings, and Divine Legacy</div>
-    <div class="featured-meta">
-      <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-      <span id="featuredDate">Apr 1, 2026</span>
-      <span class="featured-dot">&middot;</span>
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-      <span id="featuredReadTime">8 min read</span>
-    </div>
-    <div id="featuredExcerpt" class="featured-excerpt">He is the charioteer, the philosopher, the divine lover, the cosmic dancer, and the Supreme. Lord Krishna&rsquo;s life is the most complete expression of divinity ever recorded in human history.</div>
-    <div id="featuredShloka" class="featured-shloka">
-      <p id="featuredShlokaText">Yada yada hi dharmasya glanir bhavati bharata &mdash; Whenever dharma declines, I manifest Myself.</p>
+    <div id="featuredExcerpt" class="featured-excerpt">He is the charioteer, the philosopher, the divine lover, the cosmic dancer, and the Supreme. Lord Krishna&rsquo;s life is the most complete expression of divinity ever recorded in human history &mdash; from Mathura to Kurukshetra to Dwarka.</div>
+    <div class="featured-shloka">
+      <p id="featuredShlokaText">&#x092F;&#x0926;&#x093E; &#x092F;&#x0926;&#x093E; &#x0939;&#x093F; &#x0927;&#x0930;&#x094D;&#x092E;&#x0938;&#x094D;&#x092F; &#x0917;&#x094D;&#x0932;&#x093E;&#x0928;&#x093F;&#x0930;&#x094D;&#x092D;&#x0935;&#x0924;&#x093F; &#x092D;&#x093E;&#x0930;&#x0924; &mdash; Whenever dharma declines, I manifest Myself.</p>
       <cite id="featuredRef">Bhagavad Gita &middot; 4.7</cite>
     </div>
     <div class="featured-footer">
-      <div class="featured-share">
-        <button class="featured-share-btn featured-share-wa" onclick="featuredShareWA(event)">
-          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.532 5.849L0 24l6.335-1.652A11.953 11.953 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.844 0-3.573-.489-5.065-1.341l-.363-.214-3.764.982.999-3.671-.236-.38A9.969 9.969 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-          WhatsApp
-        </button>
-        <button class="featured-share-btn featured-share-cp" onclick="featuredCopyLink(event)">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-          <span id="featuredCopyText">Copy Link</span>
-        </button>
-      </div>
-      <a id="featuredReadBtn" href="who-is-lord-krishna.html" class="btn-read-more" onclick="return true;">Read Full Article &rarr;</a>
+      <span id="featuredDate" class="featured-date">Apr 1, 2026</span>
+      <button class="btn-read-more" onclick="goToArticle(event)">Read Full Article &rarr;</button>
     </div>
   </div>
-</a>
+</div>
 
 <!-- FILTER TABS -->
 <div class="section-label">&#10022; BROWSE BY CATEGORY</div>
@@ -329,60 +288,6 @@ footer{background:var(--maroon-dk);color:rgba(255,255,255,0.6);padding:60px 0 32
   <button class="filter-tab" onclick="setFilter('life',this)">Dharmic Living</button>
 </div>
 
-<!-- CATEGORIES GRID -->
-<div class="section-label">&#10022; ARTICLE CATEGORIES</div>
-<div class="categories-grid">
-
-  <a href="who-is-lord-krishna.html" class="cat-card">
-    <div class="cat-img" style="background:linear-gradient(135deg,#5A0A0A,#E8611A)">
-      <img src="article-krishna.jpg" alt="Hindu Deities" loading="lazy" onerror="this.style.display='none'"/>
-      <div class="cat-icon-wrap"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.9)"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg></div>
-    </div>
-    <div class="cat-body"><div class="cat-name">Hindu Deities</div><div class="cat-desc">Explore the lives and teachings of the divine personalities of Sanatana Dharma.</div><div class="cat-tags"><span class="cat-tag">Lord Krishna</span><span class="cat-tag">Lord Shiva</span><span class="cat-tag">Lord Rama</span><span class="cat-tag">Hanuman</span><span class="cat-tag">Goddess Durga</span></div></div>
-  </a>
-
-  <a href="bhagavad-gita-18-chapters.html" class="cat-card">
-    <div class="cat-img" style="background:linear-gradient(135deg,#3E1A00,#D4A017)">
-      <img src="article-gita.jpg" alt="Bhagavad Gita" loading="lazy" onerror="this.style.display='none'"/>
-      <div class="cat-icon-wrap"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.9)"><path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"/></svg></div>
-    </div>
-    <div class="cat-body"><div class="cat-name">Bhagavad Gita</div><div class="cat-desc">Chapter-by-chapter exploration of Krishna&rsquo;s divine song on the battlefield of Kurukshetra.</div><div class="cat-tags"><span class="cat-tag">Karma Yoga</span><span class="cat-tag">Bhakti Yoga</span><span class="cat-tag">Jnana Yoga</span><span class="cat-tag">Moksha</span></div></div>
-  </a>
-
-  <a href="who-is-hanuman.html" class="cat-card">
-    <div class="cat-img" style="background:linear-gradient(135deg,#2A1A00,#8B3A00)">
-      <img src="article-hanuman.jpg" alt="Ramayana" loading="lazy" onerror="this.style.display='none'"/>
-      <div class="cat-icon-wrap"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.9)"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17 5.8 21.3l2.4-7.4L2 9.4h7.6z"/></svg></div>
-    </div>
-    <div class="cat-body"><div class="cat-name">Ramayana</div><div class="cat-desc">The eternal story of Rama, Sita, Hanuman and the triumph of dharma over adharma.</div><div class="cat-tags"><span class="cat-tag">Lord Rama</span><span class="cat-tag">Hanuman</span><span class="cat-tag">Sita Mata</span><span class="cat-tag">Ravana</span></div></div>
-  </a>
-
-  <a href="who-is-karna.html" class="cat-card">
-    <div class="cat-img" style="background:linear-gradient(135deg,#1A0000,#5A0A0A)">
-      <img src="article-karna.jpg" alt="Mahabharata" loading="lazy" onerror="this.style.display='none'"/>
-      <div class="cat-icon-wrap"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.9)"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 4l5 2.18V11c0 3.5-2.33 6.79-5 7.93-2.67-1.14-5-4.43-5-7.93V7.18L12 5z"/></svg></div>
-    </div>
-    <div class="cat-body"><div class="cat-name">Mahabharata</div><div class="cat-desc">The world&rsquo;s greatest epic &mdash; dharma, war, loyalty, sacrifice and human destiny.</div><div class="cat-tags"><span class="cat-tag">Arjuna</span><span class="cat-tag">Karna</span><span class="cat-tag">Bhishma</span><span class="cat-tag">Draupadi</span></div></div>
-  </a>
-
-  <a href="what-is-moksha.html" class="cat-card">
-    <div class="cat-img" style="background:linear-gradient(135deg,#003040,#006080)">
-      <img src="article-moksha.jpg" alt="Upanishads" loading="lazy" onerror="this.style.display='none'"/>
-      <div class="cat-icon-wrap"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.9)"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg></div>
-    </div>
-    <div class="cat-body"><div class="cat-name">Upanishads &amp; Vedas</div><div class="cat-desc">The philosophical crown of Hindu wisdom &mdash; Brahman, Atman, Maya, Moksha and consciousness.</div><div class="cat-tags"><span class="cat-tag">Brahman</span><span class="cat-tag">Atman</span><span class="cat-tag">Maya</span><span class="cat-tag">Moksha</span></div></div>
-  </a>
-
-  <a href="what-is-karma.html" class="cat-card">
-    <div class="cat-img" style="background:linear-gradient(135deg,#003020,#006040)">
-      <img src="article-karma.jpg" alt="Dharmic Living" loading="lazy" onerror="this.style.display='none'"/>
-      <div class="cat-icon-wrap"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.9)"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg></div>
-    </div>
-    <div class="cat-body"><div class="cat-name">Dharmic Living</div><div class="cat-desc">How to apply the timeless wisdom of Hindu scripture to relationships, career, family and daily life.</div><div class="cat-tags"><span class="cat-tag">Death &amp; Afterlife</span><span class="cat-tag">Karma</span><span class="cat-tag">Inner Peace</span><span class="cat-tag">Dharma</span></div></div>
-  </a>
-
-</div>
-
 <!-- ARTICLES GRID -->
 <div class="articles-header">
   <h2>Latest Dharma Articles</h2>
@@ -392,7 +297,7 @@ footer{background:var(--maroon-dk);color:rgba(255,255,255,0.6);padding:60px 0 32
 <div class="articles-grid" id="articlesGrid">
 
   <!-- 1 -->
-  <a href="who-is-lord-krishna.html" class="article-card" data-category="deities gita" data-keywords="krishna bhagavad gita avatar vishnu mathura vrindavan">
+  <a id="card-who-is-lord-krishna" href="who-is-lord-krishna.html" class="article-card" data-category="deities gita" data-keywords="krishna bhagavad gita avatar vishnu mathura vrindavan">
     <div class="article-thumb" style="background:linear-gradient(135deg,#3E0000,#E8611A);">
       <img src="article-krishna.jpg" alt="Lord Krishna" loading="lazy" onerror="this.style.display='none'"/>
       <div class="article-thumb-icon"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.9)"><path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"/></svg></div>
@@ -412,7 +317,7 @@ footer{background:var(--maroon-dk);color:rgba(255,255,255,0.6);padding:60px 0 32
   </a>
 
   <!-- 2 -->
-  <a href="bhagavad-gita-18-chapters.html" class="article-card" data-category="gita" data-keywords="bhagavad gita chapters summary krishna arjuna karma yoga">
+  <a id="card-bhagavad-gita-18-chapters" href="bhagavad-gita-18-chapters.html" class="article-card" data-category="gita" data-keywords="bhagavad gita chapters summary krishna arjuna karma yoga">
     <div class="article-thumb" style="background:linear-gradient(135deg,#3E1A00,#D4A017);">
       <img src="article-gita.jpg" alt="Bhagavad Gita" loading="lazy" onerror="this.style.display='none'"/>
       <div class="article-thumb-icon"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.9)"><path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"/></svg></div>
@@ -432,7 +337,7 @@ footer{background:var(--maroon-dk);color:rgba(255,255,255,0.6);padding:60px 0 32
   </a>
 
   <!-- 3 -->
-  <a href="who-is-lord-rama.html" class="article-card" data-category="ramayana deities" data-keywords="rama lord ayodhya dharma maryada king sita exile ramayana">
+  <a id="card-who-is-lord-rama" href="who-is-lord-rama.html" class="article-card" data-category="ramayana deities" data-keywords="rama lord ayodhya dharma maryada king sita exile ramayana">
     <div class="article-thumb" style="background:linear-gradient(135deg,#2A1A00,#D4A017);">
       <img src="article-rama.jpg" alt="Lord Rama" loading="lazy" onerror="this.style.display='none'"/>
       <div class="article-thumb-icon"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.9)"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17 5.8 21.3l2.4-7.4L2 9.4h7.6z"/></svg></div>
@@ -452,7 +357,7 @@ footer{background:var(--maroon-dk);color:rgba(255,255,255,0.6);padding:60px 0 32
   </a>
 
   <!-- 4 -->
-  <a href="who-is-hanuman.html" class="article-card" data-category="ramayana" data-keywords="hanuman devotion bhakti strength ramayana seva">
+  <a id="card-who-is-hanuman" href="who-is-hanuman.html" class="article-card" data-category="ramayana" data-keywords="hanuman devotion bhakti strength ramayana seva">
     <div class="article-thumb" style="background:linear-gradient(135deg,#3E1A00,#C45A00);">
       <img src="article-hanuman.jpg" alt="Hanuman" loading="lazy" onerror="this.style.display='none'"/>
       <div class="article-thumb-icon"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.9)"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67z"/></svg></div>
@@ -472,7 +377,7 @@ footer{background:var(--maroon-dk);color:rgba(255,255,255,0.6);padding:60px 0 32
   </a>
 
   <!-- 5 -->
-  <a href="who-is-sita.html" class="article-card" data-category="ramayana deities" data-keywords="sita mata ramayana shakti dharma feminine divine">
+  <a id="card-who-is-sita" href="who-is-sita.html" class="article-card" data-category="ramayana deities" data-keywords="sita mata ramayana shakti dharma feminine divine">
     <div class="article-thumb" style="background:linear-gradient(135deg,#2A0A1A,#8B3A6B);">
       <img src="article-sita.jpg" alt="Sita Mata" loading="lazy" onerror="this.style.display='none'"/>
       <div class="article-thumb-icon"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.9)"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-4c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/></svg></div>
@@ -492,7 +397,7 @@ footer{background:var(--maroon-dk);color:rgba(255,255,255,0.6);padding:60px 0 32
   </a>
 
   <!-- 6 -->
-  <a href="who-is-ravana.html" class="article-card" data-category="ramayana" data-keywords="ravana lanka rakshasa brahmin scholar shiva">
+  <a id="card-who-is-ravana" href="who-is-ravana.html" class="article-card" data-category="ramayana" data-keywords="ravana lanka rakshasa brahmin scholar shiva">
     <div class="article-thumb" style="background:linear-gradient(135deg,#2A0000,#6B1A1A);">
       <img src="article-ravana.jpg" alt="Ravana" loading="lazy" onerror="this.style.display='none'"/>
       <div class="article-thumb-icon"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.9)"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 4l5 2.18V11c0 3.5-2.33 6.79-5 7.93-2.67-1.14-5-4.43-5-7.93V7.18L12 5z"/></svg></div>
@@ -512,7 +417,7 @@ footer{background:var(--maroon-dk);color:rgba(255,255,255,0.6);padding:60px 0 32
   </a>
 
   <!-- 7 -->
-  <a href="who-is-arjuna.html" class="article-card" data-category="mahabharata gita" data-keywords="arjuna pandava warrior kurukshetra gita bowman mahabharata">
+  <a id="card-who-is-arjuna" href="who-is-arjuna.html" class="article-card" data-category="mahabharata gita" data-keywords="arjuna pandava warrior kurukshetra gita bowman mahabharata">
     <div class="article-thumb" style="background:linear-gradient(135deg,#001A3E,#004080);">
       <img src="article-arjuna.jpg" alt="Arjuna" loading="lazy" onerror="this.style.display='none'"/>
       <div class="article-thumb-icon"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.9)"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 4l5 2.18V11c0 3.5-2.33 6.79-5 7.93-2.67-1.14-5-4.43-5-7.93V7.18L12 5z"/></svg></div>
@@ -532,7 +437,7 @@ footer{background:var(--maroon-dk);color:rgba(255,255,255,0.6);padding:60px 0 32
   </a>
 
   <!-- 8 -->
-  <a href="who-is-karna.html" class="article-card" data-category="mahabharata" data-keywords="karna loyalty tragedy sun god mahabharata warrior">
+  <a id="card-who-is-karna" href="who-is-karna.html" class="article-card" data-category="mahabharata" data-keywords="karna loyalty tragedy sun god mahabharata warrior">
     <div class="article-thumb" style="background:linear-gradient(135deg,#3E2A00,#8B6000);">
       <img src="article-karna.jpg" alt="Karna" loading="lazy" onerror="this.style.display='none'"/>
       <div class="article-thumb-icon"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.9)"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1z"/></svg></div>
@@ -552,7 +457,7 @@ footer{background:var(--maroon-dk);color:rgba(255,255,255,0.6);padding:60px 0 32
   </a>
 
   <!-- 9 -->
-  <a href="who-is-bhishma.html" class="article-card" data-category="mahabharata" data-keywords="bhishma vow pitamah ganga kurukshetra mahabharata">
+  <a id="card-who-is-bhishma" href="who-is-bhishma.html" class="article-card" data-category="mahabharata" data-keywords="bhishma vow pitamah ganga kurukshetra mahabharata">
     <div class="article-thumb" style="background:linear-gradient(135deg,#001A3E,#003080);">
       <img src="article-bhishma.jpg" alt="Bhishma" loading="lazy" onerror="this.style.display='none'"/>
       <div class="article-thumb-icon"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.9)"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 4l5 2.18V11c0 3.5-2.33 6.79-5 7.93-2.67-1.14-5-4.43-5-7.93V7.18L12 5z"/></svg></div>
@@ -572,7 +477,7 @@ footer{background:var(--maroon-dk);color:rgba(255,255,255,0.6);padding:60px 0 32
   </a>
 
   <!-- 10 — hidden until Load More -->
-  <a href="who-is-goddess-durga.html" class="article-card article-hidden" data-category="deities" data-keywords="durga goddess devi shakti navratri mahishasura warrior" style="display:none;">
+  <a id="card-who-is-goddess-durga" href="who-is-goddess-durga.html" class="article-card article-hidden" data-category="deities" data-keywords="durga goddess devi shakti navratri mahishasura warrior" style="display:none;">
     <div class="article-thumb" style="background:linear-gradient(135deg,#3A0A1A,#9B1A4A);">
       <img src="article-durga.jpg" alt="Goddess Durga" loading="lazy" onerror="this.style.display='none'"/>
       <div class="article-thumb-icon"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.9)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
@@ -592,7 +497,7 @@ footer{background:var(--maroon-dk);color:rgba(255,255,255,0.6);padding:60px 0 32
   </a>
 
   <!-- 11 -->
-  <a href="who-is-lord-shiva.html" class="article-card article-hidden" data-category="deities" data-keywords="shiva mahadeva jyotirlinga kailash parvati adiyogi" style="display:none;">
+  <a id="card-who-is-lord-shiva" href="who-is-lord-shiva.html" class="article-card article-hidden" data-category="deities" data-keywords="shiva mahadeva jyotirlinga kailash parvati adiyogi" style="display:none;">
     <div class="article-thumb" style="background:linear-gradient(135deg,#2A0A3E,#5A1A7E);">
       <img src="article-shiva.jpg" alt="Lord Shiva" loading="lazy" onerror="this.style.display='none'"/>
       <div class="article-thumb-icon"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.9)"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 4l5 2.18V11c0 3.5-2.33 6.79-5 7.93-2.67-1.14-5-4.43-5-7.93V7.18L12 5z"/></svg></div>
@@ -612,7 +517,7 @@ footer{background:var(--maroon-dk);color:rgba(255,255,255,0.6);padding:60px 0 32
   </a>
 
   <!-- 12 -->
-  <a href="what-is-moksha.html" class="article-card article-hidden" data-category="upanishad philosophy" data-keywords="moksha liberation samsara yoga atman brahman upanishad" style="display:none;">
+  <a id="card-what-is-moksha" href="what-is-moksha.html" class="article-card article-hidden" data-category="upanishad philosophy" data-keywords="moksha liberation samsara yoga atman brahman upanishad" style="display:none;">
     <div class="article-thumb" style="background:linear-gradient(135deg,#003040,#006080);">
       <img src="article-moksha.jpg" alt="Moksha" loading="lazy" onerror="this.style.display='none'"/>
       <div class="article-thumb-icon"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.9)"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg></div>
@@ -632,7 +537,7 @@ footer{background:var(--maroon-dk);color:rgba(255,255,255,0.6);padding:60px 0 32
   </a>
 
   <!-- 13 -->
-  <a href="what-happens-after-death.html" class="article-card article-hidden" data-category="philosophy life" data-keywords="death afterlife soul karma rebirth garuda purana" style="display:none;">
+  <a id="card-what-happens-after-death" href="what-happens-after-death.html" class="article-card article-hidden" data-category="philosophy life" data-keywords="death afterlife soul karma rebirth garuda purana" style="display:none;">
     <div class="article-thumb" style="background:linear-gradient(135deg,#1A003E,#4A0080);">
       <img src="article-afterdeath.jpg" alt="After Death" loading="lazy" onerror="this.style.display='none'"/>
       <div class="article-thumb-icon"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.9)"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/></svg></div>
@@ -652,7 +557,7 @@ footer{background:var(--maroon-dk);color:rgba(255,255,255,0.6);padding:60px 0 32
   </a>
 
   <!-- 14 -->
-  <a href="what-are-the-4-vedas.html" class="article-card article-hidden" data-category="upanishad philosophy" data-keywords="vedas rigveda samaveda yajurveda atharvaveda ancient scripture" style="display:none;">
+  <a id="card-what-are-the-4-vedas" href="what-are-the-4-vedas.html" class="article-card article-hidden" data-category="upanishad philosophy" data-keywords="vedas rigveda samaveda yajurveda atharvaveda ancient scripture" style="display:none;">
     <div class="article-thumb" style="background:linear-gradient(135deg,#1A1A00,#6B6B00);">
       <img src="article-vedas.jpg" alt="The 4 Vedas" loading="lazy" onerror="this.style.display='none'"/>
       <div class="article-thumb-icon"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.9)"><path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"/></svg></div>
@@ -672,7 +577,7 @@ footer{background:var(--maroon-dk);color:rgba(255,255,255,0.6);padding:60px 0 32
   </a>
 
   <!-- 15 -->
-  <a href="what-is-karma.html" class="article-card article-hidden" data-category="philosophy life" data-keywords="karma action cause effect rebirth dharma gita" style="display:none;">
+  <a id="card-what-is-karma" href="what-is-karma.html" class="article-card article-hidden" data-category="philosophy life" data-keywords="karma action cause effect rebirth dharma gita" style="display:none;">
     <div class="article-thumb" style="background:linear-gradient(135deg,#003020,#006040);">
       <img src="article-karma.jpg" alt="Karma" loading="lazy" onerror="this.style.display='none'"/>
       <div class="article-thumb-icon"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.9)"><path d="M18.6 6.62c-1.44 0-2.8.56-3.77 1.53L12 10.66 10.48 12h.01L7.8 14.39c-.64.64-1.49.99-2.4.99-1.87 0-3.39-1.52-3.39-3.38 0-.87.36-1.72.97-2.35.63-.64 1.49-.99 2.4-.99 1.22 0 2.35.61 3.03 1.6l1.44-1.44C8.84 7.82 7.37 7.3 5.8 7.28 3.52 7.25 1.6 8.48.52 10.31 0 11.1-.04 12.05.02 12.8c.09 1.41.66 2.65 1.55 3.56.98 1 2.33 1.57 3.72 1.57 1.43 0 2.8-.56 3.77-1.53l2.83-2.52.01.01 1.51-1.39-.02-.02 2.68-2.4c.64-.63 1.49-.99 2.4-.99 1.87 0 3.39 1.52 3.39 3.38 0 .87-.36 1.72-.97 2.35-.63.63-1.49.99-2.4.99-1.22 0-2.35-.61-3.03-1.6l-1.44 1.43c1.1 1.3 2.57 1.82 4.14 1.84 2.28.03 4.2-1.2 5.28-3.03.52-.79.56-1.74.5-2.49-.09-1.41-.66-2.65-1.55-3.56-.98-1-2.33-1.57-3.72-1.57z"/></svg></div>
@@ -692,7 +597,7 @@ footer{background:var(--maroon-dk);color:rgba(255,255,255,0.6);padding:60px 0 32
   </a>
 
   <!-- 16 -->
-  <a href="what-is-dharma.html" class="article-card article-hidden" data-category="philosophy life" data-keywords="dharma righteousness duty cosmic order sanatana" style="display:none;">
+  <a id="card-what-is-dharma" href="what-is-dharma.html" class="article-card article-hidden" data-category="philosophy life" data-keywords="dharma righteousness duty cosmic order sanatana" style="display:none;">
     <div class="article-thumb" style="background:linear-gradient(135deg,#3E0000,#8B1A00);">
       <img src="article-dharma.jpg" alt="Dharma" loading="lazy" onerror="this.style.display='none'"/>
       <div class="article-thumb-icon"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.9)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
@@ -712,7 +617,7 @@ footer{background:var(--maroon-dk);color:rgba(255,255,255,0.6);padding:60px 0 32
   </a>
 
   <!-- 17 -->
-  <a href="four-purusharthas.html" class="article-card article-hidden" data-category="philosophy life" data-keywords="purushartha artha kama dharma moksha purpose life aims" style="display:none;">
+  <a id="card-four-purusharthas" href="four-purusharthas.html" class="article-card article-hidden" data-category="philosophy life" data-keywords="purushartha artha kama dharma moksha purpose life aims" style="display:none;">
     <div class="article-thumb" style="background:linear-gradient(135deg,#1A1A3E,#3A3A8B);">
       <img src="article-purusharthas.jpg" alt="Four Purusharthas" loading="lazy" onerror="this.style.display='none'"/>
       <div class="article-thumb-icon"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.9)"><path d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10 10-4.49 10-10S17.51 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3-8c0 1.66-1.34 3-3 3s-3-1.34-3-3 1.34-3 3-3 3 1.34 3 3z"/></svg></div>
@@ -732,7 +637,7 @@ footer{background:var(--maroon-dk);color:rgba(255,255,255,0.6);padding:60px 0 32
   </a>
 
   <!-- 18 -->
-  <a href="how-to-find-inner-peace.html" class="article-card article-hidden" data-category="philosophy life" data-keywords="peace mind calm equanimity stillness meditation gita" style="display:none;">
+  <a id="card-how-to-find-inner-peace" href="how-to-find-inner-peace.html" class="article-card article-hidden" data-category="philosophy life" data-keywords="peace mind calm equanimity stillness meditation gita" style="display:none;">
     <div class="article-thumb" style="background:linear-gradient(135deg,#003020,#005A40);">
       <img src="article-innerpeace.jpg" alt="Inner Peace" loading="lazy" onerror="this.style.display='none'"/>
       <div class="article-thumb-icon"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.9)"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3c-1 2-8 2-8 2s1 2 5 2c0 2-2.5 4-4 5z"/></svg></div>
@@ -752,7 +657,7 @@ footer{background:var(--maroon-dk);color:rgba(255,255,255,0.6);padding:60px 0 32
   </a>
 
   <!-- 19 -->
-  <a href="is-ahimsa-absolute.html" class="article-card article-hidden" data-category="philosophy mahabharata" data-keywords="ahimsa non-violence peace war dharma righteous battle" style="display:none;">
+  <a id="card-is-ahimsa-absolute" href="is-ahimsa-absolute.html" class="article-card article-hidden" data-category="philosophy mahabharata" data-keywords="ahimsa non-violence peace war dharma righteous battle" style="display:none;">
     <div class="article-thumb" style="background:linear-gradient(135deg,#003030,#006060);">
       <img src="article-ahimsa.jpg" alt="Ahimsa" loading="lazy" onerror="this.style.display='none'"/>
       <div class="article-thumb-icon"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.9)"><path d="M11 2v6.27L8.53 6.8l-1.06 1.06L11 11.27V13c0 .52.2 1 .55 1.35L8.41 17.5H5v2h3.41l3.14-3.14c.35.35.83.55 1.35.55h.1v3h2v-3h.1c.52 0 1-.2 1.35-.55l3.14 3.14H23v-2h-3.41l-3.14-3.14c.35-.35.55-.83.55-1.35v-1.73l3.53-3.41-1.06-1.06L17 11.27V7.72L13.5 2h-2z"/></svg></div>
@@ -772,7 +677,7 @@ footer{background:var(--maroon-dk);color:rgba(255,255,255,0.6);padding:60px 0 32
   </a>
 
   <!-- 20 -->
-  <a href="who-created-the-universe.html" class="article-card article-hidden" data-category="philosophy upanishad" data-keywords="creation universe brahma cosmic egg nasadiya sukta rigveda" style="display:none;">
+  <a id="card-who-created-the-universe" href="who-created-the-universe.html" class="article-card article-hidden" data-category="philosophy upanishad" data-keywords="creation universe brahma cosmic egg nasadiya sukta rigveda" style="display:none;">
     <div class="article-thumb" style="background:linear-gradient(135deg,#001A3E,#003060);">
       <img src="article-creation.jpg" alt="Who Created the Universe" loading="lazy" onerror="this.style.display='none'"/>
       <div class="article-thumb-icon"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.9)"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"/></svg></div>
@@ -940,32 +845,138 @@ footer{background:var(--maroon-dk);color:rgba(255,255,255,0.6);padding:60px 0 32
 
 <script>
 // ── Featured article — rotates by day of month ────────────
+// ── Featured article — rotates daily, click scrolls to card ─────
 var featured=[
-  {url:'who-is-lord-krishna.html',img:'article-krishna.jpg',bg:'linear-gradient(135deg,#3E0000,#6B1A1A)',tag:'BHAGAVAD GITA',title:'Who is Lord Krishna? Life, Teachings, and Divine Legacy',date:'Apr 1, 2026',time:'8 min read',excerpt:'He is the charioteer, the philosopher, the divine lover, and the Supreme. Lord Krishna\'s life is the most complete expression of divinity ever recorded in human history.',shloka:'Yada yada hi dharmasya glanir bhavati bharata \u2014 Whenever dharma declines, I manifest Myself.',ref:'Bhagavad Gita \u00b7 4.7'},
-  {url:'who-is-lord-rama.html',img:'article-rama.jpg',bg:'linear-gradient(135deg,#2A1A00,#8B4A00)',tag:'RAMAYANA',title:'Who is Lord Rama? The Ideal King and Embodiment of Dharma',date:'Mar 25, 2026',time:'7 min read',excerpt:'Rama \u2014 the seventh avatar of Vishnu \u2014 is the maryada purushottama, the supreme upholder of dharma in every circumstance of life.',shloka:'Ramo vigrahavan dharmah \u2014 Rama is dharma in human form.',ref:'Valmiki Ramayana'},
-  {url:'what-is-moksha.html',img:'article-moksha.jpg',bg:'linear-gradient(135deg,#003040,#006080)',tag:'UPANISHADS',title:'What is Moksha? The Path to Liberation Explained',date:'Feb 24, 2026',time:'9 min read',excerpt:'Moksha is the supreme goal of human life \u2014 liberation from the cycle of birth and death, realising the soul\'s eternal nature as Brahman.',shloka:'Tat tvam asi \u2014 That thou art. The ultimate teaching of the Upanishads.',ref:'Chandogya Upanishad \u00b7 6.8.7'},
-  {url:'who-is-goddess-durga.html',img:'article-durga.jpg',bg:'linear-gradient(135deg,#3A0A1A,#9B1A4A)',tag:'HINDU DEITIES',title:'Who is Goddess Durga? The Supreme Mother and Warrior Goddess',date:'Mar 4, 2026',time:'6 min read',excerpt:'Durga \u2014 the mother of the universe and fierce protector of dharma \u2014 teaches that strength, grace, and compassion are inseparable.',shloka:'Ya devi sarvabhuteshu shaktiroopena samsthita \u2014 The Goddess who pervades all beings as power.',ref:'Devi Mahatmya'},
-  {url:'what-is-karma.html',img:'article-karma.jpg',bg:'linear-gradient(135deg,#003020,#006040)',tag:'PHILOSOPHY',title:'What is Karma? The Universal Law of Cause and Effect',date:'Feb 12, 2026',time:'7 min read',excerpt:'Karma is not fate \u2014 it is the living law that governs all action and its consequences. Understanding it transforms how you live every moment.',shloka:'Karmanye vadhikaraste ma phaleshu kadachana \u2014 You have the right to act, not to the fruits of your actions.',ref:'Bhagavad Gita \u00b7 2.47'},
-  {url:'who-is-karna.html',img:'article-karna.jpg',bg:'linear-gradient(135deg,#3E2A00,#8B6000)',tag:'MAHABHARATA',title:'Who is Karna? Loyalty, Tragedy, and Greatness',date:'Mar 10, 2026',time:'8 min read',excerpt:'The firstborn son of Kunti and the Sun God \u2014 abandoned at birth, rejected by society, yet arguably the greatest warrior of the Mahabharata.',shloka:'Dana dharma sammotam \u2014 Generosity is among the highest dharmas.',ref:'Mahabharata'},
-  {url:'who-is-hanuman.html',img:'article-hanuman.jpg',bg:'linear-gradient(135deg,#3E1A00,#C45A00)',tag:'RAMAYANA',title:'Who is Hanuman? The Greatest Devotee in All of Scripture',date:'Mar 22, 2026',time:'7 min read',excerpt:'Hanuman embodies pure devotion, superhuman strength, and perfect service \u2014 showing what becomes possible when a soul surrenders completely.',shloka:'Manojavam marutatulyavegam \u2014 Swift as the mind, swift as the wind.',ref:'Hanuman Chalisa'},
+  {url:'who-is-lord-krishna.html', slug:'who-is-lord-krishna',
+   bg:'linear-gradient(135deg,#3E0000,#6B1A1A)', emoji:'\uD83E\uDD9A',
+   tag:'\uD83C\uDF38 BHAGAVAD GITA',
+   title:'Who is Lord Krishna? Life, Teachings, and Divine Legacy',
+   date:'Apr 1, 2026',
+   excerpt:'He is the charioteer, the philosopher, the divine lover, the cosmic dancer, and the Supreme. Lord Krishna\u2019s life is the most complete expression of divinity ever recorded in human history \u2014 from Mathura to Kurukshetra to Dwarka.',
+   shloka:'\u092F\u0926\u093E \u092F\u0926\u093E \u0939\u093F \u0927\u0930\u094D\u092E\u0938\u094D\u092F \u0917\u094D\u0932\u093E\u0928\u093F\u0930\u094D\u092D\u0935\u0924\u093F \u092D\u093E\u0930\u0924 \u2014 Whenever dharma declines, I manifest Myself.',
+   ref:'Bhagavad Gita \u00b7 4.7'},
+  {url:'who-is-lord-rama.html', slug:'who-is-lord-rama',
+   bg:'linear-gradient(135deg,#2A1A00,#8B4A00)', emoji:'\uD83C\uDFF9',
+   tag:'\uD83C\uDFB9 RAMAYANA',
+   title:'Who is Lord Rama? The Ideal King and Embodiment of Dharma',
+   date:'Mar 25, 2026',
+   excerpt:'Rama \u2014 the seventh avatar of Vishnu \u2014 is the maryada purushottama, the supreme upholder of dharma in every circumstance of life.',
+   shloka:'Ramo vigrahavan dharmah \u2014 Rama is dharma in human form.',
+   ref:'Valmiki Ramayana'},
+  {url:'what-is-moksha.html', slug:'what-is-moksha',
+   bg:'linear-gradient(135deg,#003040,#006080)', emoji:'\uD83C\uDF0A',
+   tag:'\uD83C\uDF0A UPANISHADS',
+   title:'What is Moksha? The Path to Liberation Explained',
+   date:'Feb 24, 2026',
+   excerpt:'Moksha is the supreme goal of human life \u2014 liberation from the cycle of birth and death, realising the soul\u2019s eternal nature as Brahman.',
+   shloka:'Tat tvam asi \u2014 That thou art. The ultimate teaching of the Upanishads.',
+   ref:'Chandogya Upanishad \u00b7 6.8.7'},
+  {url:'who-is-goddess-durga.html', slug:'who-is-goddess-durga',
+   bg:'linear-gradient(135deg,#3A0A1A,#9B1A4A)', emoji:'\u269C\uFE0F',
+   tag:'\u2728 HINDU DEITIES',
+   title:'Who is Goddess Durga? The Supreme Mother and Warrior Goddess',
+   date:'Mar 4, 2026',
+   excerpt:'Durga \u2014 the mother of the universe and fierce protector of dharma \u2014 teaches that strength, grace, and compassion are inseparable.',
+   shloka:'Ya devi sarvabhuteshu shaktiroopena samsthita \u2014 The Goddess who pervades all beings as power.',
+   ref:'Devi Mahatmya'},
+  {url:'what-is-karma.html', slug:'what-is-karma',
+   bg:'linear-gradient(135deg,#003020,#006040)', emoji:'\u267E\uFE0F',
+   tag:'\uD83C\uDF3F PHILOSOPHY',
+   title:'What is Karma? The Universal Law of Cause and Effect',
+   date:'Feb 12, 2026',
+   excerpt:'Karma is not fate \u2014 it is the living law that governs all action and its consequences. Understanding it transforms how you live every moment.',
+   shloka:'Karmanye vadhikaraste ma phaleshu kadachana \u2014 You have the right to act, not to the fruits of your actions.',
+   ref:'Bhagavad Gita \u00b7 2.47'},
+  {url:'who-is-karna.html', slug:'who-is-karna',
+   bg:'linear-gradient(135deg,#3E2A00,#8B6000)', emoji:'\u2600\uFE0F',
+   tag:'\u2694\uFE0F MAHABHARATA',
+   title:'Who is Karna? Loyalty, Tragedy, and Greatness',
+   date:'Mar 10, 2026',
+   excerpt:'The firstborn son of Kunti and the Sun God \u2014 abandoned at birth, rejected by society, yet arguably the greatest warrior of the Mahabharata.',
+   shloka:'Dana dharma sammotam \u2014 Generosity is among the highest dharmas.',
+   ref:'Mahabharata'},
+  {url:'who-is-hanuman.html', slug:'who-is-hanuman',
+   bg:'linear-gradient(135deg,#3E1A00,#C45A00)', emoji:'\uD83D\uDE4F',
+   tag:'\uD83E\uDD5A RAMAYANA',
+   title:'Who is Hanuman? The Greatest Devotee in All of Scripture',
+   date:'Mar 22, 2026',
+   excerpt:'Hanuman embodies pure devotion, superhuman strength, and perfect service \u2014 showing what becomes possible when a soul surrenders completely.',
+   shloka:'Manojavam marutatulyavegam \u2014 Swift as the mind, swift as the wind.',
+   ref:'Hanuman Chalisa'},
 ];
+
+// Current featured slug (used by scroll functions)
+var currentFeaturedSlug = '';
+
 (function(){
-  var idx=new Date().getDate()%featured.length;
-  var f=featured[idx];
-  var el=function(id){return document.getElementById(id);};
-  if(el('featuredLink'))el('featuredLink').href=f.url;
-  if(el('featuredReadBtn'))el('featuredReadBtn').href=f.url;
-  if(el('featuredImg'))el('featuredImg').style.background=f.bg;
-  var ph=el('featuredPhoto');
-  if(ph){ph.src=f.img;ph.alt=f.title;}
-  if(el('featuredTagText'))el('featuredTagText').textContent=f.tag;
-  if(el('featuredTitle'))el('featuredTitle').textContent=f.title;
-  if(el('featuredDate'))el('featuredDate').textContent=f.date;
-  if(el('featuredReadTime'))el('featuredReadTime').textContent=f.time;
-  if(el('featuredExcerpt'))el('featuredExcerpt').textContent=f.excerpt;
-  if(el('featuredShlokaText'))el('featuredShlokaText').textContent=f.shloka;
-  if(el('featuredRef'))el('featuredRef').textContent=f.ref;
+  var idx = new Date().getDate() % featured.length;
+  var f = featured[idx];
+  currentFeaturedSlug = f.slug;
+  var el = function(id){ return document.getElementById(id); };
+  if(el('featuredPlaceholder')) el('featuredPlaceholder').style.background = f.bg;
+  if(el('featuredEmoji'))       el('featuredEmoji').textContent = f.emoji;
+  if(el('featuredTag'))         el('featuredTag').textContent = f.tag;
+  if(el('featuredTitle'))       el('featuredTitle').textContent = f.title;
+  if(el('featuredDate'))        el('featuredDate').textContent = f.date;
+  if(el('featuredExcerpt'))     el('featuredExcerpt').textContent = f.excerpt;
+  if(el('featuredShlokaText'))  el('featuredShlokaText').textContent = f.shloka;
+  if(el('featuredRef'))         el('featuredRef').textContent = f.ref;
 })();
+
+// Click on featured card body → scroll to and highlight the article card
+function scrollToFeatured(e){
+  // If user clicked the button, let goToArticle handle it
+  if(e && e.target && (e.target.classList.contains('btn-read-more') || e.target.closest('.btn-read-more'))) return;
+  highlightCard();
+}
+
+// "Read Full Article" button → open article page
+function goToArticle(e){
+  e.stopPropagation();
+  var f = featured[new Date().getDate() % featured.length];
+  window.location.href = f.url;
+}
+
+// Scroll to the card and add rainbow glow
+var highlightTimer = null;
+function highlightCard(){
+  var slug = currentFeaturedSlug;
+  var cardId = 'card-' + slug;
+  var card = document.getElementById(cardId);
+
+  // If card is hidden (load-more), show it first
+  if(card && card.style.display === 'none'){
+    card.style.display = 'flex';
+    card.classList.remove('article-hidden');
+  }
+
+  if(!card){
+    // Fallback — just scroll to the articles grid
+    var grid = document.getElementById('articlesGrid');
+    if(grid) grid.scrollIntoView({behavior:'smooth', block:'start'});
+    return;
+  }
+
+  // Scroll to card with offset so nav doesn't cover it
+  var rect = card.getBoundingClientRect();
+  var scrollTop = window.pageYOffset + rect.top - 90;
+  window.scrollTo({top: scrollTop, behavior: 'smooth'});
+
+  // Remove previous highlight
+  document.querySelectorAll('.card-highlight').forEach(function(el){
+    el.classList.remove('card-highlight');
+  });
+
+  // Add rainbow glow after scroll settles
+  clearTimeout(highlightTimer);
+  highlightTimer = setTimeout(function(){
+    card.classList.add('card-highlight');
+    // Remove glow after 4 seconds
+    setTimeout(function(){
+      card.classList.remove('card-highlight');
+    }, 4000);
+  }, 500);
+}
 
 // ── Load More (Feature 2) ─────────────────────────────────
 var allHidden=document.querySelectorAll('.article-hidden');
@@ -1059,25 +1070,6 @@ function copyLink(e,slug){
   e.preventDefault();e.stopPropagation();
   var url=base+slug;
   navigator.clipboard.writeText(url).then(function(){showToast('Link copied!');}).catch(function(){showToast('Link: '+url);});
-}
-function featuredShareWA(e){
-  e.preventDefault();e.stopPropagation();
-  var link=document.getElementById('featuredLink');
-  var title=document.getElementById('featuredTitle');
-  var url=base+(link?link.href.split('/').pop():'');
-  var text=(title?title.textContent:'')+' \u2014 Read on DharmaChat: '+url;
-  window.open('https://wa.me/?text='+encodeURIComponent(text),'_blank');
-}
-function featuredCopyLink(e){
-  e.preventDefault();e.stopPropagation();
-  var link=document.getElementById('featuredLink');
-  var url=link?link.href:window.location.href;
-  navigator.clipboard.writeText(url).then(function(){
-    var btn=document.getElementById('featuredCopyText');
-    if(btn)btn.textContent='Copied!';
-    setTimeout(function(){if(btn)btn.textContent='Copy Link';},2000);
-    showToast('Link copied!');
-  });
 }
 
 // ── Newsletter ────────────────────────────────────────────
